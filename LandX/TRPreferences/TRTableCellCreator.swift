@@ -25,10 +25,19 @@ class TRTableCellCreator {
     }
     
     /// 带有按钮的 Cell
-    func cellCreateSwitch(text: String) -> UITableViewCell {
+    func cellCreateSwitch(text: String, status: Bool) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        cell.accessoryView = UISwitch()
+        let switcher = UISwitch()
+        if(status) {
+            switcher.setOn(true, animated: false)
+        } else {
+            switcher.setOn(false, animated: false)
+        }
+        
+        cell.accessoryView = switcher
+        
+        
         var content = cell.defaultContentConfiguration()
         
         content.text = text
@@ -38,7 +47,36 @@ class TRTableCellCreator {
         
     }
     
-
+    /// 带有右侧说明的 Cell
+    func cellCreateSelection(text: String, selection: String) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        cell.accessibilityLabel = selection
+        var content = cell.defaultContentConfiguration()
+        content.text = text
+        
+        cell.contentConfiguration = content
+        return cell
+        
+    }
+    
+    
+    /// 带有 CheckBox 的 Cell
+    func cellCreateCheckBox(text: String, checked: Bool) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        if(checked == true) {
+            cell.accessoryType = .checkmark
+        }
+        
+        var content = cell.defaultContentConfiguration()
+        
+        content.text = text
+        
+        cell.contentConfiguration = content
+        return cell
+        
+    }
     
     
     

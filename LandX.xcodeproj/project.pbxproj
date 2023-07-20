@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D4D7ECA2A656B830032627F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5D4D7EC92A656B830032627F /* SnapKit */; };
 		5D93AC552A6049CC00C7799B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5D93AC542A6049CC00C7799B /* Alamofire */; };
 		5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D960CE92A59B0E9008F26EC /* AppDelegate.swift */; };
 		5D960CEC2A59B0E9008F26EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D960CEB2A59B0E9008F26EC /* SceneDelegate.swift */; };
@@ -16,12 +15,14 @@
 		5D960CF32A59B0EE008F26EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D960CF22A59B0EE008F26EC /* Assets.xcassets */; };
 		5D960CF62A59B0EE008F26EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D960CF42A59B0EE008F26EC /* LaunchScreen.storyboard */; };
 		5D960CFF2A59B34B008F26EC /* PreView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D960CFE2A59B34B008F26EC /* PreView.storyboard */; };
+		5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */; };
+		5DAAC4042A68CEEF001D2DC9 /* LCRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */; };
 		5DB1737A2A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB173792A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift */; };
+		5DB2CD272A69052B00CF6CA6 /* CLConfigPref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB2CD262A69052B00CF6CA6 /* CLConfigPref.swift */; };
 		5DDB2EB62A5D6DA80073FBED /* TRPreferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DDB2EB52A5D6DA80073FBED /* TRPreferences.storyboard */; };
 		5DDB2EBB2A5D7E0C0073FBED /* VCAlphaProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDB2EBA2A5D7E0C0073FBED /* VCAlphaProgram.swift */; };
 		5DE134702A5E46130008C6CD /* TRVCPreferencesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1346F2A5E46130008C6CD /* TRVCPreferencesDetail.swift */; };
 		5DF06E842A5EC6A900B07D4F /* TRForumViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */; };
-		5DF06E862A5ECA3E00B07D4F /* TRForumViewerThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06E852A5ECA3E00B07D4F /* TRForumViewerThread.swift */; };
 		5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */; };
 		5DF06E8A2A5ED33100B07D4F /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF06E892A5ED33100B07D4F /* Debug.storyboard */; };
 		5DF06E8C2A5ED50E00B07D4F /* VCTableViewDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06E8B2A5ED50E00B07D4F /* VCTableViewDebug.swift */; };
@@ -39,12 +40,14 @@
 		5D960CF72A59B0EE008F26EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D960CFD2A59B0FE008F26EC /* LandX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LandX.entitlements; sourceTree = "<group>"; };
 		5D960CFE2A59B34B008F26EC /* PreView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreView.storyboard; sourceTree = "<group>"; };
+		5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAPI.swift; sourceTree = "<group>"; };
+		5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCRequest.swift; sourceTree = "<group>"; };
 		5DB173792A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRVCPreferencesMain.swift; sourceTree = "<group>"; };
+		5DB2CD262A69052B00CF6CA6 /* CLConfigPref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLConfigPref.swift; sourceTree = "<group>"; };
 		5DDB2EB52A5D6DA80073FBED /* TRPreferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRPreferences.storyboard; sourceTree = "<group>"; };
 		5DDB2EBA2A5D7E0C0073FBED /* VCAlphaProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCAlphaProgram.swift; sourceTree = "<group>"; };
 		5DE1346F2A5E46130008C6CD /* TRVCPreferencesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRVCPreferencesDetail.swift; sourceTree = "<group>"; };
 		5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRForumViewer.storyboard; sourceTree = "<group>"; };
-		5DF06E852A5ECA3E00B07D4F /* TRForumViewerThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRForumViewerThread.swift; sourceTree = "<group>"; };
 		5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRForumViewerTable.swift; sourceTree = "<group>"; };
 		5DF06E892A5ED33100B07D4F /* Debug.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Debug.storyboard; sourceTree = "<group>"; };
 		5DF06E8B2A5ED50E00B07D4F /* VCTableViewDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTableViewDebug.swift; sourceTree = "<group>"; };
@@ -58,7 +61,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D93AC552A6049CC00C7799B /* Alamofire in Frameworks */,
-				5D4D7ECA2A656B830032627F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +89,6 @@
 				5DF06E822A5EC64300B07D4F /* TRLandXAPI */,
 				5DCC04DB2A5E4F850076B70D /* TRForumViewer */,
 				5DE1346E2A5E448A0008C6CD /* TRPreferences */,
-				5DB1737E2A5D8EA60008C4B3 /* Documents */,
 				5DB1737B2A5D89B80008C4B3 /* Config */,
 				5DDB2EB82A5D73C20073FBED /* ViewController */,
 				5DDB2EB72A5D73A80073FBED /* Storyboard */,
@@ -99,6 +100,7 @@
 				5D960CF22A59B0EE008F26EC /* Assets.xcassets */,
 				5D960CF42A59B0EE008F26EC /* LaunchScreen.storyboard */,
 				5D960CF72A59B0EE008F26EC /* Info.plist */,
+				5DF0D25E2A5F7FDA00D4CD5E /* Acknowledgement.md */,
 			);
 			path = LandX;
 			sourceTree = "<group>";
@@ -106,23 +108,15 @@
 		5DB1737B2A5D89B80008C4B3 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				5DB2CD262A69052B00CF6CA6 /* CLConfigPref.swift */,
 			);
 			path = Config;
-			sourceTree = "<group>";
-		};
-		5DB1737E2A5D8EA60008C4B3 /* Documents */ = {
-			isa = PBXGroup;
-			children = (
-				5DF0D25E2A5F7FDA00D4CD5E /* Acknowledgement.md */,
-			);
-			path = Documents;
 			sourceTree = "<group>";
 		};
 		5DCC04DB2A5E4F850076B70D /* TRForumViewer */ = {
 			isa = PBXGroup;
 			children = (
 				5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */,
-				5DF06E852A5ECA3E00B07D4F /* TRForumViewerThread.swift */,
 				5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */,
 			);
 			path = TRForumViewer;
@@ -131,8 +125,8 @@
 		5DDB2EB72A5D73A80073FBED /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				5D960CFE2A59B34B008F26EC /* PreView.storyboard */,
 				5DF06E892A5ED33100B07D4F /* Debug.storyboard */,
+				5D960CFE2A59B34B008F26EC /* PreView.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -160,6 +154,8 @@
 		5DF06E822A5EC64300B07D4F /* TRLandXAPI */ = {
 			isa = PBXGroup;
 			children = (
+				5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */,
+				5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */,
 			);
 			path = TRLandXAPI;
 			sourceTree = "<group>";
@@ -182,7 +178,6 @@
 			name = LandX;
 			packageProductDependencies = (
 				5D93AC542A6049CC00C7799B /* Alamofire */,
-				5D4D7EC92A656B830032627F /* SnapKit */,
 			);
 			productName = LandX;
 			productReference = 5D960CE62A59B0E9008F26EC /* LandX.app */;
@@ -214,7 +209,6 @@
 			mainGroup = 5D960CDD2A59B0E8008F26EC;
 			packageReferences = (
 				5D93AC532A6049CC00C7799B /* XCRemoteSwiftPackageReference "Alamofire" */,
-				5D4D7EC82A656B830032627F /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 5D960CE72A59B0E9008F26EC /* Products */;
 			projectDirPath = "";
@@ -249,11 +243,13 @@
 			files = (
 				5D960CEE2A59B0E9008F26EC /* ViewController.swift in Sources */,
 				5DE134702A5E46130008C6CD /* TRVCPreferencesDetail.swift in Sources */,
+				5DAAC4042A68CEEF001D2DC9 /* LCRequest.swift in Sources */,
 				5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */,
 				5DDB2EBB2A5D7E0C0073FBED /* VCAlphaProgram.swift in Sources */,
+				5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */,
 				5DB1737A2A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift in Sources */,
 				5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */,
-				5DF06E862A5ECA3E00B07D4F /* TRForumViewerThread.swift in Sources */,
+				5DB2CD272A69052B00CF6CA6 /* CLConfigPref.swift in Sources */,
 				5D960CEC2A59B0E9008F26EC /* SceneDelegate.swift in Sources */,
 				5DF06E8C2A5ED50E00B07D4F /* VCTableViewDebug.swift in Sources */,
 				5DF18A422A5DAFCE00523094 /* TRTableCellCreator.swift in Sources */,
@@ -332,7 +328,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -386,7 +382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -494,14 +490,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5D4D7EC82A656B830032627F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		5D93AC532A6049CC00C7799B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -513,11 +501,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5D4D7EC92A656B830032627F /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5D4D7EC82A656B830032627F /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
 		5D93AC542A6049CC00C7799B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5D93AC532A6049CC00C7799B /* XCRemoteSwiftPackageReference "Alamofire" */;

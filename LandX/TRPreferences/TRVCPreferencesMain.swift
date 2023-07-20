@@ -112,7 +112,7 @@ class VCPreferencesTableView : NSObject ,UITableViewDelegate, UITableViewDataSou
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return helperTableCell.cellCreateSwitch(text: "demo")
+        return helperTableCell.cellCreateCheckBox(text: "demo", checked: false)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
