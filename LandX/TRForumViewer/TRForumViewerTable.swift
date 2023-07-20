@@ -16,10 +16,9 @@ class TRForumViewerTable : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad - TRForumViewerTable")
-        mainTable.loadData()
+        //mainTable.loadData()
         mainTableView.delegate = mainTable
         mainTableView.dataSource = mainTable
-        mainTableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,17 +32,9 @@ class TRForumViewerTable : UIViewController {
 class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
     
     var threadStack : [TRForumViewerThread] = []
-    let threadXIBStoryboard = UIStoryboard(name: "TRForumViewer", bundle: Bundle.main)
+    //let threadXIBStoryboard = UIStoryboard(name: "TRForumViewer", bundle: Bundle.main)
     
-    func loadData() {
-        for _ in 0...5 {
-            let vcThread = threadXIBStoryboard.instantiateViewController(withIdentifier: "TRForumThread") as! TRForumViewerThread
-            
-            threadStack.append(vcThread)
-            
-        }
-        
-    }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -57,10 +48,10 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
         
         if(cell == nil) {
             cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-            //threadStack[indexPath.row].view.frame = CGRectMake(0, 0, tableView.frame.width, 300.0)
-            cell!.contentView.addSubview(threadStack[indexPath.row].view)
-            cell?.sizeToFit()
         }
+        
+        //cell?.contentView.addSubview(threadStack[indexPath.row].view)
+
         
         
         
@@ -68,12 +59,18 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50.0
+        return 44.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+
     
 
 

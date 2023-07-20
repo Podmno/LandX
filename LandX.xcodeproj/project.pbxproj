@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D4D7ECA2A656B830032627F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5D4D7EC92A656B830032627F /* SnapKit */; };
 		5D93AC552A6049CC00C7799B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5D93AC542A6049CC00C7799B /* Alamofire */; };
 		5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D960CE92A59B0E9008F26EC /* AppDelegate.swift */; };
 		5D960CEC2A59B0E9008F26EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D960CEB2A59B0E9008F26EC /* SceneDelegate.swift */; };
@@ -57,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D93AC552A6049CC00C7799B /* Alamofire in Frameworks */,
+				5D4D7ECA2A656B830032627F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +182,7 @@
 			name = LandX;
 			packageProductDependencies = (
 				5D93AC542A6049CC00C7799B /* Alamofire */,
+				5D4D7EC92A656B830032627F /* SnapKit */,
 			);
 			productName = LandX;
 			productReference = 5D960CE62A59B0E9008F26EC /* LandX.app */;
@@ -211,6 +214,7 @@
 			mainGroup = 5D960CDD2A59B0E8008F26EC;
 			packageReferences = (
 				5D93AC532A6049CC00C7799B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5D4D7EC82A656B830032627F /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 5D960CE72A59B0E9008F26EC /* Products */;
 			projectDirPath = "";
@@ -490,6 +494,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5D4D7EC82A656B830032627F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		5D93AC532A6049CC00C7799B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -501,6 +513,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5D4D7EC92A656B830032627F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D4D7EC82A656B830032627F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		5D93AC542A6049CC00C7799B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5D93AC532A6049CC00C7799B /* XCRemoteSwiftPackageReference "Alamofire" */;

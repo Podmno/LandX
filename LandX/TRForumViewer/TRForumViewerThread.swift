@@ -32,8 +32,10 @@ class TRForumViewerThread : UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        
         lbMain.sizeToFit()
         lbMain.numberOfLines = 0
+        
     }
 
     
