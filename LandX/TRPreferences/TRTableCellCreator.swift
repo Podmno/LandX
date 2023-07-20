@@ -16,11 +16,17 @@ class TRTableCellCreator {
         
         let cell = UITableViewCell()
         cell.accessoryType = .disclosureIndicator
-        var content = cell.defaultContentConfiguration()
         
-        content.text = text
+        if #available(iOS 14.0, *) {
+            var content = cell.defaultContentConfiguration()
+            content.text = text
+            cell.contentConfiguration = content
+        } else {
+            // Fallback on earlier versions
+            cell.textLabel?.text = text
+        }
         
-        cell.contentConfiguration = content
+        
         return cell
     }
     
@@ -38,11 +44,16 @@ class TRTableCellCreator {
         cell.accessoryView = switcher
         
         
-        var content = cell.defaultContentConfiguration()
+        if #available(iOS 14.0, *) {
+            var content = cell.defaultContentConfiguration()
+            content.text = text
+            cell.contentConfiguration = content
+        } else {
+            // Fallback on earlier versions
+            cell.textLabel?.text = text
+        }
         
-        content.text = text
         
-        cell.contentConfiguration = content
         return cell
         
     }
@@ -52,10 +63,15 @@ class TRTableCellCreator {
         
         let cell = UITableViewCell()
         cell.accessibilityLabel = selection
-        var content = cell.defaultContentConfiguration()
-        content.text = text
-        
-        cell.contentConfiguration = content
+        if #available(iOS 14.0, *) {
+            var content = cell.defaultContentConfiguration()
+            content.text = text
+            cell.contentConfiguration = content
+        } else {
+            // Fallback on earlier versions
+            cell.textLabel?.text = text
+        }
+
         return cell
         
     }
@@ -69,11 +85,16 @@ class TRTableCellCreator {
             cell.accessoryType = .checkmark
         }
         
-        var content = cell.defaultContentConfiguration()
+        if #available(iOS 14.0, *) {
+            var content = cell.defaultContentConfiguration()
+            content.text = text
+            cell.contentConfiguration = content
+        } else {
+            // Fallback on earlier versions
+            cell.textLabel?.text = text
+        }
         
-        content.text = text
-        
-        cell.contentConfiguration = content
+
         return cell
         
     }

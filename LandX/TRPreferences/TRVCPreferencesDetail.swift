@@ -6,3 +6,14 @@
 //
 
 import UIKit
+
+
+class TRVCPreferencesDetail : UIViewController {
+    
+    
+    
+    
+    
+    
+    
+}
