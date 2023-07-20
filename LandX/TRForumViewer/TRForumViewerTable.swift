@@ -48,7 +48,8 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
         
         cell.hideBtnGoThread()
         cell.hideImgView()
-        
+        //cell.lbSAGE.layer.transform = CATransform3DMakeScale(0.5, 1.0, 1.0)
+        //layer.transform = CATransform3DMakeScale(0.8, 1.0, 1.0)
         //cell?.contentView.addSubview(threadStack[indexPath.row].view)
         
         return cell
