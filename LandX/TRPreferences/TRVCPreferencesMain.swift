@@ -81,9 +81,9 @@ class TRVCPreferencesMain : UIViewController {
         
         // 为 iOS 15 样式的列表视图打补丁
         // 如果按默认的高度会显示不全
-        tvMainContent.sectionHeaderHeight = 28.0
-        tvMainContent.estimatedSectionFooterHeight = 28.0
-        tvMainContent.sectionFooterHeight = 30.0
+        //tvMainContent.sectionHeaderHeight = 28.0
+        //tvMainContent.estimatedSectionFooterHeight = 28.0
+        //tvMainContent.sectionFooterHeight = 30.0
         
 
     }
@@ -110,6 +110,13 @@ class VCPreferencesTableView : NSObject ,UITableViewDelegate, UITableViewDataSou
         return 4
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return helperTableCell.cellCreateCheckBox(text: "demo", checked: false)
