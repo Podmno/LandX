@@ -18,7 +18,7 @@
 		5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */; };
 		5DAAC4042A68CEEF001D2DC9 /* LCRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */; };
 		5DB1737A2A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB173792A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift */; };
-		5DB2CD272A69052B00CF6CA6 /* CLConfigPref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB2CD262A69052B00CF6CA6 /* CLConfigPref.swift */; };
+		5DB91DE82A6A07E5004998F7 /* LCThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB91DE72A6A07E5004998F7 /* LCThread.swift */; };
 		5DDB2EB62A5D6DA80073FBED /* TRPreferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DDB2EB52A5D6DA80073FBED /* TRPreferences.storyboard */; };
 		5DDB2EBB2A5D7E0C0073FBED /* VCAlphaProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDB2EBA2A5D7E0C0073FBED /* VCAlphaProgram.swift */; };
 		5DE134702A5E46130008C6CD /* TRVCPreferencesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1346F2A5E46130008C6CD /* TRVCPreferencesDetail.swift */; };
@@ -43,7 +43,7 @@
 		5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAPI.swift; sourceTree = "<group>"; };
 		5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCRequest.swift; sourceTree = "<group>"; };
 		5DB173792A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRVCPreferencesMain.swift; sourceTree = "<group>"; };
-		5DB2CD262A69052B00CF6CA6 /* CLConfigPref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLConfigPref.swift; sourceTree = "<group>"; };
+		5DB91DE72A6A07E5004998F7 /* LCThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCThread.swift; sourceTree = "<group>"; };
 		5DDB2EB52A5D6DA80073FBED /* TRPreferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRPreferences.storyboard; sourceTree = "<group>"; };
 		5DDB2EBA2A5D7E0C0073FBED /* VCAlphaProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCAlphaProgram.swift; sourceTree = "<group>"; };
 		5DE1346F2A5E46130008C6CD /* TRVCPreferencesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRVCPreferencesDetail.swift; sourceTree = "<group>"; };
@@ -89,7 +89,6 @@
 				5DF06E822A5EC64300B07D4F /* TRLandXAPI */,
 				5DCC04DB2A5E4F850076B70D /* TRForumViewer */,
 				5DE1346E2A5E448A0008C6CD /* TRPreferences */,
-				5DB1737B2A5D89B80008C4B3 /* Config */,
 				5DDB2EB82A5D73C20073FBED /* ViewController */,
 				5DDB2EB72A5D73A80073FBED /* Storyboard */,
 				5D960CFD2A59B0FE008F26EC /* LandX.entitlements */,
@@ -103,14 +102,6 @@
 				5DF0D25E2A5F7FDA00D4CD5E /* Acknowledgement.md */,
 			);
 			path = LandX;
-			sourceTree = "<group>";
-		};
-		5DB1737B2A5D89B80008C4B3 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				5DB2CD262A69052B00CF6CA6 /* CLConfigPref.swift */,
-			);
-			path = Config;
 			sourceTree = "<group>";
 		};
 		5DCC04DB2A5E4F850076B70D /* TRForumViewer */ = {
@@ -156,6 +147,7 @@
 			children = (
 				5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */,
 				5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */,
+				5DB91DE72A6A07E5004998F7 /* LCThread.swift */,
 			);
 			path = TRLandXAPI;
 			sourceTree = "<group>";
@@ -247,9 +239,9 @@
 				5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */,
 				5DDB2EBB2A5D7E0C0073FBED /* VCAlphaProgram.swift in Sources */,
 				5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */,
+				5DB91DE82A6A07E5004998F7 /* LCThread.swift in Sources */,
 				5DB1737A2A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift in Sources */,
 				5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */,
-				5DB2CD272A69052B00CF6CA6 /* CLConfigPref.swift in Sources */,
 				5D960CEC2A59B0E9008F26EC /* SceneDelegate.swift in Sources */,
 				5DF06E8C2A5ED50E00B07D4F /* VCTableViewDebug.swift in Sources */,
 				5DF18A422A5DAFCE00523094 /* TRTableCellCreator.swift in Sources */,

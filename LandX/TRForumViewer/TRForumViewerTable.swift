@@ -95,9 +95,9 @@ class TRForumViewerCell : UITableViewCell {
         self.btnGoThread.frame = originFrame
          */
 
-        //self.csBtnGoThreadHeight.constant = 0.0
-        //self.btnGoThread.isHidden = true
-        //self.updateConstraints()
+        self.csBtnGoThreadHeight.constant = 0.0
+        self.btnGoThread.isHidden = true
+        self.updateConstraints()
     }
     
     func hideImgView() {
