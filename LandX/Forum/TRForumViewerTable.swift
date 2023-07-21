@@ -22,7 +22,18 @@ class TRForumViewerTable : UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        setupRefreshUp()
+        
         mainTableView.reloadData()
+    }
+    
+    func setupRefreshUp() {
+        
+        let refresh = UIRefreshControl()
+        mainTableView.addSubview(refresh)
+        refresh.beginRefreshing()
+        
+        
     }
 
     

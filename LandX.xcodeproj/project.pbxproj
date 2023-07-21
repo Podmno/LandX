@@ -17,8 +17,9 @@
 		5D960CFF2A59B34B008F26EC /* PreView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D960CFE2A59B34B008F26EC /* PreView.storyboard */; };
 		5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */; };
 		5DAAC4042A68CEEF001D2DC9 /* LCRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */; };
+		5DAD99632A6A532100817CE4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DAD99622A6A532100817CE4 /* SwiftyJSON */; };
 		5DB1737A2A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB173792A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift */; };
-		5DB91DE82A6A07E5004998F7 /* LCThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB91DE72A6A07E5004998F7 /* LCThread.swift */; };
+		5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB91DE72A6A07E5004998F7 /* LCStruct.swift */; };
 		5DDB2EB62A5D6DA80073FBED /* TRPreferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DDB2EB52A5D6DA80073FBED /* TRPreferences.storyboard */; };
 		5DDB2EBB2A5D7E0C0073FBED /* VCAlphaProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDB2EBA2A5D7E0C0073FBED /* VCAlphaProgram.swift */; };
 		5DE134702A5E46130008C6CD /* TRVCPreferencesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1346F2A5E46130008C6CD /* TRVCPreferencesDetail.swift */; };
@@ -43,7 +44,7 @@
 		5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAPI.swift; sourceTree = "<group>"; };
 		5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCRequest.swift; sourceTree = "<group>"; };
 		5DB173792A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRVCPreferencesMain.swift; sourceTree = "<group>"; };
-		5DB91DE72A6A07E5004998F7 /* LCThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCThread.swift; sourceTree = "<group>"; };
+		5DB91DE72A6A07E5004998F7 /* LCStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStruct.swift; sourceTree = "<group>"; };
 		5DDB2EB52A5D6DA80073FBED /* TRPreferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRPreferences.storyboard; sourceTree = "<group>"; };
 		5DDB2EBA2A5D7E0C0073FBED /* VCAlphaProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCAlphaProgram.swift; sourceTree = "<group>"; };
 		5DE1346F2A5E46130008C6CD /* TRVCPreferencesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRVCPreferencesDetail.swift; sourceTree = "<group>"; };
@@ -60,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DAD99632A6A532100817CE4 /* SwiftyJSON in Frameworks */,
 				5D93AC552A6049CC00C7799B /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,9 +88,9 @@
 		5D960CE82A59B0E9008F26EC /* LandX */ = {
 			isa = PBXGroup;
 			children = (
-				5DF06E822A5EC64300B07D4F /* TRLandXAPI */,
-				5DCC04DB2A5E4F850076B70D /* TRForumViewer */,
-				5DE1346E2A5E448A0008C6CD /* TRPreferences */,
+				5DF06E822A5EC64300B07D4F /* API */,
+				5DCC04DB2A5E4F850076B70D /* Forum */,
+				5DE1346E2A5E448A0008C6CD /* Preference */,
 				5DDB2EB82A5D73C20073FBED /* ViewController */,
 				5DDB2EB72A5D73A80073FBED /* Storyboard */,
 				5D960CFD2A59B0FE008F26EC /* LandX.entitlements */,
@@ -104,13 +106,13 @@
 			path = LandX;
 			sourceTree = "<group>";
 		};
-		5DCC04DB2A5E4F850076B70D /* TRForumViewer */ = {
+		5DCC04DB2A5E4F850076B70D /* Forum */ = {
 			isa = PBXGroup;
 			children = (
 				5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */,
 				5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */,
 			);
-			path = TRForumViewer;
+			path = Forum;
 			sourceTree = "<group>";
 		};
 		5DDB2EB72A5D73A80073FBED /* Storyboard */ = {
@@ -131,7 +133,7 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		5DE1346E2A5E448A0008C6CD /* TRPreferences */ = {
+		5DE1346E2A5E448A0008C6CD /* Preference */ = {
 			isa = PBXGroup;
 			children = (
 				5DF18A412A5DAFCE00523094 /* TRTableCellCreator.swift */,
@@ -139,17 +141,17 @@
 				5DE1346F2A5E46130008C6CD /* TRVCPreferencesDetail.swift */,
 				5DDB2EB52A5D6DA80073FBED /* TRPreferences.storyboard */,
 			);
-			path = TRPreferences;
+			path = Preference;
 			sourceTree = "<group>";
 		};
-		5DF06E822A5EC64300B07D4F /* TRLandXAPI */ = {
+		5DF06E822A5EC64300B07D4F /* API */ = {
 			isa = PBXGroup;
 			children = (
 				5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */,
 				5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */,
-				5DB91DE72A6A07E5004998F7 /* LCThread.swift */,
+				5DB91DE72A6A07E5004998F7 /* LCStruct.swift */,
 			);
-			path = TRLandXAPI;
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +172,7 @@
 			name = LandX;
 			packageProductDependencies = (
 				5D93AC542A6049CC00C7799B /* Alamofire */,
+				5DAD99622A6A532100817CE4 /* SwiftyJSON */,
 			);
 			productName = LandX;
 			productReference = 5D960CE62A59B0E9008F26EC /* LandX.app */;
@@ -201,6 +204,7 @@
 			mainGroup = 5D960CDD2A59B0E8008F26EC;
 			packageReferences = (
 				5D93AC532A6049CC00C7799B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5DAD99612A6A532100817CE4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 5D960CE72A59B0E9008F26EC /* Products */;
 			projectDirPath = "";
@@ -239,7 +243,7 @@
 				5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */,
 				5DDB2EBB2A5D7E0C0073FBED /* VCAlphaProgram.swift in Sources */,
 				5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */,
-				5DB91DE82A6A07E5004998F7 /* LCThread.swift in Sources */,
+				5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */,
 				5DB1737A2A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift in Sources */,
 				5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */,
 				5D960CEC2A59B0E9008F26EC /* SceneDelegate.swift in Sources */,
@@ -494,6 +498,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		5DAD99612A6A532100817CE4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -501,6 +513,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5D93AC532A6049CC00C7799B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		5DAD99622A6A532100817CE4 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5DAD99612A6A532100817CE4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
