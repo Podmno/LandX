@@ -81,10 +81,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yC2-BA-NX8">
-                                                    <rect key="frame" x="15" y="80" width="666" height="200.5"/>
+                                                    <rect key="frame" x="15" y="80" width="666" height="200"/>
                                                     <attributedString key="attributedText">
                                                         <fragment>
-                                                            <mutableString key="content">Once there were trees full of birds,Meadowlands vibrant with flowers;Carefree the songs our children once sangGilding our minutes and hours.Clouds came and covered the sun,The breath of the baleful unease Turning to ashes flowers in their fields,Silenced the birds in their trees.Hidden so deep in veils of deceit,Imprisoned in twisting spells - Are we the plaything of fiends, or merely the dreams That we're telling ourselves, telling ourselves?Strive till the phantoms are broken,Fight till the battle is done;The squadrons of night can't conquer the day,Nor shadows extinguish the sun.Stories of danger, fearless attack,Specters of plague and pain.All of these ghosts of our own delusions come back;</mutableString>
+                                                            <string key="content">Once there were trees full of birds,Meadowlands vibrant with flowers;Carefree the songs our children once sangGilding our minutes and hours.Clouds came and covered the sun,The breath of the baleful unease Turning to ashes flowers in their fields,Silenced the birds in their trees.Hidden so deep in veils of deceit,Imprisoned in twisting spells - Are we the plaything of fiends, or merely the dreams That we're telling ourselves, telling ourselves?Strive till the phantoms are broken,Fight till the battle is done;The squadrons of night can't conquer the day,Nor shadows extinguish the sun.Stories of danger, fearless attack,Specters of plague and pain.All of these ghosts of our own delusions come back;</string>
                                                             <attributes>
                                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <font key="NSFont" size="16" name="Helvetica"/>
@@ -106,13 +106,19 @@
                                                     </buttonConfiguration>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXXXXX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKo-g0-CHJ">
-                                                    <rect key="frame" x="16" y="289" width="64" height="17.5"/>
+                                                    <rect key="frame" x="16" y="288" width="64" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="hhO-Lv-B4V"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ashes of Dreams / NieR Replicant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rE-lY-bdN">
-                                                    <rect key="frame" x="96" y="289" width="584" height="17"/>
+                                                    <rect key="frame" x="96" y="288" width="584" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="leg-MO-d48"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -132,12 +138,11 @@
                                                 <constraint firstItem="2rE-lY-bdN" firstAttribute="leading" secondItem="kcL-MH-ush" secondAttribute="leading" id="NBl-4o-drW"/>
                                                 <constraint firstItem="yC2-BA-NX8" firstAttribute="top" secondItem="Lwb-ck-gF4" secondAttribute="bottom" constant="5" id="Syf-NG-TJM"/>
                                                 <constraint firstItem="pYH-LB-a5X" firstAttribute="leading" secondItem="pLm-tW-iZk" secondAttribute="leadingMargin" id="U8d-UB-e2S"/>
-                                                <constraint firstItem="2rE-lY-bdN" firstAttribute="top" secondItem="yC2-BA-NX8" secondAttribute="bottom" constant="8.5" id="Uxp-dJ-UIe"/>
+                                                <constraint firstItem="2rE-lY-bdN" firstAttribute="top" secondItem="yC2-BA-NX8" secondAttribute="bottom" constant="8" id="Uxp-dJ-UIe"/>
                                                 <constraint firstItem="WrC-aW-VJ0" firstAttribute="top" secondItem="pLm-tW-iZk" secondAttribute="topMargin" id="ZLI-tR-ePV"/>
                                                 <constraint firstItem="pYH-LB-a5X" firstAttribute="top" secondItem="LKo-g0-CHJ" secondAttribute="bottom" constant="6" id="ZkU-mg-TUL"/>
                                                 <constraint firstItem="5md-Rd-rnb" firstAttribute="top" secondItem="pLm-tW-iZk" secondAttribute="topMargin" constant="1" id="bsQ-WN-hEa"/>
                                                 <constraint firstItem="2rE-lY-bdN" firstAttribute="leading" secondItem="LKo-g0-CHJ" secondAttribute="trailing" constant="16" id="iCA-Eo-Kgz"/>
-                                                <constraint firstItem="LKo-g0-CHJ" firstAttribute="baseline" secondItem="2rE-lY-bdN" secondAttribute="baseline" id="jOa-Zx-OfA"/>
                                                 <constraint firstItem="LKo-g0-CHJ" firstAttribute="top" secondItem="yC2-BA-NX8" secondAttribute="bottom" constant="8" id="klD-sG-IHX"/>
                                                 <constraint firstItem="kcL-MH-ush" firstAttribute="leading" secondItem="l2I-6V-1yo" secondAttribute="trailing" constant="8" id="mrJ-ih-jW5"/>
                                                 <constraint firstItem="kcL-MH-ush" firstAttribute="top" secondItem="pLm-tW-iZk" secondAttribute="topMargin" constant="1" id="nMH-fY-7h4"/>
@@ -151,10 +156,14 @@
                                             <outlet property="csBtnGoThreadHeight" destination="iNe-o8-LKb" id="mEP-XO-i6W"/>
                                             <outlet property="csImgViewHeight" destination="J5c-0k-shF" id="gn7-jv-Ih3"/>
                                             <outlet property="csImgViewWidth" destination="H8m-aW-NPU" id="moc-bL-gbP"/>
+                                            <outlet property="csLbReplyContentHeight" destination="leg-MO-d48" id="URP-wD-9Hj"/>
+                                            <outlet property="csLbReplyUserHeight" destination="hhO-Lv-B4V" id="O11-J9-PGx"/>
                                             <outlet property="imgView" destination="pYH-LB-a5X" id="bnl-Lb-PdA"/>
                                             <outlet property="lbMain" destination="yC2-BA-NX8" id="7Ov-hk-HhB"/>
                                             <outlet property="lbNo" destination="WrC-aW-VJ0" id="mGw-7d-g75"/>
                                             <outlet property="lbPO" destination="kcL-MH-ush" id="Ces-Ub-Uic"/>
+                                            <outlet property="lbReplyContent" destination="2rE-lY-bdN" id="aNl-KK-fh4"/>
+                                            <outlet property="lbReplyUser" destination="LKo-g0-CHJ" id="MeA-bt-jnm"/>
                                             <outlet property="lbSAGE" destination="5md-Rd-rnb" id="W5D-c4-GEE"/>
                                             <outlet property="lbTime" destination="zbj-tf-mQk" id="pj0-gM-EV4"/>
                                             <outlet property="lbUser" destination="l2I-6V-1yo" id="9m8-lR-Dau"/>
@@ -186,7 +195,7 @@
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

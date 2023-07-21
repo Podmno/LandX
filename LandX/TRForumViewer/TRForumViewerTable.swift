@@ -48,6 +48,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
         
         cell.hideBtnGoThread()
         cell.hideImgView()
+        cell.hideReplyLabel()
         //cell.lbSAGE.layer.transform = CATransform3DMakeScale(0.5, 1.0, 1.0)
         //layer.transform = CATransform3DMakeScale(0.8, 1.0, 1.0)
         //cell?.contentView.addSubview(threadStack[indexPath.row].view)
@@ -83,11 +84,15 @@ class TRForumViewerCell : UITableViewCell {
     @IBOutlet weak var lbNo: UILabel!
     @IBOutlet weak var btnGoThread: UIButton!
     @IBOutlet weak var lbMain: UILabel!
+    @IBOutlet weak var lbReplyUser: UILabel!
+    @IBOutlet weak var lbReplyContent: UILabel!
     @IBOutlet weak var imgView: UIImageView!
+    
     @IBOutlet weak var csBtnGoThreadHeight: NSLayoutConstraint!
     @IBOutlet weak var csImgViewWidth: NSLayoutConstraint!
     @IBOutlet weak var csImgViewHeight: NSLayoutConstraint!
-    
+    @IBOutlet weak var csLbReplyUserHeight: NSLayoutConstraint!
+    @IBOutlet weak var csLbReplyContentHeight: NSLayoutConstraint!
     func hideBtnGoThread() {
         /*
         var originFrame = self.btnGoThread.frame
@@ -106,6 +111,16 @@ class TRForumViewerCell : UITableViewCell {
         self.csImgViewHeight.constant = 0.0
         self.updateConstraints()
         
+        
+    }
+    
+    func hideReplyLabel() {
+        
+        csLbReplyUserHeight.constant = 0.0
+        csLbReplyContentHeight.constant = 0.0
+        lbReplyUser.isHidden = true
+        lbReplyContent.isHidden = true
+        self.updateConstraints()
         
     }
     
