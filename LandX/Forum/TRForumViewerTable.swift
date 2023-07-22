@@ -87,6 +87,11 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
 
 class TRForumViewerCell : UITableViewCell {
     
+    /*
+     
+     setupThread() -> updateCell()
+     */
+    
     var thread: LSThread = LSThread()
     
     @IBOutlet weak var lbUser: UILabel!
@@ -146,6 +151,22 @@ class TRForumViewerCell : UITableViewCell {
         
         lbUser.text = self.thread.threadUserHash
         
+        if(self.thread.threadSage != 0) {
+            self.lbSAGE.isHidden = false
+        } else {
+            self.lbSAGE.isHidden = true
+        }
+        
+        lbNo.text = "No.\(self.thread.threadID)"
+        
+        lbTime.text = self.thread.threadDate
+        
+        lbMain.text = self.thread.threadContent
+        
+        // 目前暂时禁用部分功能
+        hideImgView()
+        hideReplyLabel()
+        hideBtnGoThread()
     }
     
     

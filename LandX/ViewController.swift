@@ -36,6 +36,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         
+        let que = DispatchQueue(label: "demo")
+        que.async {
+            let re = LCRequest()
+            print(re.getCDNPath())
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
