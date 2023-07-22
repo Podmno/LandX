@@ -87,6 +87,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
 
 class TRForumViewerCell : UITableViewCell {
     
+    var thread: LSThread = LSThread()
     
     @IBOutlet weak var lbUser: UILabel!
     @IBOutlet weak var lbPO: UILabel!
@@ -98,12 +99,12 @@ class TRForumViewerCell : UITableViewCell {
     @IBOutlet weak var lbReplyUser: UILabel!
     @IBOutlet weak var lbReplyContent: UILabel!
     @IBOutlet weak var imgView: UIImageView!
-    
     @IBOutlet weak var csBtnGoThreadHeight: NSLayoutConstraint!
     @IBOutlet weak var csImgViewWidth: NSLayoutConstraint!
     @IBOutlet weak var csImgViewHeight: NSLayoutConstraint!
     @IBOutlet weak var csLbReplyUserHeight: NSLayoutConstraint!
     @IBOutlet weak var csLbReplyContentHeight: NSLayoutConstraint!
+    
     func hideBtnGoThread() {
         /*
         var originFrame = self.btnGoThread.frame
@@ -132,6 +133,18 @@ class TRForumViewerCell : UITableViewCell {
         lbReplyUser.isHidden = true
         lbReplyContent.isHidden = true
         self.updateConstraints()
+        
+    }
+    
+    func setupThread(thread: LSThread) {
+        
+        self.thread = thread
+        
+    }
+    
+    func updateCell() {
+        
+        lbUser.text = self.thread.threadUserHash
         
     }
     

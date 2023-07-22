@@ -17,6 +17,17 @@ class LSForumList : NSObject {
     public var forumStatus: String = ""
     public var forums: Array<LSForum> = []
     
+    public func loadFromJSON(json: JSON) {
+        
+        forumListID = json["id"].uInt ?? 0
+        
+        for (_ ,subForums) in json["forums"] {
+            let f = LSForum()
+            f.loadFromJSON(json: subForums)
+            forums.append(f)
+        }
+        
+    }
     
 }
 
@@ -37,6 +48,19 @@ class LSForum : NSObject {
     public var forumCreatedAt: String = ""
     public var forumUpdatedAt: String = ""
     public var forumStatus: String = ""
+    
+    public func loadFromJSON(json: JSON) {
+        
+        forumID = UInt(json["id"].string ?? "0") ?? 0
+        forumGroup = UInt(json["fgroup"].string ?? "0") ?? 0
+        forumSort = UInt(json["sort"].string ?? "0") ?? 0
+        forumName = json["name"].string ?? ""
+        forumShowName = json["showName"].string ?? ""
+        forumMsg = json["msg"].string ?? ""
+        forumInterval = UInt(json["interval"].string ?? "0") ?? 0
+        
+        
+    }
     
 }
 
@@ -71,12 +95,34 @@ class LSThread : NSObject {
     public var threadName: String = ""
     public var threadTitle: String = ""
     public var threadContent: String = ""
-    public var threadSage: UInt = 0
-    public var threadAdmin: UInt = 0
-    public var threadHide: UInt = 0
+    public var threadSage: Int = 0
+    public var threadAdmin: Int = 0
+    public var threadHide: Int = 0
     public var threadReplies: Array<LSThread> = []
     public var threadRemainReplies: UInt = 0
     
+    public func loadFromJSON(json: JSON) {
+        
+        threadID = json["id"].uInt ?? 0
+        threadForumID = json["fid"].uInt ?? 0
+        threadReplyCount = json["ReplyCount"].uInt ?? 0
+        threadImg = json["img"].string ?? ""
+        threadExt = json["ext"].string ?? ""
+        threadDate = json["now"].string ?? ""
+        threadUserHash = json["user_hash"].string ?? ""
+        threadName = json["name"].string ?? ""
+        threadTitle = json["title"].string ?? ""
+        threadContent = json["content"].string ?? ""
+        threadSage = json["sage"].int ?? 0
+        threadAdmin = json["admin"].int ?? 0
+        threadHide = json["Hide"].int ?? 0
+        
+        // Replies
+        
+        threadRemainReplies = json["RemainReplies"].uInt ?? 0
+        
+        
+    }
 
     
 }
