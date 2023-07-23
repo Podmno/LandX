@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wfy-dR-Q6d">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="mac" appearance="light">
         <simulatedSceneSize key="mac" width="800" height="600"/>
     </device>
@@ -11,73 +11,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="hWY-T7-idW">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="Wfy-dR-Q6d" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UPi-Xs-ju5">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="IyO-de-Uql"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WxW-4f-IxF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-50" y="157"/>
-        </scene>
-        <!--View Controller-->
+        <!--Loading-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LandX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Loading" id="BYZ-38-t0r" customClass="ViewController" customModule="LandX" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debug Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvM-TV-yEO">
-                                <rect key="frame" x="20" y="20" width="760" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD1-OP-DMX">
+                                <rect key="frame" x="264" y="280" width="273" height="40.5"/>
+                                <string key="text">正在连接 X 岛以获取在线资料。
+请确保网络的连接，不要关闭软件。</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwG-k0-Y40">
-                                <rect key="frame" x="20" y="51" width="200" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="9Y1-ze-i5M"/>
-                                    <constraint firstAttribute="height" constant="50" id="HWd-SS-pJR"/>
-                                </constraints>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5sw-9p-msc">
+                                <rect key="frame" x="390" y="240" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzX-YU-wo3">
+                                <rect key="frame" x="353" y="370" width="94" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Preferences"/>
+                                <buttonConfiguration key="configuration" style="plain" title="重新加载"/>
                                 <connections>
-                                    <action selector="btnClickedPreferences:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dmq-ea-w50"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oza-vR-21U">
-                                <rect key="frame" x="20" y="109" width="200" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="22c-bA-IyR"/>
-                                    <constraint firstAttribute="width" constant="200" id="fbw-MW-DOi"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="ForumTableDebug"/>
-                                <connections>
-                                    <action selector="btnClickedForumTableDebug:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qac-6K-LkJ"/>
+                                    <action selector="btnClickedRetry:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Vd-ug-zgj"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QvM-TV-yEO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="QJI-dM-7Kr"/>
-                            <constraint firstItem="QvM-TV-yEO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Qoc-bD-ynH"/>
-                            <constraint firstItem="oza-vR-21U" firstAttribute="leading" secondItem="XwG-k0-Y40" secondAttribute="leading" id="SQT-8S-Zra"/>
-                            <constraint firstItem="oza-vR-21U" firstAttribute="top" secondItem="XwG-k0-Y40" secondAttribute="bottom" constant="8" id="abD-r1-Twf"/>
-                            <constraint firstItem="XwG-k0-Y40" firstAttribute="top" secondItem="QvM-TV-yEO" secondAttribute="bottom" constant="10" id="fAR-oR-RrO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QvM-TV-yEO" secondAttribute="trailing" constant="20" id="rXt-D8-muF"/>
-                            <constraint firstItem="XwG-k0-Y40" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ulw-ky-dpQ"/>
+                            <constraint firstItem="MD1-OP-DMX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="01J-iI-a07"/>
+                            <constraint firstItem="MD1-OP-DMX" firstAttribute="top" secondItem="5sw-9p-msc" secondAttribute="bottom" constant="20" id="FxZ-Lr-CeI"/>
+                            <constraint firstItem="5sw-9p-msc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IHE-pk-YbE"/>
+                            <constraint firstItem="EzX-YU-wo3" firstAttribute="top" secondItem="MD1-OP-DMX" secondAttribute="bottom" constant="50" id="Yr8-vm-Utv"/>
+                            <constraint firstItem="EzX-YU-wo3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pcn-Sd-fNA"/>
+                            <constraint firstItem="MD1-OP-DMX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uKv-9c-Gvb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0CE-cZ-LHd"/>
+                    <connections>
+                        <outlet property="btnRefresh" destination="EzX-YU-wo3" id="kTL-Uo-phA"/>
+                        <outlet property="lbLoading" destination="MD1-OP-DMX" id="HSP-1F-00T"/>
+                        <outlet property="progressLoading" destination="5sw-9p-msc" id="y1S-Vf-abj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,7 +63,7 @@
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

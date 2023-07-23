@@ -13,6 +13,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     let sbPreferences = UIStoryboard(name: "TRPreferences", bundle: Bundle.main)
     
     
+    @IBOutlet weak var progressLoading: UIActivityIndicatorView!
+    
+    @IBOutlet weak var lbLoading: UILabel!
+    
+    @IBOutlet weak var btnRefresh: UIButton!
+    
     var vcBetaProgramViewController: UIViewController? = nil
     var vcPreferences: UIViewController? = nil
     var vcDebugTableView: UIViewController? = nil
@@ -24,28 +30,30 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // 侧滑返回设定
-        // 设定根视图需要为 NavigationViewController 此处在根视图禁用侧滑返回否则会出现奇怪的问题
-        if(self == navigationController?.viewControllers[0]) {
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-            
-        } else {
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        }
+        progressLoading.startAnimating()
         
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
-        
-        
-        let que = DispatchQueue(label: "demo")
-        que.async {
-            let re = LCRequest()
-            print(re.getCDNPath())
-        }
+        checkNetworkConnection()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         showBetaProgramViewController()
+    }
+    
+    
+    func checkNetworkConnection() {
+        self.btnRefresh.isHidden = true
+        let que = DispatchQueue(label: "studio.tri.LandX.networkCheck")
+        que.async {
+            let re = LCRequest()
+            let test_cdn_url = re.getCDNPath()
+            if(test_cdn_url == "error#timeout") {
+                DispatchQueue.main.async {
+                    self.uiDisplayNetworkError()
+                }
+            }
+        }
+        
     }
     
     func showBetaProgramViewController() {
@@ -63,22 +71,61 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         displayBetaProgramHint = false
     }
     
+    func uiDisplayNetworkError() {
+        
+        self.btnRefresh.isHidden = false
+        self.progressLoading.stopAnimating()
+        self.progressLoading.isHidden = true
+        
+        self.lbLoading.alpha = 0.0
 
+
+        UIView.animate(withDuration: 0.7) {
+            self.lbLoading.alpha = 1.0
+        }
+        
+        self.lbLoading.text = "错误代码 04-01\n网络连接失败，请检查互联网连接后再试。"
+
+        
+    }
+    
+    
+    @IBAction func btnClickedRetry(_ sender: Any) {
+        print("Network Checker - User Retry")
+        
+    }
+    
+
+}
+
+// 侧滑返回设定
+// 设定根视图需要为 NavigationViewController 此处在根视图禁用侧滑返回否则会出现奇怪的问题
+/*
+if(self == navigationController?.viewControllers[0]) {
+    self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    
+} else {
+    self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+}
+
+self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+
+*/
+
+/*
     @IBAction func btnClickedPreferences(_ sender: Any) {
         
 
-        vcPreferences = sbPreferences.instantiateInitialViewController()
+        //vcPreferences = sbPreferences.instantiateInitialViewController()
         //self.present(vcPreferences!, animated: true)
-        self.navigationController?.pushViewController(vcPreferences!, animated: true)
+        //self.navigationController?.pushViewController(vcPreferences!, animated: true)
     }
     
     
     @IBAction func btnClickedForumTableDebug(_ sender: Any) {
         
-        let s = UIStoryboard(name: "Debug", bundle: Bundle.main)
-        vcDebugTableView = s.instantiateInitialViewController()
-        self.navigationController?.pushViewController(vcDebugTableView!, animated: true)
+        //let s = UIStoryboard(name: "Debug", bundle: Bundle.main)
+        //vcDebugTableView = s.instantiateInitialViewController()
+        //self.navigationController?.pushViewController(vcDebugTableView!, animated: true)
     }
-    
-}
-
+ */
