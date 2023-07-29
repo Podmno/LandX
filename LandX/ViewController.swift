@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        progressLoading.startAnimating()
+        
         
         checkNetworkConnection()
         
@@ -42,14 +42,16 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     func checkNetworkConnection() {
+        progressLoading.startAnimating()
+        self.progressLoading.isHidden = false
         self.btnRefresh.isHidden = true
         let que = DispatchQueue(label: "studio.tri.LandX.networkCheck")
         que.async {
             let re = LCRequest()
             let test_cdn_url = re.getCDNPath()
-            if(test_cdn_url == "error#timeout") {
+            if(test_cdn_url.contains("LCRequest.Error.Alamofire")) {
                 DispatchQueue.main.async {
-                    self.uiDisplayNetworkError()
+                    self.uiDisplayNetworkError(supportMessage: test_cdn_url)
                 }
             }
         }
@@ -71,7 +73,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         displayBetaProgramHint = false
     }
     
-    func uiDisplayNetworkError() {
+    func uiDisplayNetworkError(supportMessage: String) {
         
         self.btnRefresh.isHidden = false
         self.progressLoading.stopAnimating()
@@ -84,7 +86,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             self.lbLoading.alpha = 1.0
         }
         
-        self.lbLoading.text = "错误代码 04-01\n网络连接失败，请检查互联网连接后再试。"
+        self.lbLoading.text = "错误代码 04-01\n网络连接失败，请检查互联网连接后再试。\n\nSupport Message: \n\(supportMessage)"
 
         
     }
@@ -93,6 +95,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func btnClickedRetry(_ sender: Any) {
         print("Network Checker - User Retry")
         
+        checkNetworkConnection()
     }
     
 

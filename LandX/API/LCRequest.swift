@@ -44,7 +44,7 @@ class LCRequest {
             AF.request(self.baseUrl + self.domainGetCDNDomain).response { response in
                 if(response.error != nil) {
                     print("CoreRequest > getCDNPath - Network Error")
-                    default_cdn_url = "error#timeout"
+                    default_cdn_url = "LCRequest.Error.Alamofire." + response.error!.localizedDescription
                     semaphore.signal()
                     return
                 }

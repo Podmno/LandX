@@ -1,0 +1,43 @@
+//
+//  LCStorage.swift
+//  LandX
+//
+//  Created by Ki MNO on 2023/7/28.
+//
+
+import Foundation
+
+
+class LCStorage {
+    
+    /// 全局共享的存储器资源
+    static let shared = LCStorage()
+    
+    var cdnUrl: String = ""
+    
+    public func globalSaveForumListData() {
+        
+        
+        
+    }
+    
+    public func globalSaveCDNImgageURL(cdnUrl: String) {
+        
+        print("GlobalConfig > CDN Image Url Updated \(cdnUrl)")
+        self.cdnUrl = cdnUrl
+        
+    }
+    
+    public func getForumNameByID(fid: UInt) {
+        
+        
+        
+    }
+    
+    public func getTimlineNameByID(tid: UInt) {
+        
+        
+        
+    }
+    
+}

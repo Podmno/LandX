@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483A872A73FDC600DB37BD /* LCStorage.swift */; };
 		5D93AC552A6049CC00C7799B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5D93AC542A6049CC00C7799B /* Alamofire */; };
 		5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D960CE92A59B0E9008F26EC /* AppDelegate.swift */; };
 		5D960CEC2A59B0E9008F26EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D960CEB2A59B0E9008F26EC /* SceneDelegate.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D483A872A73FDC600DB37BD /* LCStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStorage.swift; sourceTree = "<group>"; };
 		5D960CE62A59B0E9008F26EC /* LandX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D960CE92A59B0E9008F26EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D960CEB2A59B0E9008F26EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */,
 				5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */,
 				5DB91DE72A6A07E5004998F7 /* LCStruct.swift */,
+				5D483A872A73FDC600DB37BD /* LCStorage.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */,
 				5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */,
 				5DB1737A2A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift in Sources */,
+				5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */,
 				5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */,
 				5D960CEC2A59B0E9008F26EC /* SceneDelegate.swift in Sources */,
 				5DF06E8C2A5ED50E00B07D4F /* VCTableViewDebug.swift in Sources */,
