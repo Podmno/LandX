@@ -29,6 +29,7 @@
 		5DF06E8A2A5ED33100B07D4F /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF06E892A5ED33100B07D4F /* Debug.storyboard */; };
 		5DF06E8C2A5ED50E00B07D4F /* VCTableViewDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06E8B2A5ED50E00B07D4F /* VCTableViewDebug.swift */; };
 		5DF18A422A5DAFCE00523094 /* TRTableCellCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF18A412A5DAFCE00523094 /* TRTableCellCreator.swift */; };
+		5DF692F82A74AA640078A4C3 /* LCDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF692F72A74AA640078A4C3 /* LCDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		5DF06E8B2A5ED50E00B07D4F /* VCTableViewDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTableViewDebug.swift; sourceTree = "<group>"; };
 		5DF0D25E2A5F7FDA00D4CD5E /* Acknowledgement.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Acknowledgement.md; sourceTree = "<group>"; };
 		5DF18A412A5DAFCE00523094 /* TRTableCellCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTableCellCreator.swift; sourceTree = "<group>"; };
+		5DF692F72A74AA640078A4C3 /* LCDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */,
 				5DB91DE72A6A07E5004998F7 /* LCStruct.swift */,
 				5D483A872A73FDC600DB37BD /* LCStorage.swift */,
+				5DF692F72A74AA640078A4C3 /* LCDefaults.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				5DE134702A5E46130008C6CD /* TRVCPreferencesDetail.swift in Sources */,
 				5DAAC4042A68CEEF001D2DC9 /* LCRequest.swift in Sources */,
 				5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */,
+				5DF692F82A74AA640078A4C3 /* LCDefaults.swift in Sources */,
 				5DDB2EBB2A5D7E0C0073FBED /* VCAlphaProgram.swift in Sources */,
 				5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */,
 				5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */,
