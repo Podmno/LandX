@@ -7,23 +7,29 @@
 
 import Foundation
 
-class LCDefaults {
+open class LCDefaults : NSObject {
     
-    func setFirstInitDisplayDataStatus() {
+    
+    
+    let manager = UserDefaults.standard
+    
+    func setFirstInitDisplayDataStatus(status: Bool) {
+        manager.setValue(status, forKey: "landX.firstInitDisplayDataStatus")
+        
+    }
+    
+    func loadFirstInitDisplayDataStatus() -> Bool {
+        return manager.bool(forKey: "landX.firstInitDisplayDataStatus")
+    }
+    
+    func setUserCookieInfo() {
         
         
     }
     
-    func loadFirstInitDisplayDataStatus() {
-        
-    
-    }
-    
-    
-    
+    /// 全部恢复到默认配置
     func restoreDefaults() {
-        
-        
+        manager.setValue(true, forKey: "landX.firstInitDisplayDataStatus")
     }
     
     

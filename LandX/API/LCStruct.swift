@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 
 
-class LSForumList : NSObject {
+open class LSForumList : NSObject {
     
     public var forumListID: UInt = 0
     public var forumListSort: UInt = 0
@@ -31,7 +31,7 @@ class LSForumList : NSObject {
     
 }
 
-class LSForum : NSObject {
+open class LSForum : NSObject {
     
     public var forumID: UInt = 0
     public var forumGroup: UInt = 0
@@ -64,13 +64,13 @@ class LSForum : NSObject {
     
 }
 
-class LSTimelineList : NSObject {
+open class LSTimelineList : NSObject {
     
     public var timelineList: Array<LSTimeline> = []
     
 }
 
-class LSTimeline : NSObject {
+open class LSTimeline : NSObject {
     
     public var timelineID: UInt = 0
     public var timelineName: String = ""
@@ -78,11 +78,16 @@ class LSTimeline : NSObject {
     public var timelineNotice: String = ""
     public var timelineMaxpage: UInt = 0
     
+    public func loadFromJSON(json: JSON) {
+        
+        
+        
+    }
     
 }
 
 
-class LSThread : NSObject {
+open class LSThread : NSObject {
     
     public var threadID: UInt = 0
     public var threadForumID: UInt = 0
@@ -127,7 +132,7 @@ class LSThread : NSObject {
     
 }
 
-class LSPost: NSObject {
+open class LSPost: NSObject {
     
     public var postName: String = ""
     public var postTitle: String = ""
@@ -139,7 +144,7 @@ class LSPost: NSObject {
 }
 
 
-class LSOfficialNotice : NSObject {
+open class LSOfficialNotice : NSObject {
     
     
     public var noticeContent: String = ""

@@ -61,6 +61,8 @@ class VCPreferencesTableView : NSObject ,UITableViewDelegate, UITableViewDataSou
         case 2:
             return "显示设置"
         case 3:
+            return "Plus 功能"
+        case 4:
             return "关于 CrossLand"
         default:
             return "Null"

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LCAPI {
+open class LCAPI : NSObject {
     
     
     

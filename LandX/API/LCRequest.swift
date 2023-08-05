@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 /// Network Request Foundation
-class LCRequest {
+open class LCRequest : NSObject {
     
     let baseUrl = "https://api.nmb.best/api/"
     
@@ -43,7 +43,7 @@ class LCRequest {
         queue.async {
             AF.request(self.baseUrl + self.domainGetCDNDomain).response { response in
                 if(response.error != nil) {
-                    print("CoreRequest > getCDNPath - Network Error")
+                    print("CoreRequest > getCDNPath - Request Error")
                     default_cdn_url = "LCRequest.Error.Alamofire." + response.error!.localizedDescription
                     semaphore.signal()
                     return
@@ -68,13 +68,63 @@ class LCRequest {
         
     }
     
-    func getForumList() {
+    func getForumList() -> JSON {
         
+        print("CoreRequest > Requesting Forum List...")
+        
+        let semaphore = DispatchSemaphore.init(value: 0)
+        let queue = DispatchQueue.init(label: "studio.tri.LandX.getForumList")
+        
+        var result = JSON()
+        
+        queue.async {
+            
+            AF.request(self.baseUrl + self.domainGetForumList).response { response in
+                
+                if(response.error != nil) {
+                    print("CoreRequest > getForumList - Request Error")
+                    semaphore.signal()
+                    return
+                }
+                
+                result = JSON(response.result)
+                semaphore.signal()
+            }
+            
+        }
+
+        semaphore.wait()
+        return result
         
     }
     
-    func getTimelineList() {
+    func getTimelineList() -> JSON {
         
+        print("CoreRequest > Requesting Timeline List...")
+        
+        let semaphore = DispatchSemaphore.init(value: 0)
+        let queue = DispatchQueue.init(label: "studio.tri.LandX.getTimelineList")
+        
+        var result = JSON()
+        
+        queue.async {
+            
+            AF.request(self.baseUrl + self.domainGetForumList).response { response in
+                
+                if(response.error != nil) {
+                    print("CoreRequest > getTimelineList - Request Error")
+                    semaphore.signal()
+                    return
+                }
+                
+                result = JSON(response.result)
+                semaphore.signal()
+            }
+            
+        }
+
+        semaphore.wait()
+        return result
         
     }
     

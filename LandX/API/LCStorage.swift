@@ -8,7 +8,7 @@
 import Foundation
 
 
-class LCStorage {
+open class LCStorage : NSObject {
     
     /// 全局共享的存储器资源
     static let shared = LCStorage()

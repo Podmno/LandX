@@ -53,6 +53,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 DispatchQueue.main.async {
                     self.uiDisplayNetworkError(supportMessage: test_cdn_url)
                 }
+            } else {
+                print("> Remote CDN Url : \(test_cdn_url)")
             }
         }
         
@@ -63,7 +65,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             return
         }
         
-        print("show beta program view controller")
+        print("> show beta program view controller")
         
         vcBetaProgramViewController = sbPreView.instantiateInitialViewController()
         

@@ -15,8 +15,7 @@ class VCAlphaProgram : UIViewController {
     }
     
     @IBAction func btnClickedAgreeAndContinue(_ sender: Any) {
-        
-        
+
         self.dismiss(animated: true)
         
     }
