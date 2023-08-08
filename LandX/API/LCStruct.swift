@@ -8,7 +8,6 @@
 import Foundation
 import SwiftyJSON
 
-
 open class LSForumList : NSObject {
     
     public var forumListID: UInt = 0
@@ -26,9 +25,7 @@ open class LSForumList : NSObject {
             f.loadFromJSON(json: subForums)
             forums.append(f)
         }
-        
     }
-    
 }
 
 open class LSForum : NSObject {
@@ -68,6 +65,15 @@ open class LSTimelineList : NSObject {
     
     public var timelineList: Array<LSTimeline> = []
     
+    public func loadFromJSON(json: JSON) {
+       
+        for (_, timeline_json) in json {
+            
+            var timeline = LSTimeline()
+            timeline.loadFromJSON(json: timeline_json)
+            self.timelineList.append(timeline)
+        }
+    }
 }
 
 open class LSTimeline : NSObject {
@@ -80,6 +86,11 @@ open class LSTimeline : NSObject {
     
     public func loadFromJSON(json: JSON) {
         
+        timelineID = json["id"].uInt ?? 0
+        timelineName = json["name"].string ?? ""
+        timelineDisplayName = json["display_name"].string ?? ""
+        timelineName = json["notice"].string ?? ""
+        timelineMaxpage = json["max_page"].uInt ?? 0
         
         
     }
@@ -123,13 +134,9 @@ open class LSThread : NSObject {
         threadHide = json["Hide"].int ?? 0
         
         // Replies
-        
+        // TODO: Thread Replies Content Load
         threadRemainReplies = json["RemainReplies"].uInt ?? 0
-        
-        
     }
-
-    
 }
 
 open class LSPost: NSObject {

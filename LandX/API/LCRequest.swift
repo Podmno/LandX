@@ -12,6 +12,8 @@ import SwiftyJSON
 /// Network Request Foundation
 open class LCRequest : NSObject {
     
+    let requestManager = LCRequestManager()
+    
     let baseUrl = "https://api.nmb.best/api/"
     
     let domainGetCDNDomain = "getCDNPath"
@@ -71,30 +73,10 @@ open class LCRequest : NSObject {
     func getForumList() -> JSON {
         
         print("CoreRequest > Requesting Forum List...")
-        
-        let semaphore = DispatchSemaphore.init(value: 0)
-        let queue = DispatchQueue.init(label: "studio.tri.LandX.getForumList")
-        
-        var result = JSON()
-        
-        queue.async {
-            
-            AF.request(self.baseUrl + self.domainGetForumList).response { response in
-                
-                if(response.error != nil) {
-                    print("CoreRequest > getForumList - Request Error")
-                    semaphore.signal()
-                    return
-                }
-                
-                result = JSON(response.result)
-                semaphore.signal()
-            }
-            
-        }
 
-        semaphore.wait()
-        return result
+        let url = baseUrl + domainGetForumList
+        return requestManager.serialRequest(url: url)
+
         
     }
     
@@ -102,43 +84,42 @@ open class LCRequest : NSObject {
         
         print("CoreRequest > Requesting Timeline List...")
         
-        let semaphore = DispatchSemaphore.init(value: 0)
-        let queue = DispatchQueue.init(label: "studio.tri.LandX.getTimelineList")
-        
-        var result = JSON()
-        
-        queue.async {
-            
-            AF.request(self.baseUrl + self.domainGetForumList).response { response in
-                
-                if(response.error != nil) {
-                    print("CoreRequest > getTimelineList - Request Error")
-                    semaphore.signal()
-                    return
-                }
-                
-                result = JSON(response.result)
-                semaphore.signal()
-            }
-            
-        }
+        let url = baseUrl + domainGetTimelineList
+        return requestManager.serialRequest(url: url)
 
-        semaphore.wait()
-        return result
         
     }
     
-    func showForum(fid: UInt, fPage: UInt) {
+    func showForum(fid: UInt, fPage: UInt) -> JSON {
+        
+        print("CoreRequest > Show Forum for ID \(fid) page \(fPage)...")
+        
+        let url = baseUrl + domainShowForum
+        let argc = ["id":fid, "page":fPage]
+        
+        return requestManager.serialRequestWithArguments(url: url, arguments: argc)
         
     }
     
-    func showTimeline(thid: UInt, thpage: UInt) {
+    func showTimeline(thid: UInt, thpage: UInt) -> JSON {
         
+        print("CoreRequest > Show Timeline for ID \(thid) page \(thpage)...")
+        
+        let url = baseUrl + domainTimeline
+        let argc = ["id":thid, "page":thpage]
+        
+        return requestManager.serialRequestWithArguments(url: url, arguments: argc)
         
     }
     
-    func showThread(tid: UInt, tpage: UInt) {
+    func showThread(tid: UInt, tpage: UInt) -> JSON {
         
+        print("CoreRequest > Show Thread for ID \(tid) page \(tpage)...")
+        
+        let url = baseUrl + domainThread
+        let argc = ["id":tid, "page":tpage]
+        
+        return requestManager.serialRequestWithArguments(url: url, arguments: argc)
         
     }
     
@@ -147,9 +128,14 @@ open class LCRequest : NSObject {
         
     }
     
-    func showReference(tid: UInt) {
+    func showReference(tid: UInt) -> JSON {
         
+        print("CoreRequest > Show Reference \(tid)...")
         
+        let url = baseUrl + domainRef
+        let argc = ["id":tid]
+        
+        return requestManager.serialRequestWithArguments(url: url, arguments: argc)
     }
     
     
@@ -194,4 +180,69 @@ open class LCRequest : NSObject {
         
         
     }
+}
+
+
+open class LCRequestManager : NSObject {
+    
+    public func serialRequest(url: String) -> JSON {
+        
+        print("Request - Serial request for url > \(url)")
+        
+        let semaphore = DispatchSemaphore.init(value: 0)
+        let queue = DispatchQueue.init(label: "studio.tri.LandX.serialRequest")
+        
+        var result = JSON()
+        
+        queue.async {
+            
+            AF.request(url,method: .get).response { response in
+                
+                if(response.error != nil) {
+                    print("Request - Error for \(response.debugDescription)")
+                    semaphore.signal()
+                    return
+                }
+                
+                result = JSON(response.result)
+                semaphore.signal()
+            }
+            
+        }
+
+        semaphore.wait()
+        return result
+    }
+    
+    public func serialRequestWithArguments(url: String, arguments: Dictionary<String, Any>) -> JSON {
+        
+        print("Request - Serial request for url > \(url) with arguments \(arguments)")
+        
+        let semaphore = DispatchSemaphore.init(value: 0)
+        let queue = DispatchQueue.init(label: "studio.tri.LandX.serialRequestWithArguments")
+        
+        var result = JSON()
+        
+        queue.async {
+            
+            AF.request(url,method: .get,parameters: arguments).response { response in
+                
+                if(response.error != nil) {
+                    print("Request - Error for \(response.debugDescription)")
+                    semaphore.signal()
+                    return
+                }
+                
+                result = JSON(response.result)
+                semaphore.signal()
+            }
+            
+        }
+
+        semaphore.wait()
+        return result
+        
+    }
+    
+    
 }

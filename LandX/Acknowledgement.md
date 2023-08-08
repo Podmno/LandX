@@ -2,8 +2,11 @@
 © 2023 TRIStudio, All Rights Reserved.
 Data Provided by X Land (nmbxd1.com).
 
-Original Concept: Uzamikun
-Software Director: Podmno
+Planning / NanoProduct
+QC / 宇佐见君
+Series Director / Podmno
+
+Developed by TRIStudio
 
 ==========================================================================
 
