@@ -3,7 +3,7 @@
 Data Provided by X Land (nmbxd1.com).
 
 Planning / NanoProduct
-QC / 宇佐见君
+QC / Uzamikun
 Series Director / Podmno
 
 Developed by TRIStudio

@@ -34,7 +34,7 @@
 /* Begin PBXFileReference section */
 		5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRProblemReporter.swift; sourceTree = "<group>"; };
 		5D483A872A73FDC600DB37BD /* LCStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStorage.swift; sourceTree = "<group>"; };
-		5D960CE62A59B0E9008F26EC /* LandX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D960CE62A59B0E9008F26EC /* CrossLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D960CE92A59B0E9008F26EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D960CEB2A59B0E9008F26EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5D960CED2A59B0E9008F26EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		5D960CF22A59B0EE008F26EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D960CF52A59B0EE008F26EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D960CF72A59B0EE008F26EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5D960CFD2A59B0FE008F26EC /* LandX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LandX.entitlements; sourceTree = "<group>"; };
+		5D960CFD2A59B0FE008F26EC /* CrossLand.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CrossLand.entitlements; sourceTree = "<group>"; };
 		5D960CFE2A59B34B008F26EC /* PreView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreView.storyboard; sourceTree = "<group>"; };
 		5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAPI.swift; sourceTree = "<group>"; };
 		5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCRequest.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		5D960CDD2A59B0E8008F26EC = {
 			isa = PBXGroup;
 			children = (
-				5D960CE82A59B0E9008F26EC /* LandX */,
+				5D960CE82A59B0E9008F26EC /* CrossLand */,
 				5D960CE72A59B0E9008F26EC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,12 +97,12 @@
 		5D960CE72A59B0E9008F26EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5D960CE62A59B0E9008F26EC /* LandX.app */,
+				5D960CE62A59B0E9008F26EC /* CrossLand.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5D960CE82A59B0E9008F26EC /* LandX */ = {
+		5D960CE82A59B0E9008F26EC /* CrossLand */ = {
 			isa = PBXGroup;
 			children = (
 				5D3B2B032AA9AA48007C442C /* Privacy */,
@@ -112,7 +112,7 @@
 				5DE1346E2A5E448A0008C6CD /* Preference */,
 				5DDB2EB82A5D73C20073FBED /* ViewController */,
 				5DDB2EB72A5D73A80073FBED /* Storyboard */,
-				5D960CFD2A59B0FE008F26EC /* LandX.entitlements */,
+				5D960CFD2A59B0FE008F26EC /* CrossLand.entitlements */,
 				5D960CE92A59B0E9008F26EC /* AppDelegate.swift */,
 				5D960CEB2A59B0E9008F26EC /* SceneDelegate.swift */,
 				5D960CED2A59B0E9008F26EC /* ViewController.swift */,
@@ -122,7 +122,7 @@
 				5D960CF72A59B0EE008F26EC /* Info.plist */,
 				5DF0D25E2A5F7FDA00D4CD5E /* Acknowledgement.md */,
 			);
-			path = LandX;
+			path = CrossLand;
 			sourceTree = "<group>";
 		};
 		5DCC04DB2A5E4F850076B70D /* Forum */ = {
@@ -194,7 +194,7 @@
 				5DAD99622A6A532100817CE4 /* SwiftyJSON */,
 			);
 			productName = LandX;
-			productReference = 5D960CE62A59B0E9008F26EC /* LandX.app */;
+			productReference = 5D960CE62A59B0E9008F26EC /* CrossLand.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -413,14 +413,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = LandX/LandX.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CrossLand/CrossLand.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = FXSVDYCN2P;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LandX/Info.plist;
+				INFOPLIST_FILE = CrossLand/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CrossLand;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "CrossLand 需要你的相机权限来进行 Cookie 二维码扫描。";
@@ -437,7 +437,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.tri.LandX;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CrossLand;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -452,14 +452,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = LandX/LandX.entitlements;
+				CODE_SIGN_ENTITLEMENTS = CrossLand/CrossLand.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = FXSVDYCN2P;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LandX/Info.plist;
+				INFOPLIST_FILE = CrossLand/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CrossLand;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "CrossLand 需要你的相机权限来进行 Cookie 二维码扫描。";
@@ -476,7 +476,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = studio.tri.LandX;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CrossLand;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

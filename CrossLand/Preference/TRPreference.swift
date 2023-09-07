@@ -42,14 +42,14 @@ let prefConfirguation: Any = [
         TRPrefCell(title: "X 岛用户登录", type: .button, keyPath: "landXpref.button.UserLogin"),
         TRPrefCell(title: "Cookie 登录", type: .button, keyPath: "landXpref.button.CookieLogin")
     ]),
-    TRPrefSection(sectionTitle: "主页面便好",sectionDescription: "底部栏：在底部显示版面与页面切换器。\n侧栏：侧滑以显示版面列表。", sectionContent: [
+    TRPrefSection(sectionTitle: "首页样式",sectionDescription: "底部栏：在底部显示版面与页面切换器。\n侧栏：侧滑以显示版面列表。", sectionContent: [
         TRPrefCell(title: "底栏", type: .checkboxGroup, keyPath: "landXpref.checkbox.buttonBar"),
         TRPrefCell(title: "侧边栏", type: .checkboxGroup, keyPath: "landXpref.checkbox.sideBar"),
         
     ]),
     TRPrefSection(sectionTitle: "图片加载偏好",sectionDescription: "", sectionContent: [
-        TRPrefCell(title: "自动加载图片", type: .button, keyPath: "landXpref.switchbutton.autoPicLoad"),
-        TRPrefCell(title: "显示原图", type: .button, keyPath: "landXpref")
+        TRPrefCell(title: "自动加载图片", type: .switchButton, keyPath: "landXpref.switchbutton.autoPicLoad"),
+        TRPrefCell(title: "显示原图", type: .switchButton, keyPath: "landXpref")
     ])
 
 
@@ -147,10 +147,7 @@ class TRPrefTableCellCreator {
         
     }
 
-    
 }
-
-
 
 
 class TRVCPreference : UIViewController {
@@ -193,81 +190,42 @@ class VCPreferenceTableView : NSObject ,UITableViewDelegate, UITableViewDataSour
     let tableCellCreator = TRPrefTableCellCreator()
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return (prefConfirguation as! Array<Any>).count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return "用户管理"
-        case 1:
-            return "主界面偏好"
-        case 2:
-            return "显示设置"
-        case 3:
-            return "Plus 功能"
-        case 4:
-            return "关于 CrossLand"
-        default:
-            return "Null"
-        }
+        
+        let config_array = prefConfirguation as! Array<TRPrefSection>
+        return config_array[section].sectionTitle
+
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        switch section {
-        case 1:
-            return "决定主界面的展示形式。\n底部栏：在底部展示版面与页面切换器。\n侧边栏：在侧边展示版面列表。"
-        default:
-            return ""
-        }
+        let config_array = prefConfirguation as! Array<TRPrefSection>
+        return config_array[section].sectionDescription
     }
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return 2
-        case 1:
-            return 2
-        case 2:
-            return 2
-        default:
-            return 0
-        }
+        let config_array = prefConfirguation as! Array<TRPrefSection>
+        let config_cell = config_array[section]
+        return config_cell.sectionContent.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if(indexPath.section == 0) {
-            switch indexPath.row {
-            case 0:
-                return tableCellCreator.cellCreateStaticText(text: "X 岛账号登录")
-            case 1:
-                return tableCellCreator.cellCreateStaticText(text: "从 Cookie 登录")
-            default:
-                return tableCellCreator.cellCreateStaticText(text: "Null")
-            }
+        let config_array = prefConfirguation as! Array<TRPrefSection>
+        let config_cell = config_array[indexPath.section]
+        
+        let config_cellContent = config_cell.sectionContent[indexPath.row]
+        
+        switch config_cellContent.type {
+        case .button:
+            return tableCellCreator.cellCreateStaticText(text: config_cellContent.title)
+        case .checkboxGroup:
+            return tableCellCreator.cellCreateCheckBox(text: config_cellContent.title, checked: true)
+        case .switchButton:
+            return tableCellCreator.cellCreateSwitch(text: config_cellContent.title, status: false)
         }
-        if(indexPath.section == 1) {
-            switch indexPath.row {
-            case 0:
-                return tableCellCreator.cellCreateCheckBox(text: "底部栏", checked: true)
-            case 1:
-                return tableCellCreator.cellCreateCheckBox(text: "侧边栏", checked: false)
-            default:
-                return tableCellCreator.cellCreateStaticText(text: "Null")
-            }
-        }
-        if(indexPath.section == 2) {
-            switch indexPath.row {
-            case 0:
-                return tableCellCreator.cellCreateSwitch(text: "显示图片", status: true)
-            case 1:
-                return tableCellCreator.cellCreateSwitch(text: "默认原图", status: false)
-            default:
-                return tableCellCreator.cellCreateStaticText(text: "Null")
-            }
-        }
-        return tableCellCreator.cellCreateStaticText(text: "Null")
         
     }
     
@@ -284,7 +242,7 @@ class VCPreferenceTableView : NSObject ,UITableViewDelegate, UITableViewDataSour
 }
 
 
-class TRPreference : NSObject {
+public class TRPreference : NSObject {
     
     
     
