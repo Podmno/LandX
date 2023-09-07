@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */; };
 		5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483A872A73FDC600DB37BD /* LCStorage.swift */; };
 		5D93AC552A6049CC00C7799B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5D93AC542A6049CC00C7799B /* Alamofire */; };
 		5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D960CE92A59B0E9008F26EC /* AppDelegate.swift */; };
@@ -19,20 +20,19 @@
 		5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */; };
 		5DAAC4042A68CEEF001D2DC9 /* LCRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */; };
 		5DAD99632A6A532100817CE4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DAD99622A6A532100817CE4 /* SwiftyJSON */; };
-		5DB1737A2A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB173792A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift */; };
+		5DB1737A2A5D7F1A0008C4B3 /* TRPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB173792A5D7F1A0008C4B3 /* TRPreference.swift */; };
 		5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB91DE72A6A07E5004998F7 /* LCStruct.swift */; };
 		5DDB2EB62A5D6DA80073FBED /* TRPreferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DDB2EB52A5D6DA80073FBED /* TRPreferences.storyboard */; };
 		5DDB2EBB2A5D7E0C0073FBED /* VCAlphaProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDB2EBA2A5D7E0C0073FBED /* VCAlphaProgram.swift */; };
-		5DE134702A5E46130008C6CD /* TRVCPreferencesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE1346F2A5E46130008C6CD /* TRVCPreferencesDetail.swift */; };
 		5DF06E842A5EC6A900B07D4F /* TRForumViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */; };
 		5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */; };
 		5DF06E8A2A5ED33100B07D4F /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF06E892A5ED33100B07D4F /* Debug.storyboard */; };
 		5DF06E8C2A5ED50E00B07D4F /* VCTableViewDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06E8B2A5ED50E00B07D4F /* VCTableViewDebug.swift */; };
-		5DF18A422A5DAFCE00523094 /* TRTableCellCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF18A412A5DAFCE00523094 /* TRTableCellCreator.swift */; };
 		5DF692F82A74AA640078A4C3 /* LCDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF692F72A74AA640078A4C3 /* LCDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRProblemReporter.swift; sourceTree = "<group>"; };
 		5D483A872A73FDC600DB37BD /* LCStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStorage.swift; sourceTree = "<group>"; };
 		5D960CE62A59B0E9008F26EC /* LandX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D960CE92A59B0E9008F26EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,17 +46,15 @@
 		5D960CFE2A59B34B008F26EC /* PreView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreView.storyboard; sourceTree = "<group>"; };
 		5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAPI.swift; sourceTree = "<group>"; };
 		5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCRequest.swift; sourceTree = "<group>"; };
-		5DB173792A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRVCPreferencesMain.swift; sourceTree = "<group>"; };
+		5DB173792A5D7F1A0008C4B3 /* TRPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPreference.swift; sourceTree = "<group>"; };
 		5DB91DE72A6A07E5004998F7 /* LCStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStruct.swift; sourceTree = "<group>"; };
 		5DDB2EB52A5D6DA80073FBED /* TRPreferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRPreferences.storyboard; sourceTree = "<group>"; };
 		5DDB2EBA2A5D7E0C0073FBED /* VCAlphaProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCAlphaProgram.swift; sourceTree = "<group>"; };
-		5DE1346F2A5E46130008C6CD /* TRVCPreferencesDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRVCPreferencesDetail.swift; sourceTree = "<group>"; };
 		5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRForumViewer.storyboard; sourceTree = "<group>"; };
 		5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRForumViewerTable.swift; sourceTree = "<group>"; };
 		5DF06E892A5ED33100B07D4F /* Debug.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Debug.storyboard; sourceTree = "<group>"; };
 		5DF06E8B2A5ED50E00B07D4F /* VCTableViewDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTableViewDebug.swift; sourceTree = "<group>"; };
 		5DF0D25E2A5F7FDA00D4CD5E /* Acknowledgement.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Acknowledgement.md; sourceTree = "<group>"; };
-		5DF18A412A5DAFCE00523094 /* TRTableCellCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTableCellCreator.swift; sourceTree = "<group>"; };
 		5DF692F72A74AA640078A4C3 /* LCDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +71,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D109B4D2AA8B15300EC9F9B /* ProblemReport */ = {
+			isa = PBXGroup;
+			children = (
+				5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */,
+			);
+			path = ProblemReport;
+			sourceTree = "<group>";
+		};
+		5D3B2B032AA9AA48007C442C /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Privacy;
+			sourceTree = "<group>";
+		};
 		5D960CDD2A59B0E8008F26EC = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +105,8 @@
 		5D960CE82A59B0E9008F26EC /* LandX */ = {
 			isa = PBXGroup;
 			children = (
+				5D3B2B032AA9AA48007C442C /* Privacy */,
+				5D109B4D2AA8B15300EC9F9B /* ProblemReport */,
 				5DF06E822A5EC64300B07D4F /* API */,
 				5DCC04DB2A5E4F850076B70D /* Forum */,
 				5DE1346E2A5E448A0008C6CD /* Preference */,
@@ -140,9 +155,7 @@
 		5DE1346E2A5E448A0008C6CD /* Preference */ = {
 			isa = PBXGroup;
 			children = (
-				5DF18A412A5DAFCE00523094 /* TRTableCellCreator.swift */,
-				5DB173792A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift */,
-				5DE1346F2A5E46130008C6CD /* TRVCPreferencesDetail.swift */,
+				5DB173792A5D7F1A0008C4B3 /* TRPreference.swift */,
 				5DDB2EB52A5D6DA80073FBED /* TRPreferences.storyboard */,
 			);
 			path = Preference;
@@ -244,19 +257,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D960CEE2A59B0E9008F26EC /* ViewController.swift in Sources */,
-				5DE134702A5E46130008C6CD /* TRVCPreferencesDetail.swift in Sources */,
 				5DAAC4042A68CEEF001D2DC9 /* LCRequest.swift in Sources */,
 				5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */,
 				5DF692F82A74AA640078A4C3 /* LCDefaults.swift in Sources */,
 				5DDB2EBB2A5D7E0C0073FBED /* VCAlphaProgram.swift in Sources */,
 				5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */,
+				5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */,
 				5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */,
-				5DB1737A2A5D7F1A0008C4B3 /* TRVCPreferencesMain.swift in Sources */,
+				5DB1737A2A5D7F1A0008C4B3 /* TRPreference.swift in Sources */,
 				5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */,
 				5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */,
 				5D960CEC2A59B0E9008F26EC /* SceneDelegate.swift in Sources */,
 				5DF06E8C2A5ED50E00B07D4F /* VCTableViewDebug.swift in Sources */,
-				5DF18A422A5DAFCE00523094 /* TRTableCellCreator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,13 +7,116 @@
 
 import UIKit
 
+enum TRPrefCellType {
+    case button
+    case checkboxGroup
+    case switchButton
+}
 
 
-class TRVCPreferencesMain : UIViewController {
+/// 生成基本款式的 Table View Cell 样式
+class TRPrefTableCellCreator {
+    
+    
+    /// 静态文字
+    func cellCreateStaticText(text: String) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        cell.accessoryType = .disclosureIndicator
+        
+        if #available(iOS 14.0, *) {
+            var content = cell.defaultContentConfiguration()
+            content.text = text
+            cell.contentConfiguration = content
+        } else {
+            // Fallback on earlier versions
+            cell.textLabel?.text = text
+        }
+        
+        
+        return cell
+    }
+    
+    /// 带有按钮的 Cell
+    func cellCreateSwitch(text: String, status: Bool) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        let switcher = UISwitch()
+        if(status) {
+            switcher.setOn(true, animated: false)
+        } else {
+            switcher.setOn(false, animated: false)
+        }
+        
+        cell.accessoryView = switcher
+        
+        
+        if #available(iOS 14.0, *) {
+            var content = cell.defaultContentConfiguration()
+            content.text = text
+            cell.contentConfiguration = content
+        } else {
+            // Fallback on earlier versions
+            cell.textLabel?.text = text
+        }
+        
+        
+        return cell
+        
+    }
+    
+    /// 带有右侧说明的 Cell
+    func cellCreateSelection(text: String, selection: String) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        cell.accessibilityLabel = selection
+        if #available(iOS 14.0, *) {
+            var content = cell.defaultContentConfiguration()
+            content.text = text
+            cell.contentConfiguration = content
+        } else {
+            // Fallback on earlier versions
+            cell.textLabel?.text = text
+        }
+
+        return cell
+        
+    }
+    
+    
+    /// 带有 CheckBox 的 Cell
+    func cellCreateCheckBox(text: String, checked: Bool) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        if(checked == true) {
+            cell.accessoryType = .checkmark
+        }
+        
+        if #available(iOS 14.0, *) {
+            var content = cell.defaultContentConfiguration()
+            content.text = text
+            cell.contentConfiguration = content
+        } else {
+            // Fallback on earlier versions
+            cell.textLabel?.text = text
+        }
+        
+
+        return cell
+        
+    }
+
+    
+}
+
+
+
+
+class TRVCPreference : UIViewController {
     
     @IBOutlet weak var tvMainContent: UITableView!
     
-    let tableViewMainContentProvider = VCPreferencesTableView()
+    let tableViewMainContentProvider = VCPreferenceTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +147,9 @@ class TRVCPreferencesMain : UIViewController {
 }
 
 
-class VCPreferencesTableView : NSObject ,UITableViewDelegate, UITableViewDataSource {
+class VCPreferenceTableView : NSObject ,UITableViewDelegate, UITableViewDataSource {
     
-    let tableCellCreator = TRTableCellCreator()
+    let tableCellCreator = TRPrefTableCellCreator()
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -135,6 +238,13 @@ class VCPreferencesTableView : NSObject ,UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
+    
+    
+}
+
+
+class TRPreference : NSObject {
+    
     
     
 }

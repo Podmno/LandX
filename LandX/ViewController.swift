@@ -30,14 +30,17 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+
         
-        
-        checkNetworkConnection()
+        //checkNetworkConnection()
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        showBetaProgramViewController()
+        //showBetaProgramViewController()
+        
+        vcPreferences = sbPreferences.instantiateInitialViewController()
+        self.present(vcPreferences!, animated: true)
     }
     
     
@@ -88,7 +91,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             self.lbLoading.alpha = 1.0
         }
         
-        self.lbLoading.text = "错误代码 04-01\n网络连接失败，请检查互联网连接后再试。\n\nSupport Message: \n\(supportMessage)"
+        self.lbLoading.text = "网络连接失败，请检查互联网连接后再试。\n\nSupport Message: \n\(supportMessage)"
 
         
     }

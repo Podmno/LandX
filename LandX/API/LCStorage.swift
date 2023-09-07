@@ -13,6 +13,7 @@ open class LCStorage : NSObject {
     /// 全局共享的存储器资源
     static let shared = LCStorage()
     
+    /// CDN 镜像 URL
     var cdnUrl: String = ""
     
     public func globalSaveForumListData() {

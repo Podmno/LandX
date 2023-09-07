@@ -58,7 +58,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TRForumViewerCell
         
         cell.hideBtnGoThread()
-        cell.hideImgView()
+        cell.hideImageView()
         cell.hideReplyLabel()
         //cell.lbSAGE.layer.transform = CATransform3DMakeScale(0.5, 1.0, 1.0)
         //layer.transform = CATransform3DMakeScale(0.8, 1.0, 1.0)
@@ -110,6 +110,7 @@ class TRForumViewerCell : UITableViewCell {
     @IBOutlet weak var csLbReplyUserHeight: NSLayoutConstraint!
     @IBOutlet weak var csLbReplyContentHeight: NSLayoutConstraint!
     
+    /// 隐藏引用条按钮
     func hideBtnGoThread() {
         /*
         var originFrame = self.btnGoThread.frame
@@ -122,7 +123,8 @@ class TRForumViewerCell : UITableViewCell {
         self.updateConstraints()
     }
     
-    func hideImgView() {
+    /// 隐藏图片显示
+    func hideImageView() {
         
         self.csImgViewWidth.constant = 0.0
         self.csImgViewHeight.constant = 0.0
@@ -131,6 +133,7 @@ class TRForumViewerCell : UITableViewCell {
         
     }
     
+    /// 隐藏回复数
     func hideReplyLabel() {
         
         csLbReplyUserHeight.constant = 0.0
@@ -141,12 +144,14 @@ class TRForumViewerCell : UITableViewCell {
         
     }
     
+    /// 填充 Thread 信息
     func setupThread(thread: LSThread) {
         
         self.thread = thread
         
     }
     
+    /// 用 Thread 信息更新 Cell
     func updateCell() {
         
         lbUser.text = self.thread.threadUserHash
@@ -164,7 +169,7 @@ class TRForumViewerCell : UITableViewCell {
         lbMain.text = self.thread.threadContent
         
         // 目前暂时禁用部分功能
-        hideImgView()
+        hideImageView()
         hideReplyLabel()
         hideBtnGoThread()
     }

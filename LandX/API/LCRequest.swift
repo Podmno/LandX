@@ -125,6 +125,7 @@ open class LCRequest : NSObject {
     
     func showPo(tid: UInt, tpage: UInt) {
         
+        print("CoreRequest > Show Po \(tid) for Page \(tpage)...")
         
     }
     
@@ -182,7 +183,7 @@ open class LCRequest : NSObject {
     }
 }
 
-
+// Core Request 总网络请求
 open class LCRequestManager : NSObject {
     
     public func serialRequest(url: String) -> JSON {
