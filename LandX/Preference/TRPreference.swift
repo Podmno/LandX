@@ -7,12 +7,53 @@
 
 import UIKit
 
+/// Table View Cell 的样式描述
 enum TRPrefCellType {
     case button
     case checkboxGroup
     case switchButton
 }
 
+/// Table View Cell
+struct TRPrefCell {
+    
+    var title: String = ""
+    
+    var type: TRPrefCellType = .button
+    
+    var keyPath: String = ""
+    
+}
+ 
+struct TRPrefSection {
+    
+    var sectionTitle: String = ""
+    var sectionDescription: String = ""
+    
+    
+    var sectionContent: Array<TRPrefCell> = []
+    
+}
+
+
+let prefConfirguation: Any = [
+
+    TRPrefSection(sectionTitle: "通常设置",sectionDescription: "", sectionContent: [
+        TRPrefCell(title: "X 岛用户登录", type: .button, keyPath: "landXpref.button.UserLogin"),
+        TRPrefCell(title: "Cookie 登录", type: .button, keyPath: "landXpref.button.CookieLogin")
+    ]),
+    TRPrefSection(sectionTitle: "主页面便好",sectionDescription: "底部栏：在底部显示版面与页面切换器。\n侧栏：侧滑以显示版面列表。", sectionContent: [
+        TRPrefCell(title: "底栏", type: .checkboxGroup, keyPath: "landXpref.checkbox.buttonBar"),
+        TRPrefCell(title: "侧边栏", type: .checkboxGroup, keyPath: "landXpref.checkbox.sideBar"),
+        
+    ]),
+    TRPrefSection(sectionTitle: "图片加载偏好",sectionDescription: "", sectionContent: [
+        TRPrefCell(title: "自动加载图片", type: .button, keyPath: "landXpref.switchbutton.autoPicLoad"),
+        TRPrefCell(title: "显示原图", type: .button, keyPath: "landXpref")
+    ])
+
+
+]
 
 /// 生成基本款式的 Table View Cell 样式
 class TRPrefTableCellCreator {

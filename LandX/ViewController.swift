@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let sbPreView = UIStoryboard(name: "PreView", bundle: Bundle.main)
-    let sbPreferences = UIStoryboard(name: "TRPreferences", bundle: Bundle.main)
+    let sbPreferences = UIStoryboard(name: "TRPreference", bundle: Bundle.main)
     
     
     @IBOutlet weak var progressLoading: UIActivityIndicatorView!
