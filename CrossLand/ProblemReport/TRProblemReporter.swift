@@ -15,16 +15,51 @@ open class TRProblemReporter : NSObject {
         
  
         let action_view_cancel = UIAlertAction(title: "关闭", style: .default)
-        let action_view_detail = UIAlertAction(title: "查看详情", style: .cancel)
+        let action_view_detail = UIAlertAction(title: "查看详情", style: .cancel, handler: {_ in
+            
+            let info_detail = TRVCProblemReport(nibName: "ProblemReporter", bundle: Bundle.main)
+            info_detail.modalPresentationStyle = .overFullScreen
+            info_detail.modalTransitionStyle = .crossDissolve
+            parentController.present(info_detail, animated: true)
+            
+        })
+        
         
         
         alert_controller.addAction(action_view_cancel)
-        //alert_controller.addAction(action_view_detail)
+        alert_controller.addAction(action_view_detail)
         
  
         parentController.present(alert_controller, animated: true)
         
     }
     
+}
+
+
+open class TRVCProblemReport : UIViewController {
+    
+    
+    
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+
+        
+        
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+
+    }
+    
+    
+    @IBAction func btnClickedReportProblem(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    
+    @IBAction func btnClickedOK(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     
 }

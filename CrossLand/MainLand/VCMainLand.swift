@@ -56,7 +56,8 @@ class VCMainLand : UIViewController {
     
     
     @IBAction func btnClickedForumList(_ sender: Any) {
-        
+        let err = TRProblemReporter()
+        err.showErrorMessage(parentController: self)
     }
     
     @IBAction func btnClickedPreferences(_ sender: Any) {

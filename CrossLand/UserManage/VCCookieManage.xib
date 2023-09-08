@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VCCookieManage" customModule="CrossLand" customModuleProvider="target">
+            <connections>
+                <outlet property="mainTableView" destination="ZfP-wb-qrP" id="DWV-t6-nhT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJ4-r7-n37">
+                    <rect key="frame" x="16" y="513" width="288" height="35"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="完成"/>
+                    <connections>
+                        <action selector="btnClickedFinish:" destination="-1" eventType="touchUpInside" id="Sc5-Rf-KoV"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="饼干管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nsn-NO-mrq">
+                    <rect key="frame" x="16" y="26" width="288" height="27"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZfP-wb-qrP">
+                    <rect key="frame" x="0.0" y="121.5" width="320" height="371.5"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="若要领取或删除 X 岛用户的饼干，请通过 X 岛网页进行操作。最多可以管理 10 个饼干。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjk-xv-qMq">
+                    <rect key="frame" x="20" y="68" width="280" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="nsn-NO-mrq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="2YA-pH-cKa"/>
+                <constraint firstItem="SJ4-r7-n37" firstAttribute="top" secondItem="ZfP-wb-qrP" secondAttribute="bottom" constant="20" id="5HD-dC-j6F"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="SJ4-r7-n37" secondAttribute="bottom" constant="20" id="Bb9-fV-h0C"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SJ4-r7-n37" secondAttribute="trailing" constant="16" id="C6W-WK-btu"/>
+                <constraint firstItem="Vjk-xv-qMq" firstAttribute="top" secondItem="nsn-NO-mrq" secondAttribute="bottom" constant="15" id="N2j-WF-9JH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nsn-NO-mrq" secondAttribute="trailing" constant="16" id="QNM-C0-FVz"/>
+                <constraint firstItem="SJ4-r7-n37" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="WPT-1Y-SPl"/>
+                <constraint firstItem="nsn-NO-mrq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="26" id="YPG-us-H6U"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vjk-xv-qMq" secondAttribute="trailing" constant="20" id="cT7-Xi-KFX"/>
+                <constraint firstItem="ZfP-wb-qrP" firstAttribute="top" secondItem="Vjk-xv-qMq" secondAttribute="bottom" constant="20" id="chO-eD-sm6"/>
+                <constraint firstItem="ZfP-wb-qrP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kmW-od-Sik"/>
+                <constraint firstItem="Vjk-xv-qMq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="qIh-Dk-e5k"/>
+                <constraint firstItem="ZfP-wb-qrP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xGe-JP-MEK"/>
+            </constraints>
+            <point key="canvasLocation" x="129.375" y="-11.619718309859156"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

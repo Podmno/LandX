@@ -11,6 +11,9 @@
 		5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483A872A73FDC600DB37BD /* LCStorage.swift */; };
 		5D6AADC12AAAD0A200419996 /* TRForumViewerManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC02AAAD0A200419996 /* TRForumViewerManage.swift */; };
 		5D6AADC52AAB238300419996 /* LMCacheManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC42AAB238300419996 /* LMCacheManage.swift */; };
+		5D6AADC92AAB261D00419996 /* VCCookieManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC72AAB261D00419996 /* VCCookieManage.swift */; };
+		5D6AADCA2AAB261D00419996 /* VCCookieManage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D6AADC82AAB261D00419996 /* VCCookieManage.xib */; };
+		5D6AADCC2AAB3E3C00419996 /* ProblemReporter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D6AADCB2AAB3E3C00419996 /* ProblemReporter.xib */; };
 		5D6ED6E12AAAA12D005AEDEC /* TRPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6ED6E02AAAA12D005AEDEC /* TRPrivacy.swift */; };
 		5D6ED6E32AAAB491005AEDEC /* MainLand.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D6ED6E22AAAB491005AEDEC /* MainLand.storyboard */; };
 		5D6ED6E52AAAB4A5005AEDEC /* VCMainLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6ED6E42AAAB4A5005AEDEC /* VCMainLand.swift */; };
@@ -27,10 +30,8 @@
 		5DB1737A2A5D7F1A0008C4B3 /* TRPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB173792A5D7F1A0008C4B3 /* TRPreference.swift */; };
 		5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB91DE72A6A07E5004998F7 /* LCStruct.swift */; };
 		5DDB2EB62A5D6DA80073FBED /* TRPreference.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DDB2EB52A5D6DA80073FBED /* TRPreference.storyboard */; };
-		5DDB2EBB2A5D7E0C0073FBED /* VCAlphaProgram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDB2EBA2A5D7E0C0073FBED /* VCAlphaProgram.swift */; };
 		5DF06E842A5EC6A900B07D4F /* TRForumViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */; };
 		5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */; };
-		5DF06E8C2A5ED50E00B07D4F /* VCTableViewDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06E8B2A5ED50E00B07D4F /* VCTableViewDebug.swift */; };
 		5DF692F82A74AA640078A4C3 /* LCDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF692F72A74AA640078A4C3 /* LCDefaults.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,9 @@
 		5D483A872A73FDC600DB37BD /* LCStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStorage.swift; sourceTree = "<group>"; };
 		5D6AADC02AAAD0A200419996 /* TRForumViewerManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRForumViewerManage.swift; sourceTree = "<group>"; };
 		5D6AADC42AAB238300419996 /* LMCacheManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMCacheManage.swift; sourceTree = "<group>"; };
+		5D6AADC72AAB261D00419996 /* VCCookieManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCookieManage.swift; sourceTree = "<group>"; };
+		5D6AADC82AAB261D00419996 /* VCCookieManage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCCookieManage.xib; sourceTree = "<group>"; };
+		5D6AADCB2AAB3E3C00419996 /* ProblemReporter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemReporter.xib; sourceTree = "<group>"; };
 		5D6ED6E02AAAA12D005AEDEC /* TRPrivacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPrivacy.swift; sourceTree = "<group>"; };
 		5D6ED6E22AAAB491005AEDEC /* MainLand.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainLand.storyboard; sourceTree = "<group>"; };
 		5D6ED6E42AAAB4A5005AEDEC /* VCMainLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMainLand.swift; sourceTree = "<group>"; };
@@ -56,10 +60,8 @@
 		5DB173792A5D7F1A0008C4B3 /* TRPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPreference.swift; sourceTree = "<group>"; };
 		5DB91DE72A6A07E5004998F7 /* LCStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStruct.swift; sourceTree = "<group>"; };
 		5DDB2EB52A5D6DA80073FBED /* TRPreference.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRPreference.storyboard; sourceTree = "<group>"; };
-		5DDB2EBA2A5D7E0C0073FBED /* VCAlphaProgram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCAlphaProgram.swift; sourceTree = "<group>"; };
 		5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRForumViewer.storyboard; sourceTree = "<group>"; };
 		5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRForumViewerTable.swift; sourceTree = "<group>"; };
-		5DF06E8B2A5ED50E00B07D4F /* VCTableViewDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTableViewDebug.swift; sourceTree = "<group>"; };
 		5DF0D25E2A5F7FDA00D4CD5E /* Acknowledgement.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Acknowledgement.md; sourceTree = "<group>"; };
 		5DF692F72A74AA640078A4C3 /* LCDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */,
+				5D6AADCB2AAB3E3C00419996 /* ProblemReporter.xib */,
 			);
 			path = ProblemReport;
 			sourceTree = "<group>";
@@ -99,6 +102,15 @@
 				5D6AADC42AAB238300419996 /* LMCacheManage.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		5D6AADC62AAB25A600419996 /* UserManage */ = {
+			isa = PBXGroup;
+			children = (
+				5D6AADC72AAB261D00419996 /* VCCookieManage.swift */,
+				5D6AADC82AAB261D00419996 /* VCCookieManage.xib */,
+			);
+			path = UserManage;
 			sourceTree = "<group>";
 		};
 		5D960CDD2A59B0E8008F26EC = {
@@ -120,14 +132,14 @@
 		5D960CE82A59B0E9008F26EC /* CrossLand */ = {
 			isa = PBXGroup;
 			children = (
+				5DDB2EB82A5D73C20073FBED /* MainLand */,
+				5D6AADC62AAB25A600419996 /* UserManage */,
 				5D6AADC32AAB229A00419996 /* Cache */,
 				5D3B2B032AA9AA48007C442C /* Privacy */,
 				5D109B4D2AA8B15300EC9F9B /* ProblemReport */,
 				5DF06E822A5EC64300B07D4F /* API */,
 				5DCC04DB2A5E4F850076B70D /* Forum */,
 				5DE1346E2A5E448A0008C6CD /* Preference */,
-				5DDB2EB82A5D73C20073FBED /* ViewController */,
-				5DDB2EB72A5D73A80073FBED /* Storyboard */,
 				5D960CE92A59B0E9008F26EC /* AppDelegate.swift */,
 				5D960CEB2A59B0E9008F26EC /* SceneDelegate.swift */,
 				5D960CED2A59B0E9008F26EC /* ViewController.swift */,
@@ -151,22 +163,13 @@
 			path = Forum;
 			sourceTree = "<group>";
 		};
-		5DDB2EB72A5D73A80073FBED /* Storyboard */ = {
+		5DDB2EB82A5D73C20073FBED /* MainLand */ = {
 			isa = PBXGroup;
 			children = (
+				5D6ED6E42AAAB4A5005AEDEC /* VCMainLand.swift */,
 				5D6ED6E22AAAB491005AEDEC /* MainLand.storyboard */,
 			);
-			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		5DDB2EB82A5D73C20073FBED /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				5DDB2EBA2A5D7E0C0073FBED /* VCAlphaProgram.swift */,
-				5D6ED6E42AAAB4A5005AEDEC /* VCMainLand.swift */,
-				5DF06E8B2A5ED50E00B07D4F /* VCTableViewDebug.swift */,
-			);
-			path = ViewController;
+			path = MainLand;
 			sourceTree = "<group>";
 		};
 		5DE1346E2A5E448A0008C6CD /* Preference */ = {
@@ -256,11 +259,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D6AADCC2AAB3E3C00419996 /* ProblemReporter.xib in Resources */,
 				5DF06E842A5EC6A900B07D4F /* TRForumViewer.storyboard in Resources */,
 				5D960CF62A59B0EE008F26EC /* LaunchScreen.storyboard in Resources */,
 				5D960CF32A59B0EE008F26EC /* Assets.xcassets in Resources */,
 				5D960CF12A59B0E9008F26EC /* Main.storyboard in Resources */,
 				5DDB2EB62A5D6DA80073FBED /* TRPreference.storyboard in Resources */,
+				5D6AADCA2AAB261D00419996 /* VCCookieManage.xib in Resources */,
 				5D6ED6E32AAAB491005AEDEC /* MainLand.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,16 +284,15 @@
 				5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */,
 				5DF692F82A74AA640078A4C3 /* LCDefaults.swift in Sources */,
 				5D6ED6E12AAAA12D005AEDEC /* TRPrivacy.swift in Sources */,
-				5DDB2EBB2A5D7E0C0073FBED /* VCAlphaProgram.swift in Sources */,
 				5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */,
 				5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */,
 				5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */,
 				5DB1737A2A5D7F1A0008C4B3 /* TRPreference.swift in Sources */,
+				5D6AADC92AAB261D00419996 /* VCCookieManage.swift in Sources */,
 				5D6ED6E52AAAB4A5005AEDEC /* VCMainLand.swift in Sources */,
 				5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */,
 				5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */,
 				5D960CEC2A59B0E9008F26EC /* SceneDelegate.swift in Sources */,
-				5DF06E8C2A5ED50E00B07D4F /* VCTableViewDebug.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

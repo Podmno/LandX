@@ -15,7 +15,7 @@ import UIKit
 let prefConfirguation: Any = [
     
     TRPrefSection(sectionTitle: "饼干管理",sectionDescription: "", sectionContent: [
-        TRPrefCell(title: "我的饼干", type: .button, keyPath: "landXpref.button.CookieManage")
+        TRPrefCell(title: "我的饼干管理", type: .button, keyPath: "landXpref.button.CookieManage")
     ]),
     TRPrefSection(sectionTitle: "用户登录",sectionDescription: "", sectionContent: [
         TRPrefCell(title: "X 岛用户登录", type: .button, keyPath: "landXpref.button.UserLogin")
@@ -26,10 +26,10 @@ let prefConfirguation: Any = [
         TRPrefCell(title: "始终显示原图", type: .switchButton, keyPath: "landXpref")
     ]),
     TRPrefSection(sectionTitle: "缓存管理",sectionDescription: "清理缓存数据包括：临时保存的图片与帖子信息、缓存的版面信息与列表。", sectionContent: [
-        TRPrefCell(title: "清理软件缓存", type: .button, keyPath: "landXpref.button.Refresh")
+        TRPrefCell(title: "清理软件缓存", type: .button, keyPath: "landXpref.button.CacheClear")
     ]),
     TRPrefSection(sectionTitle: "关于软件",sectionDescription: "版本 1.0", sectionContent: [
-        TRPrefCell(title: "开源代码使用 & STAFF CREDIT", type: .button, keyPath: "landXpref.button.STAFF")
+        TRPrefCell(title: "开源代码使用 & STAFF CREDITS", type: .button, keyPath: "landXpref.button.STAFF")
     ]),
 
 
@@ -202,12 +202,16 @@ class TRVCPreference : UIViewController {
         tvMainContent.reloadData()
         
         
-        let action_CookieLogin = {
-            let alert = TRProblemReporter()
-            alert.showErrorMessage(parentController: self)
+        let action_CookieManage = {
+            
+            let cookie_manager = VCCookieManage(nibName: "VCCookieManage", bundle: Bundle.main)
+            self.present(cookie_manager, animated: true)
+            //let err = TRProblemReporter()
+            //err.showErrorMessage(parentController: self)
+            
         }
         
-        self.tableViewMainContentProvider.setActionForKeyPath(keyPath: "landXpref.button.CookieLogin", action: action_CookieLogin)
+        self.tableViewMainContentProvider.setActionForKeyPath(keyPath: "landXpref.button.CookieManage", action: action_CookieManage)
         
         
     }
