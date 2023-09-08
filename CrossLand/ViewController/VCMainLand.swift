@@ -30,7 +30,10 @@ class VCMainLand : UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        self.mainViewContainer.alpha = 0.0
+        UIView.animate(withDuration: 0.5, animations: {
+            self.mainViewContainer.alpha += 10
+        })
         
         let sb_trforum = UIStoryboard(name: "TRForumViewer", bundle: Bundle.main)
         forumViewer = sb_trforum.instantiateViewController(withIdentifier: "TRForumTable") as? TRForumViewerTable

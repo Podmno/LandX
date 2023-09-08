@@ -13,20 +13,24 @@ import UIKit
 //
 
 let prefConfirguation: Any = [
+    
+    TRPrefSection(sectionTitle: "饼干管理",sectionDescription: "", sectionContent: [
+        TRPrefCell(title: "我的饼干", type: .button, keyPath: "landXpref.button.CookieManage")
+    ]),
+    TRPrefSection(sectionTitle: "用户登录",sectionDescription: "", sectionContent: [
+        TRPrefCell(title: "X 岛用户登录", type: .button, keyPath: "landXpref.button.UserLogin")
+    ]),
 
-    TRPrefSection(sectionTitle: "通常设置",sectionDescription: "", sectionContent: [
-        TRPrefCell(title: "X 岛用户登录", type: .button, keyPath: "landXpref.button.UserLogin"),
-        TRPrefCell(title: "Cookie 登录", type: .button, keyPath: "landXpref.button.CookieLogin")
-    ]),
-    TRPrefSection(sectionTitle: "首页样式",sectionDescription: "底部栏：在底部显示版面与页面切换器。\n侧栏：侧滑以显示版面列表。", sectionContent: [
-        TRPrefCell(title: "底栏", type: .checkboxGroup, keyPath: "landXpref.checkbox.buttonBar"),
-        TRPrefCell(title: "侧边栏", type: .checkboxGroup, keyPath: "landXpref.checkbox.sideBar"),
-        
-    ]),
     TRPrefSection(sectionTitle: "图片加载偏好",sectionDescription: "", sectionContent: [
-        TRPrefCell(title: "自动加载图片", type: .switchButton, keyPath: "landXpref.switchbutton.autoPicLoad"),
-        TRPrefCell(title: "显示原图", type: .switchButton, keyPath: "landXpref")
-    ])
+        TRPrefCell(title: "蜂窝网络下自动加载图片", type: .switchButton, keyPath: "landXpref.switchbutton.autoPicLoad"),
+        TRPrefCell(title: "始终显示原图", type: .switchButton, keyPath: "landXpref")
+    ]),
+    TRPrefSection(sectionTitle: "缓存管理",sectionDescription: "缓存数据包括临时图片与临时文件等信息，清除缓存数据后需要从互联网重新下载。", sectionContent: [
+        TRPrefCell(title: "清理软件缓存", type: .button, keyPath: "landXpref.button.Refresh")
+    ]),
+    TRPrefSection(sectionTitle: "关于软件",sectionDescription: "版本 1.0", sectionContent: [
+        TRPrefCell(title: "开源代码使用 & STAFF CREDIT", type: .button, keyPath: "landXpref.button.STAFF")
+    ]),
 
 
 ]
@@ -48,6 +52,8 @@ enum TRPrefCellType {
 struct TRPrefCell {
     
     var title: String = ""
+    var subTitle: String = ""
+    
     
     var type: TRPrefCellType = .button
     
@@ -71,8 +77,10 @@ struct TRPrefSection {
 class TRPrefTableCellCreator {
     
     
-    /// 静态文字
-    func cellCreateStaticText(text: String) -> UITableViewCell {
+    
+    
+    /// 静态文字 包含次要文字
+    func cellCreateStaticText(text: String, subText: String) -> UITableViewCell {
         
         let cell = UITableViewCell()
         cell.accessoryType = .disclosureIndicator
@@ -80,10 +88,13 @@ class TRPrefTableCellCreator {
         if #available(iOS 14.0, *) {
             var content = cell.defaultContentConfiguration()
             content.text = text
+            content.secondaryText = subText
             cell.contentConfiguration = content
+            
         } else {
             // Fallback on earlier versions
-            cell.textLabel?.text = text
+            cell.textLabel?.text = text + "\n" + subText
+            
         }
         
         
@@ -91,7 +102,7 @@ class TRPrefTableCellCreator {
     }
     
     /// 带有按钮的 Cell
-    func cellCreateSwitch(text: String, status: Bool) -> UITableViewCell {
+    func cellCreateSwitch(text: String, subText: String, status: Bool) -> UITableViewCell {
         
         let cell = UITableViewCell()
         let switcher = UISwitch()
@@ -107,10 +118,11 @@ class TRPrefTableCellCreator {
         if #available(iOS 14.0, *) {
             var content = cell.defaultContentConfiguration()
             content.text = text
+            content.secondaryText = subText
             cell.contentConfiguration = content
         } else {
             // Fallback on earlier versions
-            cell.textLabel?.text = text
+            cell.textLabel?.text = text + "\n" + subText
         }
         
         
@@ -119,17 +131,18 @@ class TRPrefTableCellCreator {
     }
     
     /// 带有右侧说明的 Cell
-    func cellCreateSelection(text: String, selection: String) -> UITableViewCell {
+    func cellCreateSelection(text: String,subText: String, selection: String) -> UITableViewCell {
         
         let cell = UITableViewCell()
         cell.accessibilityLabel = selection
         if #available(iOS 14.0, *) {
             var content = cell.defaultContentConfiguration()
             content.text = text
+            content.secondaryText = subText
             cell.contentConfiguration = content
         } else {
             // Fallback on earlier versions
-            cell.textLabel?.text = text
+            cell.textLabel?.text = text + "\n" + subText
         }
 
         return cell
@@ -138,7 +151,7 @@ class TRPrefTableCellCreator {
     
     
     /// 带有 CheckBox 的 Cell
-    func cellCreateCheckBox(text: String, checked: Bool) -> UITableViewCell {
+    func cellCreateCheckBox(text: String, subText: String ,checked: Bool) -> UITableViewCell {
         
         let cell = UITableViewCell()
         if(checked == true) {
@@ -148,10 +161,11 @@ class TRPrefTableCellCreator {
         if #available(iOS 14.0, *) {
             var content = cell.defaultContentConfiguration()
             content.text = text
+            content.secondaryText = subText
             cell.contentConfiguration = content
         } else {
             // Fallback on earlier versions
-            cell.textLabel?.text = text
+            cell.textLabel?.text = text + "\n" + subText
         }
         
 
@@ -247,11 +261,11 @@ class VCPreferenceTableView : NSObject ,UITableViewDelegate, UITableViewDataSour
         
         switch config_cellContent.type {
         case .button:
-            return tableCellCreator.cellCreateStaticText(text: config_cellContent.title)
+            return tableCellCreator.cellCreateStaticText(text: config_cellContent.title, subText: config_cellContent.subTitle)
         case .checkboxGroup:
-            return tableCellCreator.cellCreateCheckBox(text: config_cellContent.title, checked: true)
+            return tableCellCreator.cellCreateCheckBox(text: config_cellContent.title,subText: config_cellContent.subTitle, checked: true)
         case .switchButton:
-            return tableCellCreator.cellCreateSwitch(text: config_cellContent.title, status: false)
+            return tableCellCreator.cellCreateSwitch(text: config_cellContent.title,subText: config_cellContent.subTitle, status: false)
         }
         
     }
@@ -267,7 +281,7 @@ class VCPreferenceTableView : NSObject ,UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRow(at: indexPath, animated: true)
+        
         
         // 处理点击
         
@@ -299,6 +313,8 @@ class VCPreferenceTableView : NSObject ,UITableViewDelegate, UITableViewDataSour
         case .switchButton:
             break
         }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     /// 由 KeyPath 指定按钮的动作
@@ -347,5 +363,12 @@ public class TRPreference : NSObject {
  func numberOfSections(in tableView: UITableView) -> Int {
      return 5
  }
+ 
+ 
+ TRPrefSection(sectionTitle: "首页样式",sectionDescription: "", sectionContent: [
+     TRPrefCell(title: "底栏", subTitle: "在主界面的底部显示版面与页面切换器",type: .checkboxGroup, keyPath: "landXpref.checkbox.buttonBar"),
+     TRPrefCell(title: "侧边栏", subTitle: "在主页面侧滑以切换版面",type: .checkboxGroup, keyPath: "landXpref.checkbox.sideBar"),
+     
+ ]),
  
  */

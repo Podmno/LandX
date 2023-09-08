@@ -45,7 +45,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         //self.navigationController?.pushViewController(vcPreferences!, animated: true)
 
         vcMain?.modalPresentationStyle = .fullScreen
-        self.present(vcMain!, animated: false)
+        self.present(vcMain!, animated: true)
         //self.navigationController?.pushViewController(vcMain!, animated: true)
     }
     
