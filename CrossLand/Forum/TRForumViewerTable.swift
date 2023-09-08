@@ -20,10 +20,17 @@ class TRForumViewerTable : UIViewController {
         //mainTable.loadData()
         mainTableView.delegate = mainTable
         mainTableView.dataSource = mainTable
+        
+        let th1 = LSThread()
+        th1.threadUserHash = "XXXXX"
+        mainTable.threadDisplayQueue.append(th1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setupRefreshUp()
+        
+
+        
         
         mainTableView.reloadData()
     }
@@ -45,11 +52,11 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
     
 
     //let threadXIBStoryboard = UIStoryboard(name: "TRForumViewer", bundle: Bundle.main)
-    
+    var threadDisplayQueue: [LSThread] = []
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return threadDisplayQueue.count
     }
     
     
@@ -61,6 +68,8 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
         cell.hideBtnGoThread()
         cell.hideImageView()
         cell.hideReplyLabel()
+        
+        cell.setupThread(thread: threadDisplayQueue[indexPath.row])
         //cell.lbSAGE.layer.transform = CATransform3DMakeScale(0.5, 1.0, 1.0)
         //layer.transform = CATransform3DMakeScale(0.8, 1.0, 1.0)
         //cell?.contentView.addSubview(threadStack[indexPath.row].view)
@@ -149,6 +158,7 @@ class TRForumViewerCell : UITableViewCell {
         
         self.thread = thread
         
+        updateCell()
     }
     
     /// 用 Thread 信息更新 Cell

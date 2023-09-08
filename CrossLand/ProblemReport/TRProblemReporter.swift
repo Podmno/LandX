@@ -20,6 +20,8 @@ open class TRProblemReporter : NSObject {
             let info_detail = TRVCProblemReport(nibName: "ProblemReporter", bundle: Bundle.main)
             info_detail.modalPresentationStyle = .overFullScreen
             info_detail.modalTransitionStyle = .crossDissolve
+            // 修改状态栏的颜色
+            info_detail.modalPresentationCapturesStatusBarAppearance = true
             parentController.present(info_detail, animated: true)
             
         })
@@ -29,7 +31,7 @@ open class TRProblemReporter : NSObject {
         alert_controller.addAction(action_view_cancel)
         alert_controller.addAction(action_view_detail)
         
- 
+        
         parentController.present(alert_controller, animated: true)
         
     }
@@ -44,8 +46,10 @@ open class TRVCProblemReport : UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        
+    }
+    
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     open override func viewDidAppear(_ animated: Bool) {
