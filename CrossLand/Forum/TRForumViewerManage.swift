@@ -21,7 +21,7 @@ enum TRForumViewerType {
     
 }
 
-class TRForumViewerManager : NSObject {
+class TRForumViewerManage : NSObject {
     
     var viewerType: TRForumViewerType = .postFlow
     
@@ -32,8 +32,9 @@ class TRForumViewerManager : NSObject {
         self.viewerType = viewerType
     }
     
-    func getCoreView() {
+    func getCoreViewController() -> UIViewController? {
         
+        return forumViewerTable
         
     }
     

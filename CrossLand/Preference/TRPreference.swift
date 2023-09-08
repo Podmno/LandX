@@ -25,7 +25,7 @@ let prefConfirguation: Any = [
         TRPrefCell(title: "蜂窝网络下自动加载图片", type: .switchButton, keyPath: "landXpref.switchbutton.autoPicLoad"),
         TRPrefCell(title: "始终显示原图", type: .switchButton, keyPath: "landXpref")
     ]),
-    TRPrefSection(sectionTitle: "缓存管理",sectionDescription: "缓存数据包括临时图片与临时文件等信息，清除缓存数据后需要从互联网重新下载。", sectionContent: [
+    TRPrefSection(sectionTitle: "缓存管理",sectionDescription: "清理缓存数据包括：临时保存的图片与帖子信息、缓存的版面信息与列表。", sectionContent: [
         TRPrefCell(title: "清理软件缓存", type: .button, keyPath: "landXpref.button.Refresh")
     ]),
     TRPrefSection(sectionTitle: "关于软件",sectionDescription: "版本 1.0", sectionContent: [

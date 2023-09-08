@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="mac" appearance="light">
+    <device id="retina4_0" orientation="portrait" appearance="light">
         <simulatedSceneSize key="mac" width="800" height="600"/>
     </device>
     <dependencies>
@@ -14,30 +14,20 @@
         <!--Loading-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Loading" id="BYZ-38-t0r" customClass="ViewController" customModule="LandX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Loading" id="BYZ-38-t0r" customClass="ViewController" customModule="CrossLand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD1-OP-DMX">
-                                <rect key="frame" x="264" y="280" width="273" height="40.5"/>
-                                <string key="text">正在连接 X 岛以获取在线资料。
-请确保网络的连接，不要关闭软件。</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MD1-OP-DMX">
+                                <rect key="frame" x="160" y="284" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5sw-9p-msc">
-                                <rect key="frame" x="390" y="240" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5sw-9p-msc">
+                                <rect key="frame" x="150" y="244" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EzX-YU-wo3">
-                                <rect key="frame" x="353" y="370" width="94" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="重新加载"/>
-                                <connections>
-                                    <action selector="btnClickedRetry:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Vd-ug-zgj"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -45,13 +35,10 @@
                             <constraint firstItem="MD1-OP-DMX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="01J-iI-a07"/>
                             <constraint firstItem="MD1-OP-DMX" firstAttribute="top" secondItem="5sw-9p-msc" secondAttribute="bottom" constant="20" id="FxZ-Lr-CeI"/>
                             <constraint firstItem="5sw-9p-msc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IHE-pk-YbE"/>
-                            <constraint firstItem="EzX-YU-wo3" firstAttribute="top" secondItem="MD1-OP-DMX" secondAttribute="bottom" constant="50" id="Yr8-vm-Utv"/>
-                            <constraint firstItem="EzX-YU-wo3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pcn-Sd-fNA"/>
                             <constraint firstItem="MD1-OP-DMX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uKv-9c-Gvb"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnRefresh" destination="EzX-YU-wo3" id="kTL-Uo-phA"/>
                         <outlet property="lbLoading" destination="MD1-OP-DMX" id="HSP-1F-00T"/>
                         <outlet property="progressLoading" destination="5sw-9p-msc" id="y1S-Vf-abj"/>
                     </connections>

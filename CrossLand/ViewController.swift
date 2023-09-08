@@ -9,24 +9,15 @@ import UIKit
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    let sbPreView = UIStoryboard(name: "PreView", bundle: Bundle.main)
-    
-    
+
     let sbMainLand = UIStoryboard(name: "MainLand", bundle: Bundle.main)
     
     @IBOutlet weak var progressLoading: UIActivityIndicatorView!
     
     @IBOutlet weak var lbLoading: UILabel!
     
-    @IBOutlet weak var btnRefresh: UIButton!
-    
-    var vcBetaProgramViewController: UIViewController? = nil
-
-    var vcDebugTableView: UIViewController? = nil
-    
     var vcMain: UIViewController? = nil
     
-    var displayBetaProgramHint = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +35,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         //vcPreferences = sbPreferences.instantiateInitialViewController()
         //self.navigationController?.pushViewController(vcPreferences!, animated: true)
 
+
         vcMain?.modalPresentationStyle = .fullScreen
         self.present(vcMain!, animated: true)
+        
+        
         //self.navigationController?.pushViewController(vcMain!, animated: true)
     }
     
@@ -53,7 +47,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     func checkNetworkConnection() {
         progressLoading.startAnimating()
         self.progressLoading.isHidden = false
-        self.btnRefresh.isHidden = true
         let que = DispatchQueue(label: "studio.tri.LandX.networkCheck")
         que.async {
             let re = LCRequest()
@@ -68,24 +61,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
-    func showBetaProgramViewController() {
-        if(!displayBetaProgramHint) {
-            return
-        }
-        
-        print("> show beta program view controller")
-        
-        vcBetaProgramViewController = sbPreView.instantiateInitialViewController()
-        
 
-        //self.navigationController?.pushViewController(vcBe, animated: )
-        self.present(vcBetaProgramViewController!, animated: true)
-        displayBetaProgramHint = false
-    }
     
     func uiDisplayNetworkError(supportMessage: String) {
         
-        self.btnRefresh.isHidden = false
         self.progressLoading.stopAnimating()
         self.progressLoading.isHidden = true
         
@@ -143,5 +122,19 @@ self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
  
  
+ func showBetaProgramViewController() {
+     if(!displayBetaProgramHint) {
+         return
+     }
+     
+     print("> show beta program view controller")
+     
+     vcBetaProgramViewController = sbPreView.instantiateInitialViewController()
+     
+
+     //self.navigationController?.pushViewController(vcBe, animated: )
+     self.present(vcBetaProgramViewController!, animated: true)
+     displayBetaProgramHint = false
+ }
  
  */

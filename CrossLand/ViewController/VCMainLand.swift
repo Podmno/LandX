@@ -25,18 +25,16 @@ class VCMainLand : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let sb_trforum = UIStoryboard(name: "TRForumViewer", bundle: Bundle.main)
+        forumViewer = sb_trforum.instantiateViewController(withIdentifier: "TRForumTable") as? TRForumViewerTable
+
         
     }
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.mainViewContainer.alpha = 0.0
-        UIView.animate(withDuration: 0.5, animations: {
-            self.mainViewContainer.alpha += 10
-        })
         
-        let sb_trforum = UIStoryboard(name: "TRForumViewer", bundle: Bundle.main)
-        forumViewer = sb_trforum.instantiateViewController(withIdentifier: "TRForumTable") as? TRForumViewerTable
         // 重要： 设置 Frame 后才能够正常滚动
         // 设定为 view.frame 占满空间 而 container 的 frame 会空出一部分空间
         forumViewer!.view.frame = mainViewContainer.bounds
@@ -44,6 +42,13 @@ class VCMainLand : UIViewController {
         mainViewContainer.addSubview((forumViewer?.view)!)
         // 添加 didMove 响应滚动操作
         forumViewer?.didMove(toParent: self)
+        
+        self.mainViewContainer.alpha = 0.0
+        UIView.animate(withDuration: 0.1, animations: {
+            self.mainViewContainer.alpha = 1.0
+        })
+        
+
         
     }
     

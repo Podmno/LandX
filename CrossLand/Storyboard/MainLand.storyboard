@@ -27,11 +27,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYe-XX-pTL">
-                                <rect key="frame" x="16" y="505" width="140" height="33"/>
+                                <rect key="frame" x="16" y="508" width="140" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="kq2-jc-8rr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="版面列表"/>
                                 <connections>
@@ -39,11 +39,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iza-im-vif">
-                                <rect key="frame" x="164" y="505" width="140" height="33"/>
+                                <rect key="frame" x="164" y="508" width="140" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="Klo-5m-cEu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="偏好设置"/>
                                 <connections>
