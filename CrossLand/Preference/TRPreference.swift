@@ -7,11 +7,41 @@
 
 import UIKit
 
+//
+//
+//  
+//
+
+let prefConfirguation: Any = [
+
+    TRPrefSection(sectionTitle: "通常设置",sectionDescription: "", sectionContent: [
+        TRPrefCell(title: "X 岛用户登录", type: .button, keyPath: "landXpref.button.UserLogin"),
+        TRPrefCell(title: "Cookie 登录", type: .button, keyPath: "landXpref.button.CookieLogin")
+    ]),
+    TRPrefSection(sectionTitle: "首页样式",sectionDescription: "底部栏：在底部显示版面与页面切换器。\n侧栏：侧滑以显示版面列表。", sectionContent: [
+        TRPrefCell(title: "底栏", type: .checkboxGroup, keyPath: "landXpref.checkbox.buttonBar"),
+        TRPrefCell(title: "侧边栏", type: .checkboxGroup, keyPath: "landXpref.checkbox.sideBar"),
+        
+    ]),
+    TRPrefSection(sectionTitle: "图片加载偏好",sectionDescription: "", sectionContent: [
+        TRPrefCell(title: "自动加载图片", type: .switchButton, keyPath: "landXpref.switchbutton.autoPicLoad"),
+        TRPrefCell(title: "显示原图", type: .switchButton, keyPath: "landXpref")
+    ])
+
+
+]
+
+//
+//
+//
+//
+
 /// Table View Cell 的样式描述
 enum TRPrefCellType {
     case button
     case checkboxGroup
     case switchButton
+    // case custom
 }
 
 /// Table View Cell
@@ -36,24 +66,6 @@ struct TRPrefSection {
 }
 
 
-let prefConfirguation: Any = [
-
-    TRPrefSection(sectionTitle: "通常设置",sectionDescription: "", sectionContent: [
-        TRPrefCell(title: "X 岛用户登录", type: .button, keyPath: "landXpref.button.UserLogin"),
-        TRPrefCell(title: "Cookie 登录", type: .button, keyPath: "landXpref.button.CookieLogin")
-    ]),
-    TRPrefSection(sectionTitle: "首页样式",sectionDescription: "底部栏：在底部显示版面与页面切换器。\n侧栏：侧滑以显示版面列表。", sectionContent: [
-        TRPrefCell(title: "底栏", type: .checkboxGroup, keyPath: "landXpref.checkbox.buttonBar"),
-        TRPrefCell(title: "侧边栏", type: .checkboxGroup, keyPath: "landXpref.checkbox.sideBar"),
-        
-    ]),
-    TRPrefSection(sectionTitle: "图片加载偏好",sectionDescription: "", sectionContent: [
-        TRPrefCell(title: "自动加载图片", type: .switchButton, keyPath: "landXpref.switchbutton.autoPicLoad"),
-        TRPrefCell(title: "显示原图", type: .switchButton, keyPath: "landXpref")
-    ])
-
-
-]
 
 /// 生成基本款式的 Table View Cell 样式
 class TRPrefTableCellCreator {
@@ -168,19 +180,33 @@ class TRVCPreference : UIViewController {
         //tvMainContent.estimatedSectionFooterHeight = 28.0
         //tvMainContent.sectionFooterHeight = 30.0
         
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
         tvMainContent.reloadData()
+        
+        
+        let action_CookieLogin = {
+            let alert = TRProblemReporter()
+            alert.showErrorMessage(parentController: self)
+        }
+        
+        self.tableViewMainContentProvider.setActionForKeyPath(keyPath: "landXpref.button.CookieLogin", action: action_CookieLogin)
+        
+        
     }
     
     
-    
     @IBAction func btnClickedComplete(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        if(self.navigationController != nil) {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true)
+        }
+        
+        
     }
 }
 
@@ -188,6 +214,7 @@ class TRVCPreference : UIViewController {
 class VCPreferenceTableView : NSObject ,UITableViewDelegate, UITableViewDataSource {
     
     let tableCellCreator = TRPrefTableCellCreator()
+    var actionDictionary: Dictionary<String, () -> ()> = [:]
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return (prefConfirguation as! Array<Any>).count
@@ -197,7 +224,7 @@ class VCPreferenceTableView : NSObject ,UITableViewDelegate, UITableViewDataSour
         
         let config_array = prefConfirguation as! Array<TRPrefSection>
         return config_array[section].sectionTitle
-
+        
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
@@ -205,7 +232,7 @@ class VCPreferenceTableView : NSObject ,UITableViewDelegate, UITableViewDataSour
         return config_array[section].sectionDescription
     }
     
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let config_array = prefConfirguation as! Array<TRPrefSection>
         let config_cell = config_array[section]
@@ -238,6 +265,49 @@ class VCPreferenceTableView : NSObject ,UITableViewDelegate, UITableViewDataSour
         return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // 处理点击
+        
+        let config_array = prefConfirguation as! Array<TRPrefSection>
+        let config_cell = config_array[indexPath.section]
+        
+        let config_cellContent = config_cell.sectionContent[indexPath.row]
+        
+
+        
+        switch config_cellContent.type {
+        case .button:
+            if(actionDictionary[config_cellContent.keyPath] != nil) {
+                let ac = actionDictionary[config_cellContent.keyPath]!
+                ac()
+            }
+            break
+        case .checkboxGroup:
+            // 更新 CheckMark 状态
+            let cell = tableView.cellForRow(at: indexPath)
+            
+            if(cell?.accessoryType == .checkmark) {
+                cell?.accessoryType = .none
+            } else {
+                cell?.accessoryType = .checkmark
+            }
+            
+            break
+        case .switchButton:
+            break
+        }
+    }
+    
+    /// 由 KeyPath 指定按钮的动作
+    public func setActionForKeyPath(keyPath: String, action: @escaping () -> ()) {
+        
+        actionDictionary[keyPath] = action
+        
+    }
+
     
 }
 

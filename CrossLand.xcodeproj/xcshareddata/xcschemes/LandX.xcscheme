@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5D960CE52A59B0E9008F26EC"
-               BuildableName = "LandX.app"
+               BuildableName = "CrossLand.app"
                BlueprintName = "LandX"
                ReferencedContainer = "container:CrossLand.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D960CE52A59B0E9008F26EC"
-            BuildableName = "LandX.app"
+            BuildableName = "CrossLand.app"
             BlueprintName = "LandX"
             ReferencedContainer = "container:CrossLand.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D960CE52A59B0E9008F26EC"
-            BuildableName = "LandX.app"
+            BuildableName = "CrossLand.app"
             BlueprintName = "LandX"
             ReferencedContainer = "container:CrossLand.xcodeproj">
          </BuildableReference>

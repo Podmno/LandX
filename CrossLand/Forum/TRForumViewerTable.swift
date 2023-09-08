@@ -12,6 +12,7 @@ class TRForumViewerTable : UIViewController {
     
     @IBOutlet weak var mainTableView: UITableView!
     let mainTable = TRVCForumViewerTableMain()
+    let mainRefresh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +30,11 @@ class TRForumViewerTable : UIViewController {
     
     func setupRefreshUp() {
         
-        let refresh = UIRefreshControl()
-        mainTableView.addSubview(refresh)
-        refresh.beginRefreshing()
         
-        
+        mainTableView.addSubview(mainRefresh)
+        mainRefresh.beginRefreshing()
+
+        mainTableView.scrollsToTop = true
     }
 
     
@@ -48,7 +49,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 0
     }
     
     
@@ -78,8 +79,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
-
+    
     
 }
 

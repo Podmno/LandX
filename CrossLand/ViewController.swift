@@ -10,8 +10,9 @@ import UIKit
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let sbPreView = UIStoryboard(name: "PreView", bundle: Bundle.main)
-    let sbPreferences = UIStoryboard(name: "TRPreference", bundle: Bundle.main)
     
+    
+    let sbMainLand = UIStoryboard(name: "MainLand", bundle: Bundle.main)
     
     @IBOutlet weak var progressLoading: UIActivityIndicatorView!
     
@@ -20,9 +21,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var btnRefresh: UIButton!
     
     var vcBetaProgramViewController: UIViewController? = nil
-    var vcPreferences: UIViewController? = nil
+
     var vcDebugTableView: UIViewController? = nil
     
+    var vcMain: UIViewController? = nil
     
     var displayBetaProgramHint = true
     
@@ -30,7 +32,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-
+        vcMain = sbMainLand.instantiateInitialViewController()
         
         //checkNetworkConnection()
         
@@ -39,8 +41,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         //showBetaProgramViewController()
         
-        vcPreferences = sbPreferences.instantiateInitialViewController()
-        self.present(vcPreferences!, animated: true)
+        //vcPreferences = sbPreferences.instantiateInitialViewController()
+        //self.navigationController?.pushViewController(vcPreferences!, animated: true)
+
+        vcMain?.modalPresentationStyle = .fullScreen
+        self.present(vcMain!, animated: false)
+        //self.navigationController?.pushViewController(vcMain!, animated: true)
     }
     
     
@@ -60,7 +66,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 print("> Remote CDN Url : \(test_cdn_url)")
             }
         }
-        
     }
     
     func showBetaProgramViewController() {
@@ -136,4 +141,7 @@ self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         //vcDebugTableView = s.instantiateInitialViewController()
         //self.navigationController?.pushViewController(vcDebugTableView!, animated: true)
     }
+ 
+ 
+ 
  */
