@@ -96,7 +96,6 @@ open class LCRequest : NSObject {
         
         let url = baseUrl + domainShowForum
         let argc = ["id":fid, "page":fPage]
-        
         return requestManager.serialRequestWithArguments(url: url, arguments: argc)
         
     }
@@ -226,6 +225,7 @@ open class LCRequestManager : NSObject {
         
         queue.async {
             
+            // FIXME: URL Parameter Format Error
             AF.request(url,method: .get,parameters: arguments).response { response in
                 
                 if(response.error != nil) {
@@ -235,6 +235,7 @@ open class LCRequestManager : NSObject {
                 }
                 
                 result = JSON(response.result)
+                print(result)
                 semaphore.signal()
             }
             

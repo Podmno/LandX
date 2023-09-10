@@ -49,13 +49,19 @@ open class LCAPI : NSObject {
         
     }
     
-    /// 获取指定 Forum 的内容
-    public func getForum(forumID: UInt, forumPage: UInt) -> LSForum {
+    /// 获取指定 Forum 的回复
+    public func getForum(forumID: UInt, forumPage: UInt) -> [LSThread] {
+        var replies: [LSThread] = []
+        let repo_json = request.showForum(fid: forumID, fPage: forumPage)
         
-        let forum_json = request.showForum(fid: forumID, fPage: forumPage)
-        let forum_data = LSForum()
-        forum_data.loadFromJSON(json: forum_json)
-        return forum_data
+        for (_, single_repo) in repo_json {
+            
+            let rp = LSThread()
+            rp.loadFromJSON(json: single_repo)
+            replies.append(rp)
+        }
+
+        return replies
     }
     
     /// 获取指定 Timeline 的内容

@@ -14,6 +14,8 @@ class TRForumViewerTable : UIViewController {
     let mainTable = TRVCForumViewerTableMain()
     let mainRefresh = UIRefreshControl()
     
+    var threadListData: [LSThread] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //mainTable.loadData()
@@ -27,6 +29,8 @@ class TRForumViewerTable : UIViewController {
         
 
         mainTableView.reloadData()
+        
+        loadForumData()
     }
     
     func setupRefreshUp() {
@@ -36,6 +40,34 @@ class TRForumViewerTable : UIViewController {
         mainRefresh.beginRefreshing()
 
         mainTableView.scrollsToTop = true
+    }
+    
+    func setupTableForum() {
+        
+        mainTable.threadDisplayQueue.append(contentsOf: threadListData)
+        
+        mainTableView.reloadData()
+    }
+    
+    func loadForumData() {
+        
+        let queue = DispatchQueue.init(label: "landX.networkRequest.mainData")
+        
+        queue.async {
+            
+            let API = LCAPI()
+            
+            let r_list = API.getForum(forumID: 4, forumPage: 1)
+
+            self.threadListData.append(contentsOf: r_list)
+            
+            DispatchQueue.main.async {
+                self.setupTableForum()
+            }
+            
+        }
+
+        
     }
 
 }
@@ -49,6 +81,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return threadDisplayQueue.count
     }
     
