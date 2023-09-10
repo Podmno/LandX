@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,29 +27,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYe-XX-pTL">
-                                <rect key="frame" x="16" y="508" width="140" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="kq2-jc-8rr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="版面列表"/>
-                                <connections>
-                                    <action selector="btnClickedForumList:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nHb-wK-fKV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iza-im-vif">
-                                <rect key="frame" x="164" y="508" width="140" height="30"/>
+                                <rect key="frame" x="234" y="508" width="70" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="Klo-5m-cEu"/>
+                                    <constraint firstAttribute="width" constant="70" id="Klo-5m-cEu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="偏好设置"/>
+                                <state key="normal" title="设置"/>
                                 <connections>
                                     <action selector="btnClickedPreferences:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2hU-jV-BmT"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFx-wC-WiK">
+                                <rect key="frame" x="16" y="508" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="J0w-uF-AMK"/>
+                                </constraints>
+                                <menu key="menu" id="821-Aj-IL5"/>
+                                <state key="normal" title="版面"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -57,12 +54,12 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="px8-NP-dXs" secondAttribute="trailing" constant="60" id="7Z5-Wp-Ou9"/>
                             <constraint firstItem="px8-NP-dXs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="A28-e0-Aje"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Iza-im-vif" secondAttribute="trailing" constant="16" id="Bqj-jD-XLs"/>
-                            <constraint firstItem="UYe-XX-pTL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="IaJ-9V-nWv"/>
+                            <constraint firstItem="BFx-wC-WiK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="CS0-bS-7Jx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="5ht-kE-dpA" secondAttribute="bottom" constant="75" id="V9X-aA-2gG"/>
                             <constraint firstItem="5ht-kE-dpA" firstAttribute="top" secondItem="px8-NP-dXs" secondAttribute="bottom" constant="20" id="VTG-Aa-afu"/>
                             <constraint firstItem="px8-NP-dXs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="e6f-cb-xH6"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Iza-im-vif" secondAttribute="bottom" constant="30" id="fTt-sE-dEf"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="UYe-XX-pTL" secondAttribute="bottom" constant="30" id="n4G-Vl-EkJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="BFx-wC-WiK" secondAttribute="bottom" constant="30" id="iVg-5F-JoE"/>
                             <constraint firstItem="5ht-kE-dpA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="nhK-cz-0Eq"/>
                             <constraint firstItem="5ht-kE-dpA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="oMh-sM-Zni"/>
                         </constraints>
@@ -75,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113.74045801526717" y="-34.507042253521128"/>
+            <point key="canvasLocation" x="112.5" y="-34.859154929577464"/>
         </scene>
         <!--Root Navigation-->
         <scene sceneID="fHc-al-89M">
@@ -95,7 +92,7 @@
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

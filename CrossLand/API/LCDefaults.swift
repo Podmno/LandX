@@ -26,10 +26,12 @@ open class LCDefaults : NSObject {
     }
     
     /// 设定用户 Cookie 列表
-    func setUserCookieInfo() {
+    func addUserCookieInfo() {
         
         
     }
+    
+    
     
     /// 全部恢复到默认配置
     func restoreDefaults() {

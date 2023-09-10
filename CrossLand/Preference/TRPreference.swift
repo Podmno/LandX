@@ -182,6 +182,7 @@ class TRVCPreference : UIViewController {
     
     let tableViewMainContentProvider = VCPreferenceTableView()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -204,10 +205,13 @@ class TRVCPreference : UIViewController {
         
         let action_CookieManage = {
             
-            let cookie_manager = VCCookieManage(nibName: "VCCookieManage", bundle: Bundle.main)
-            self.present(cookie_manager, animated: true)
-            //let err = TRProblemReporter()
-            //err.showErrorMessage(parentController: self)
+            // FIXME: [WindowHosting] UIScene property of UINSSceneViewController was accessed before it was set.
+            // 2023-09-09 17:33:16.862880+0800 CrossLand[1609:52725] Scene destruction request failed with error: (null)
+            
+            //let cookie_manager = VCCookieManage(nibName: "VCCookieManage", bundle: Bundle.main)
+            //self.present(cookie_manager, animated: true)
+            let err = TRProblemReporter()
+            err.showErrorMessage(parentController: self)
             
         }
         

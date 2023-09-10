@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */; };
 		5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483A872A73FDC600DB37BD /* LCStorage.swift */; };
-		5D6AADC12AAAD0A200419996 /* TRForumViewerManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC02AAAD0A200419996 /* TRForumViewerManage.swift */; };
+		5D6AADC12AAAD0A200419996 /* TRForumViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC02AAAD0A200419996 /* TRForumViewer.swift */; };
 		5D6AADC92AAB261D00419996 /* VCCookieManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC72AAB261D00419996 /* VCCookieManage.swift */; };
 		5D6AADCA2AAB261D00419996 /* VCCookieManage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D6AADC82AAB261D00419996 /* VCCookieManage.xib */; };
 		5D6AADCC2AAB3E3C00419996 /* ProblemReporter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D6AADCB2AAB3E3C00419996 /* ProblemReporter.xib */; };
@@ -29,6 +29,8 @@
 		5DAD99632A6A532100817CE4 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5DAD99622A6A532100817CE4 /* SwiftyJSON */; };
 		5DB1737A2A5D7F1A0008C4B3 /* TRPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB173792A5D7F1A0008C4B3 /* TRPreference.swift */; };
 		5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB91DE72A6A07E5004998F7 /* LCStruct.swift */; };
+		5DDA78522AAAF1C600569257 /* VCWritePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA78502AAAF1C600569257 /* VCWritePost.swift */; };
+		5DDA78532AAAF1C600569257 /* VCWritePost.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA78512AAAF1C600569257 /* VCWritePost.xib */; };
 		5DDB2EB62A5D6DA80073FBED /* TRPreference.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DDB2EB52A5D6DA80073FBED /* TRPreference.storyboard */; };
 		5DF06E842A5EC6A900B07D4F /* TRForumViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */; };
 		5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */; };
@@ -38,7 +40,7 @@
 /* Begin PBXFileReference section */
 		5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRProblemReporter.swift; sourceTree = "<group>"; };
 		5D483A872A73FDC600DB37BD /* LCStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStorage.swift; sourceTree = "<group>"; };
-		5D6AADC02AAAD0A200419996 /* TRForumViewerManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRForumViewerManage.swift; sourceTree = "<group>"; };
+		5D6AADC02AAAD0A200419996 /* TRForumViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRForumViewer.swift; sourceTree = "<group>"; };
 		5D6AADC72AAB261D00419996 /* VCCookieManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCookieManage.swift; sourceTree = "<group>"; };
 		5D6AADC82AAB261D00419996 /* VCCookieManage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCCookieManage.xib; sourceTree = "<group>"; };
 		5D6AADCB2AAB3E3C00419996 /* ProblemReporter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemReporter.xib; sourceTree = "<group>"; };
@@ -59,6 +61,8 @@
 		5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCRequest.swift; sourceTree = "<group>"; };
 		5DB173792A5D7F1A0008C4B3 /* TRPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPreference.swift; sourceTree = "<group>"; };
 		5DB91DE72A6A07E5004998F7 /* LCStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStruct.swift; sourceTree = "<group>"; };
+		5DDA78502AAAF1C600569257 /* VCWritePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCWritePost.swift; sourceTree = "<group>"; };
+		5DDA78512AAAF1C600569257 /* VCWritePost.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCWritePost.xib; sourceTree = "<group>"; };
 		5DDB2EB52A5D6DA80073FBED /* TRPreference.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRPreference.storyboard; sourceTree = "<group>"; };
 		5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRForumViewer.storyboard; sourceTree = "<group>"; };
 		5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRForumViewerTable.swift; sourceTree = "<group>"; wrapsLines = 1; };
@@ -130,6 +134,7 @@
 				5D6AADC62AAB25A600419996 /* UserManage */,
 				5D3B2B032AA9AA48007C442C /* Privacy */,
 				5D109B4D2AA8B15300EC9F9B /* ProblemReport */,
+				5DDA784F2AAAF18A00569257 /* Post */,
 				5DCC04DB2A5E4F850076B70D /* Forum */,
 				5DE1346E2A5E448A0008C6CD /* Preference */,
 				5D960CE92A59B0E9008F26EC /* AppDelegate.swift */,
@@ -148,11 +153,20 @@
 		5DCC04DB2A5E4F850076B70D /* Forum */ = {
 			isa = PBXGroup;
 			children = (
-				5D6AADC02AAAD0A200419996 /* TRForumViewerManage.swift */,
+				5D6AADC02AAAD0A200419996 /* TRForumViewer.swift */,
 				5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */,
 				5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */,
 			);
 			path = Forum;
+			sourceTree = "<group>";
+		};
+		5DDA784F2AAAF18A00569257 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA78502AAAF1C600569257 /* VCWritePost.swift */,
+				5DDA78512AAAF1C600569257 /* VCWritePost.xib */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 		5DDB2EB82A5D73C20073FBED /* MainLand */ = {
@@ -259,6 +273,7 @@
 				5DDB2EB62A5D6DA80073FBED /* TRPreference.storyboard in Resources */,
 				5D6AADCA2AAB261D00419996 /* VCCookieManage.xib in Resources */,
 				5D6ED6E32AAAB491005AEDEC /* MainLand.storyboard in Resources */,
+				5DDA78532AAAF1C600569257 /* VCWritePost.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,12 +285,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D960CEE2A59B0E9008F26EC /* ViewController.swift in Sources */,
-				5D6AADC12AAAD0A200419996 /* TRForumViewerManage.swift in Sources */,
+				5D6AADC12AAAD0A200419996 /* TRForumViewer.swift in Sources */,
 				5DAAC4042A68CEEF001D2DC9 /* LCRequest.swift in Sources */,
 				5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */,
 				5DF692F82A74AA640078A4C3 /* LCDefaults.swift in Sources */,
 				5D6ED6E12AAAA12D005AEDEC /* TRPrivacy.swift in Sources */,
 				5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */,
+				5DDA78522AAAF1C600569257 /* VCWritePost.swift in Sources */,
 				5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */,
 				5D6AADCE2AAB4D5900419996 /* TRProblemList.swift in Sources */,
 				5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */,
@@ -443,8 +459,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -482,8 +498,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

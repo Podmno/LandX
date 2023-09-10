@@ -15,7 +15,7 @@ open class TRProblemReporter : NSObject {
         
  
         let action_view_cancel = UIAlertAction(title: "关闭", style: .default)
-        let action_view_detail = UIAlertAction(title: "查看详情", style: .cancel, handler: {_ in
+        let action_view_detail = UIAlertAction(title: "查看详情", style: .default, handler: {_ in
             
             let info_detail = TRVCProblemReport(nibName: "ProblemReporter", bundle: Bundle.main)
             info_detail.modalPresentationStyle = .overFullScreen
@@ -25,13 +25,12 @@ open class TRProblemReporter : NSObject {
             parentController.present(info_detail, animated: true)
             
         })
-        
-        
-        
-        alert_controller.addAction(action_view_cancel)
         alert_controller.addAction(action_view_detail)
+        alert_controller.addAction(action_view_cancel)
         
         
+        
+        alert_controller.view.tintColor = UIColor(named: "AccentColor")
         parentController.present(alert_controller, animated: true)
         
     }

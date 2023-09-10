@@ -35,11 +35,11 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZfP-wb-qrP">
-                    <rect key="frame" x="0.0" y="121.5" width="320" height="371.5"/>
+                    <rect key="frame" x="0.0" y="142" width="320" height="351"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="若要领取或删除 X 岛用户的饼干，请通过 X 岛网页进行操作。最多可以管理 10 个饼干。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjk-xv-qMq">
-                    <rect key="frame" x="20" y="68" width="280" height="33.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <rect key="frame" x="35" y="68" width="250" height="54"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -55,10 +55,10 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nsn-NO-mrq" secondAttribute="trailing" constant="16" id="QNM-C0-FVz"/>
                 <constraint firstItem="SJ4-r7-n37" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="WPT-1Y-SPl"/>
                 <constraint firstItem="nsn-NO-mrq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="26" id="YPG-us-H6U"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vjk-xv-qMq" secondAttribute="trailing" constant="20" id="cT7-Xi-KFX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vjk-xv-qMq" secondAttribute="trailing" constant="35" id="cT7-Xi-KFX"/>
                 <constraint firstItem="ZfP-wb-qrP" firstAttribute="top" secondItem="Vjk-xv-qMq" secondAttribute="bottom" constant="20" id="chO-eD-sm6"/>
                 <constraint firstItem="ZfP-wb-qrP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kmW-od-Sik"/>
-                <constraint firstItem="Vjk-xv-qMq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="qIh-Dk-e5k"/>
+                <constraint firstItem="Vjk-xv-qMq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="35" id="qIh-Dk-e5k"/>
                 <constraint firstItem="ZfP-wb-qrP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xGe-JP-MEK"/>
             </constraints>
             <point key="canvasLocation" x="129.375" y="-11.619718309859156"/>
@@ -66,7 +66,7 @@
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

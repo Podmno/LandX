@@ -16,35 +16,28 @@ class TRForumViewerTable : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad - TRForumViewerTable")
         //mainTable.loadData()
         mainTableView.delegate = mainTable
         mainTableView.dataSource = mainTable
         
-        let th1 = LSThread()
-        th1.threadUserHash = "XXXXX"
-        mainTable.threadDisplayQueue.append(th1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setupRefreshUp()
         
 
-        
-        
         mainTableView.reloadData()
     }
     
     func setupRefreshUp() {
         
-        
+
         mainTableView.addSubview(mainRefresh)
         mainRefresh.beginRefreshing()
 
         mainTableView.scrollsToTop = true
     }
 
-    
 }
 
 
@@ -96,11 +89,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
 
 class TRForumViewerCell : UITableViewCell {
     
-    /*
-     
-     setupThread() -> updateCell()
-     */
-    
+
     var thread: LSThread = LSThread()
     
     @IBOutlet weak var lbUser: UILabel!
