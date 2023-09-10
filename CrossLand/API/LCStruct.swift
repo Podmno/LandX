@@ -69,7 +69,7 @@ open class LSTimelineList : NSObject {
        
         for (_, timeline_json) in json {
             
-            var timeline = LSTimeline()
+            let timeline = LSTimeline()
             timeline.loadFromJSON(json: timeline_json)
             self.timelineList.append(timeline)
         }
