@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TRVCProblemReport" customModule="CrossLand" customModuleProvider="target">
             <connections>
+                <outlet property="lbCodeNumber" destination="ldM-1l-96k" id="hJ7-Ub-MGE"/>
+                <outlet property="tvMainError" destination="3ir-Tb-9ay" id="YJ4-tA-w81"/>
                 <outlet property="view" destination="iN0-l3-epB" id="dkw-vm-Gk1"/>
             </connections>
         </placeholder>
@@ -25,10 +27,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hfq-Al-TbQ">
-                                <rect key="frame" x="16" y="483.5" width="288" height="34.5"/>
+                                <rect key="frame" x="16" y="483.66666666666669" width="288" height="34.333333333333314"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plv-xC-zc1">
-                                        <rect key="frame" x="0.0" y="0.0" width="139" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="139" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="报告问题"/>
                                         <connections>
@@ -36,7 +38,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFw-Ng-xAL">
-                                        <rect key="frame" x="149" y="0.0" width="139" height="34.5"/>
+                                        <rect key="frame" x="149" y="0.0" width="139" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="OK"/>
                                         <connections>
@@ -55,13 +57,13 @@
                     <blurEffect style="dark"/>
                 </visualEffectView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="错误代码 0401 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldM-1l-96k">
-                    <rect key="frame" x="21" y="50" width="112" height="19.5"/>
+                    <rect key="frame" x="21" y="50" width="112" height="19.333333333333329"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3ir-Tb-9ay">
-                    <rect key="frame" x="16" y="89.5" width="288" height="368.5"/>
+                    <rect key="frame" x="16" y="89.333333333333343" width="288" height="368.66666666666663"/>
                     <string key="text">发生未知错误，请稍后重试。
 
 对于此问题，无法提供更多的支持信息。请尝试点击“报告问题”并尽可能多的提供发生错误时的情报来帮助我们改善产品。

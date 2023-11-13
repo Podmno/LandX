@@ -7,10 +7,6 @@
 
 import UIKit
 
-//
-//
-//  
-//
 
 let prefConfirguation: Any = [
     
@@ -25,11 +21,11 @@ let prefConfirguation: Any = [
         TRPrefCell(title: "蜂窝网络下自动加载图片", type: .switchButton, keyPath: "landXpref.switchbutton.autoPicLoad"),
         TRPrefCell(title: "始终显示原图", type: .switchButton, keyPath: "landXpref")
     ]),
-    TRPrefSection(sectionTitle: "缓存管理",sectionDescription: "清理缓存数据包括：临时保存的图片与帖子信息、缓存的版面信息与列表。", sectionContent: [
+    TRPrefSection(sectionTitle: "缓存管理",sectionDescription: "缓存数据包括临时保存的图片与帖子信息、缓存的版面信息与列表。", sectionContent: [
         TRPrefCell(title: "清理软件缓存", type: .button, keyPath: "landXpref.button.CacheClear")
     ]),
     TRPrefSection(sectionTitle: "关于软件",sectionDescription: "版本 1.0", sectionContent: [
-        TRPrefCell(title: "开源代码使用 & STAFF CREDITS", type: .button, keyPath: "landXpref.button.STAFF")
+        TRPrefCell(title: "开源代码使用", type: .button, keyPath: "landXpref.button.STAFF")
     ]),
 
 
@@ -211,6 +207,7 @@ class TRVCPreference : UIViewController {
             //let cookie_manager = VCCookieManage(nibName: "VCCookieManage", bundle: Bundle.main)
             //self.present(cookie_manager, animated: true)
             let err = TRProblemReporter()
+            
             err.showErrorMessage(parentController: self)
             
         }
@@ -328,6 +325,7 @@ class VCPreferenceTableView : NSObject ,UITableViewDelegate, UITableViewDataSour
     /// 由 KeyPath 指定按钮的动作
     public func setActionForKeyPath(keyPath: String, action: @escaping () -> ()) {
         
+        // 通过闭包与 KeyPath 执行按钮的动作
         actionDictionary[keyPath] = action
         
     }

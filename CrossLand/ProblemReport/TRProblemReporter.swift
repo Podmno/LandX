@@ -40,6 +40,10 @@ open class TRProblemReporter : NSObject {
 
 open class TRVCProblemReport : UIViewController {
     
+
+    @IBOutlet weak var lbCodeNumber: UILabel!
+    
+    @IBOutlet weak var tvMainError: UITextView!
     
     
     override open func viewDidLoad() {

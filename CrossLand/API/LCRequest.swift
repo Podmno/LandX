@@ -9,6 +9,9 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+/// 打印 Request 内容日志
+let requestAPIDebugOutput = true
+
 /// Network Request Foundation
 open class LCRequest : NSObject {
     
@@ -95,7 +98,7 @@ open class LCRequest : NSObject {
         print("CoreRequest > Show Forum for ID \(fid) page \(fPage)...")
         
         let url = baseUrl + domainShowForum
-        let argc = ["id":fid, "page":fPage]
+        let argc = ["id":"\(fid)", "page":"\(fPage)"]
         return requestManager.serialRequestWithArguments(url: url, arguments: argc)
         
     }
@@ -105,7 +108,7 @@ open class LCRequest : NSObject {
         print("CoreRequest > Show Timeline for ID \(thid) page \(thpage)...")
         
         let url = baseUrl + domainTimeline
-        let argc = ["id":thid, "page":thpage]
+        let argc = ["id":"\(thid)", "page":"\(thpage)"]
         
         return requestManager.serialRequestWithArguments(url: url, arguments: argc)
         
@@ -204,7 +207,8 @@ open class LCRequestManager : NSObject {
                     return
                 }
                 
-                result = JSON(response.result)
+                result = JSON(response.data as Any)
+                if(requestAPIDebugOutput) { print(result) }
                 semaphore.signal()
             }
             
@@ -225,8 +229,7 @@ open class LCRequestManager : NSObject {
         
         queue.async {
             
-            // FIXME: URL Parameter Format Error
-            AF.request(url,method: .get,parameters: arguments).response { response in
+            AF.request(url,method: .get,parameters: arguments,encoding: URLEncoding.default).response { response in
                 
                 if(response.error != nil) {
                     print("Request - Error for \(response.debugDescription)")
@@ -234,8 +237,8 @@ open class LCRequestManager : NSObject {
                     return
                 }
                 
-                result = JSON(response.result)
-                print(result)
+                result = JSON(response.data as Any)
+                if(requestAPIDebugOutput) { print(result) }
                 semaphore.signal()
             }
             

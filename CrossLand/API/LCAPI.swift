@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// 日志输出 API 请求信息与内容
+let landAPIDebugOutput = true
+
 open class LCAPI : NSObject {
     
     let globalStorage = LCStorage.shared
@@ -18,6 +21,10 @@ open class LCAPI : NSObject {
     
     /// 启用 LCStorage 的缓存更新策略
     public var tempStorageRefresh = true
+    
+    public func getCDNPath() -> String {
+        return request.getCDNPath()
+    }
     
     /// 获取 Forum List
     public func getForumList() -> LSForumList {
@@ -83,6 +90,12 @@ open class LCAPI : NSObject {
     /// 更新 CDN 网络路径（图片保存）
     public func updateCDNNetworkPath() {
         
+        
+        
+    }
+    
+    /// 检查与 X 岛的连接情况
+    public func checkNetworkStatus() {
         
         
     }

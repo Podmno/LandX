@@ -58,7 +58,7 @@ class TRForumViewerTable : UIViewController {
             let API = LCAPI()
             
             let r_list = API.getForum(forumID: 4, forumPage: 1)
-
+            
             self.threadListData.append(contentsOf: r_list)
             
             DispatchQueue.main.async {
@@ -66,8 +66,6 @@ class TRForumViewerTable : UIViewController {
             }
             
         }
-
-        
     }
 
 }

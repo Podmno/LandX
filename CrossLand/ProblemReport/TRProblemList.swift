@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TRProblemList : NSObject {
+open class TRProblemList : NSObject {
     
     
     

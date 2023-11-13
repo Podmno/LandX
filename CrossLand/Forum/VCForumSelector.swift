@@ -1,13 +1,13 @@
 //
-//  VCWritePost.swift
+//  VCForumSelector.swift
 //  LandX
 //
-//  Created by Ki MNO on 2023/9/8.
+//  Created by Ki MNO on 2023/11/13.
 //
 
 import UIKit
 
-class VCWritePost: UIViewController {
+class VCForumSelector: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

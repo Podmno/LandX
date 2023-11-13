@@ -21,6 +21,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     var vcPreferences: UIViewController? = nil
     
 
+    let API = LCAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,11 +59,17 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         // 添加 didMove 响应滚动操作
         forumViewer?.didMove(toParent: self)
         
-
+        self.refreshMainLand()
         
     }
     
-
+    ///  主要函数 刷新主列表
+    func refreshMainLand() {
+        
+        // 暂时的设计交给了 TRForumViewer 去自行处理，只需设定参数
+        
+    }
+    
     
     
     @IBAction func btnClickedPreferences(_ sender: Any) {

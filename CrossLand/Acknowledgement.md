@@ -10,6 +10,11 @@ Developed by TRIStudio
 
 ==========================================================================
 
+◽ TRFoundation
+
+© 2023 TRIStudio, All Rights Reserved.
+
+
 ◽ Alamofire
 
 Copyright (c) 2014-2022 Alamofire Software Foundation (http://alamofire.org/)
