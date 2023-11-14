@@ -17,10 +17,18 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     
     var forumViewer: TRForumViewerTable? = nil
     
+    var forumListName: [String] = []
+    var forumListID: [UInt] = []
+    
+    var timelineListName: [String] = []
+    var timelineListID: [UInt] = []
+    
     let sbPreferences = UIStoryboard(name: "TRPreference", bundle: Bundle.main)
     var vcPreferences: UIViewController? = nil
     
-
+    @IBOutlet weak var btnForumList: UIButton!
+    
+    
     let API = LCAPI()
     
     override func viewDidLoad() {
@@ -61,12 +69,68 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         
         self.refreshMainLand()
         
+        self.loadForumListContent()
+        
     }
     
     ///  主要函数 刷新主列表
     func refreshMainLand() {
         
         // 暂时的设计交给了 TRForumViewer 去自行处理，只需设定参数
+        
+    }
+    
+    
+    func loadForumListContent() {
+        
+        let work_get_forumlist = DispatchQueue(label: "studio.tri.landX.mainLnadGetForumList")
+        work_get_forumlist.async {
+            
+            print("MainLand > - Network - Get Forum & Timeline List...")
+            
+            let reply_forum_list = self.API.getTotalForumList()
+            let reply_timeline_list = self.API.getTimelineList()
+            
+            for fl_data in reply_forum_list {
+                
+                for f_data in fl_data.forums {
+                    
+                    self.forumListName.append(f_data.forumName)
+                    self.forumListID.append(f_data.forumID)
+                    
+                }
+                
+            }
+            
+            for t_data in reply_timeline_list.timelineList {
+                
+                self.timelineListName.append(t_data.timelineDisplayName)
+                self.timelineListID.append(t_data.timelineID)
+                
+            }
+            
+            print(self.forumListName)
+            print(self.forumListID)
+            print(self.timelineListName)
+            print(self.timelineListID)
+            
+            
+            DispatchQueue.main.async {
+                var menu_list: [UIAction] = []
+                for f_list in self.forumListName {
+                    
+                    let ac = UIAction(title: f_list) {_ in
+                        
+                    }
+                    
+                    menu_list.append(ac)
+                }
+                
+                let menu = UIMenu(title:"",children: menu_list)
+                self.btnForumList.menu = menu
+            }
+        }
+        
         
     }
     

@@ -66,6 +66,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="MkB-Gh-JXG"/>
                     <connections>
+                        <outlet property="btnForumList" destination="BFx-wC-WiK" id="5v4-Nt-aju"/>
                         <outlet property="lbLargeTitle" destination="px8-NP-dXs" id="s7d-0d-5jc"/>
                         <outlet property="mainViewContainer" destination="5ht-kE-dpA" id="TBh-xB-hPf"/>
                     </connections>

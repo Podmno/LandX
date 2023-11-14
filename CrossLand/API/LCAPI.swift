@@ -26,15 +26,25 @@ open class LCAPI : NSObject {
         return request.getCDNPath()
     }
     
-    /// 获取 Forum List
-    public func getForumList() -> LSForumList {
+    /// 获取总 ForumList 列表
+    public func getTotalForumList() -> [LSForumList] {
         
         let forumlist_data = request.getForumList()
-        let forumlist_list = LSForumList()
-        forumlist_list.loadFromJSON(json: forumlist_data)
-        return forumlist_list
+        var re_array: [LSForumList] = []
+        
+        for (_,s_forumlist_json) in forumlist_data {
+            
+            let forum_list = LSForumList()
+            forum_list.loadFromJSON(json: s_forumlist_json)
+            
+            re_array.append(forum_list)
+            
+        }
+        
+        return re_array
         
     }
+    
     
     /// 获取 Timeline List
     public func getTimelineList() -> LSTimelineList {

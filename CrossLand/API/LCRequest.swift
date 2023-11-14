@@ -9,8 +9,8 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-/// 打印 Request 内容日志
-let requestAPIDebugOutput = true
+/// 打印 Request 内容日志 包括网络请求得到的 JSON 内容
+let requestAPIDebugOutput = false
 
 /// Network Request Foundation
 open class LCRequest : NSObject {
@@ -74,11 +74,14 @@ open class LCRequest : NSObject {
     }
     
     func getForumList() -> JSON {
-        
+
         print("CoreRequest > Requesting Forum List...")
 
         let url = baseUrl + domainGetForumList
-        return requestManager.serialRequest(url: url)
+        
+        
+        let re = requestManager.serialRequest(url: url)
+        return re
 
         
     }
@@ -199,7 +202,7 @@ open class LCRequestManager : NSObject {
         
         queue.async {
             
-            AF.request(url,method: .get).response { response in
+            AF.request(url,method: .get,encoding: URLEncoding.default).response { response in
                 
                 if(response.error != nil) {
                     print("Request - Error for \(response.debugDescription)")

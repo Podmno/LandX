@@ -40,6 +40,8 @@ class TRForumViewerTable : UIViewController {
         mainRefresh.beginRefreshing()
 
         mainTableView.scrollsToTop = true
+        
+        mainRefresh.endRefreshing()
     }
     
     func setupTableForum() {
@@ -47,6 +49,8 @@ class TRForumViewerTable : UIViewController {
         mainTable.threadDisplayQueue.append(contentsOf: threadListData)
         
         mainTableView.reloadData()
+        
+        
     }
     
     func loadForumData() {
