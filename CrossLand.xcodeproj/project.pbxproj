@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D20F6072B32F61500DE7FAD /* VCLandLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20F6052B32F61500DE7FAD /* VCLandLogin.swift */; };
+		5D20F6082B32F61500DE7FAD /* VCLandLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D20F6062B32F61500DE7FAD /* VCLandLogin.xib */; };
+		5D20F60A2B32F97E00DE7FAD /* VCWhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20F6092B32F97E00DE7FAD /* VCWhatsNew.swift */; };
+		5D20F60D2B32FF2B00DE7FAD /* VCEmoticonInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20F60B2B32FF2B00DE7FAD /* VCEmoticonInput.swift */; };
+		5D20F60E2B32FF2B00DE7FAD /* VCEmoticonInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D20F60C2B32FF2B00DE7FAD /* VCEmoticonInput.xib */; };
 		5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */; };
 		5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483A872A73FDC600DB37BD /* LCStorage.swift */; };
 		5D6AADC12AAAD0A200419996 /* TRForumViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC02AAAD0A200419996 /* TRForumViewer.swift */; };
@@ -41,6 +46,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D20F6052B32F61500DE7FAD /* VCLandLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCLandLogin.swift; sourceTree = "<group>"; };
+		5D20F6062B32F61500DE7FAD /* VCLandLogin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCLandLogin.xib; sourceTree = "<group>"; };
+		5D20F6092B32F97E00DE7FAD /* VCWhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCWhatsNew.swift; sourceTree = "<group>"; };
+		5D20F60B2B32FF2B00DE7FAD /* VCEmoticonInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCEmoticonInput.swift; sourceTree = "<group>"; };
+		5D20F60C2B32FF2B00DE7FAD /* VCEmoticonInput.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCEmoticonInput.xib; sourceTree = "<group>"; };
 		5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRProblemReporter.swift; sourceTree = "<group>"; };
 		5D483A872A73FDC600DB37BD /* LCStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStorage.swift; sourceTree = "<group>"; };
 		5D6AADC02AAAD0A200419996 /* TRForumViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRForumViewer.swift; sourceTree = "<group>"; };
@@ -112,6 +122,8 @@
 			children = (
 				5D6AADC72AAB261D00419996 /* VCCookieManage.swift */,
 				5D6AADC82AAB261D00419996 /* VCCookieManage.xib */,
+				5D20F6052B32F61500DE7FAD /* VCLandLogin.swift */,
+				5D20F6062B32F61500DE7FAD /* VCLandLogin.xib */,
 			);
 			path = UserManage;
 			sourceTree = "<group>";
@@ -161,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				5DA1A92F2B030E9900335F6C /* VCWhatsNew.xib */,
+				5D20F6092B32F97E00DE7FAD /* VCWhatsNew.swift */,
 			);
 			path = Tip;
 			sourceTree = "<group>";
@@ -182,6 +195,8 @@
 			children = (
 				5DDA78502AAAF1C600569257 /* VCWritePost.swift */,
 				5DDA78512AAAF1C600569257 /* VCWritePost.xib */,
+				5D20F60B2B32FF2B00DE7FAD /* VCEmoticonInput.swift */,
+				5D20F60C2B32FF2B00DE7FAD /* VCEmoticonInput.xib */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -290,7 +305,9 @@
 				5D960CF12A59B0E9008F26EC /* Main.storyboard in Resources */,
 				5DDB2EB62A5D6DA80073FBED /* TRPreference.storyboard in Resources */,
 				5D6AADCA2AAB261D00419996 /* VCCookieManage.xib in Resources */,
+				5D20F60E2B32FF2B00DE7FAD /* VCEmoticonInput.xib in Resources */,
 				5D9D99142B025BA6004F60A1 /* VCForumSelector.xib in Resources */,
+				5D20F6082B32F61500DE7FAD /* VCLandLogin.xib in Resources */,
 				5D6ED6E32AAAB491005AEDEC /* MainLand.storyboard in Resources */,
 				5DDA78532AAAF1C600569257 /* VCWritePost.xib in Resources */,
 			);
@@ -312,13 +329,16 @@
 				5D6ED6E12AAAA12D005AEDEC /* TRPrivacy.swift in Sources */,
 				5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */,
 				5DDA78522AAAF1C600569257 /* VCWritePost.swift in Sources */,
+				5D20F60D2B32FF2B00DE7FAD /* VCEmoticonInput.swift in Sources */,
 				5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */,
 				5D6AADCE2AAB4D5900419996 /* TRProblemList.swift in Sources */,
 				5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */,
 				5DB1737A2A5D7F1A0008C4B3 /* TRPreference.swift in Sources */,
+				5D20F60A2B32F97E00DE7FAD /* VCWhatsNew.swift in Sources */,
 				5D6AADC92AAB261D00419996 /* VCCookieManage.swift in Sources */,
 				5D6ED6E52AAAB4A5005AEDEC /* VCMainLand.swift in Sources */,
 				5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */,
+				5D20F6072B32F61500DE7FAD /* VCLandLogin.swift in Sources */,
 				5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */,
 				5D960CEC2A59B0E9008F26EC /* SceneDelegate.swift in Sources */,
 			);

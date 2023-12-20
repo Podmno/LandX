@@ -14,6 +14,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var mainViewContainer: UIView!
 
+    @IBOutlet weak var btnWritePost: UIButton!
     
     var forumViewer: TRForumViewerTable? = nil
     
@@ -26,6 +27,10 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     let sbPreferences = UIStoryboard(name: "TRPreference", bundle: Bundle.main)
     var vcPreferences: UIViewController? = nil
     
+    var vcWritePost: UIViewController? = nil
+    
+    var boolForumListLoaded: Bool = false
+    
     @IBOutlet weak var btnForumList: UIButton!
     
     
@@ -37,7 +42,12 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         
         let sb_trforum = UIStoryboard(name: "TRForumViewer", bundle: Bundle.main)
         forumViewer = sb_trforum.instantiateViewController(withIdentifier: "TRForumTable") as? TRForumViewerTable
+        
+        
+        vcWritePost = VCWritePost(nibName: "VCWritePost", bundle: Bundle.main)
 
+        
+        
         self.mainViewContainer.alpha = 0.0
         
         UIView.animate(withDuration: 1.2, animations: {
@@ -69,7 +79,12 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         
         self.refreshMainLand()
         
-        self.loadForumListContent()
+        if(!boolForumListLoaded) {
+            self.loadForumListContent()
+        }
+
+        
+        
         
     }
     
@@ -109,12 +124,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
                 
             }
             
-            print(self.forumListName)
-            print(self.forumListID)
-            print(self.timelineListName)
-            print(self.timelineListID)
-            
-            
+
             DispatchQueue.main.async {
                 var menu_list: [UIAction] = []
                 for f_list in self.forumListName {
@@ -128,6 +138,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
                 
                 let menu = UIMenu(title:"版面列表",children: menu_list)
                 self.btnForumList.menu = menu
+                self.boolForumListLoaded = true
             }
         }
         
@@ -142,5 +153,12 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.pushViewController(vcPreferences!, animated: true)
     }
     
+    @IBAction func btnClickedPost(_ sender: Any) {
+        vcWritePost?.modalPresentationStyle = .popover
+        vcWritePost?.popoverPresentationController?.sourceView = self.btnWritePost
+        vcWritePost?.popoverPresentationController?.sourceRect = self.btnWritePost.bounds
+ 
+        self.present(vcWritePost!, animated: true)
+    }
     
 }
