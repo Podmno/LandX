@@ -72,6 +72,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         // 重要： 设置 Frame 后才能够正常滚动
         // 设定为 view.frame 占满空间 而 container 的 frame 会空出一部分空间
         forumViewer!.view.frame = mainViewContainer.bounds
+        
         //forumViewer!.view.bounds = CGRectMake(0, 0, containerMain.bounds.size.width, containerMain.bounds.size.height)
         mainViewContainer.addSubview((forumViewer?.view)!)
         // 添加 didMove 响应滚动操作

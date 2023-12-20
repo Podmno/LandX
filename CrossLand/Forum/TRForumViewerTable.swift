@@ -97,6 +97,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
         cell.hideImageView()
         cell.hideReplyLabel()
         
+        // FIXME: 在 TableView 载入之前初始化完成各种 Cell 信息
         cell.setupThread(thread: threadDisplayQueue[indexPath.row])
         //cell.lbSAGE.layer.transform = CATransform3DMakeScale(0.5, 1.0, 1.0)
         //layer.transform = CATransform3DMakeScale(0.8, 1.0, 1.0)
@@ -115,6 +116,15 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cell = cell
+        let animation = CABasicAnimation(keyPath: "transform")
+        animation.fromValue = NSValue(caTransform3D: CATransform3DMakeScale(1, 0.7, 1))
+        animation.toValue = NSValue(caTransform3D: CATransform3DMakeScale(1, 1, 1))
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        cell.layer.add(animation, forKey: "transform")
     }
     
     
@@ -200,7 +210,18 @@ class TRForumViewerCell : UITableViewCell {
         
         lbTime.text = self.thread.threadDate
         
-        lbMain.text = self.thread.threadContent
+        //lbMain.text = self.thread.threadContent
+        
+        let data = self.thread.threadContent.data(using: .unicode)
+        let systemFont = UIFont.systemFont(ofSize: 16)
+        let attr = [NSAttributedString.Key.font: systemFont]
+        
+        if let attributedString = try? NSMutableAttributedString(data: data!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+            attributedString.addAttributes(attr, range: NSRange(location: 0, length: attributedString.length))
+            lbMain.attributedText = attributedString
+        }
+        
+        
         
         // 目前暂时禁用部分功能
         hideImageView()

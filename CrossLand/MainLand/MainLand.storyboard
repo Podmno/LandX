@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -28,38 +29,38 @@
                                 <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iza-im-vif">
-                                <rect key="frame" x="234" y="523" width="70" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iza-im-vif">
+                                <rect key="frame" x="234" y="531" width="70" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="Klo-5m-cEu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="设置">
+                                <state key="normal" title="  设置" image="gear" catalog="system">
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
                                 <connections>
                                     <action selector="btnClickedPreferences:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2hU-jV-BmT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFx-wC-WiK">
-                                <rect key="frame" x="16" y="523" width="70" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFx-wC-WiK">
+                                <rect key="frame" x="16" y="531" width="70" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="J0w-uF-AMK"/>
                                 </constraints>
                                 <menu key="menu" id="821-Aj-IL5"/>
-                                <state key="normal" title="版面">
+                                <state key="normal" title="  版面" image="book.closed" catalog="system">
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qb2-m8-0EU">
-                                <rect key="frame" x="125" y="523" width="70" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qb2-m8-0EU">
+                                <rect key="frame" x="125" y="531" width="70" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="ZCU-FG-Irg"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="发表">
+                                <state key="normal" title="  发表">
                                     <color key="titleColor" name="AccentColor"/>
+                                    <imageReference key="image" image="square.and.pencil" catalog="system" symbolScale="medium"/>
                                 </state>
                                 <connections>
                                     <action selector="btnClickedPost:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Qkf-AD-pfO"/>
@@ -113,6 +114,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book.closed" catalog="system" width="115" height="128"/>
+        <image name="gear" catalog="system" width="128" height="122"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
             <color red="0.18799999356269836" green="0.68999999761581421" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
