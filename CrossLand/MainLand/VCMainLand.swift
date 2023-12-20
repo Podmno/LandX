@@ -126,7 +126,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
                     menu_list.append(ac)
                 }
                 
-                let menu = UIMenu(title:"",children: menu_list)
+                let menu = UIMenu(title:"版面列表",children: menu_list)
                 self.btnForumList.menu = menu
             }
         }

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -19,16 +20,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ht-kE-dpA">
-                                <rect key="frame" x="0.0" y="61" width="320" height="432"/>
+                                <rect key="frame" x="0.0" y="40.5" width="320" height="467.5"/>
                             </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="揭示板 Beta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="px8-NP-dXs">
-                                <rect key="frame" x="60" y="20" width="200" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="综合线" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="px8-NP-dXs">
+                                <rect key="frame" x="60" y="10" width="200" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iza-im-vif">
-                                <rect key="frame" x="234" y="508" width="70" height="30"/>
+                                <rect key="frame" x="234" y="523" width="70" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="Klo-5m-cEu"/>
                                 </constraints>
@@ -40,9 +41,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFx-wC-WiK">
-                                <rect key="frame" x="16" y="508" width="50" height="30"/>
+                                <rect key="frame" x="16" y="523" width="70" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="J0w-uF-AMK"/>
+                                    <constraint firstAttribute="width" constant="70" id="J0w-uF-AMK"/>
                                 </constraints>
                                 <menu key="menu" id="821-Aj-IL5"/>
                                 <state key="normal" title="版面"/>
@@ -55,11 +56,11 @@
                             <constraint firstItem="px8-NP-dXs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="A28-e0-Aje"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Iza-im-vif" secondAttribute="trailing" constant="16" id="Bqj-jD-XLs"/>
                             <constraint firstItem="BFx-wC-WiK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="CS0-bS-7Jx"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="5ht-kE-dpA" secondAttribute="bottom" constant="75" id="V9X-aA-2gG"/>
-                            <constraint firstItem="5ht-kE-dpA" firstAttribute="top" secondItem="px8-NP-dXs" secondAttribute="bottom" constant="20" id="VTG-Aa-afu"/>
-                            <constraint firstItem="px8-NP-dXs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="e6f-cb-xH6"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Iza-im-vif" secondAttribute="bottom" constant="30" id="fTt-sE-dEf"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="BFx-wC-WiK" secondAttribute="bottom" constant="30" id="iVg-5F-JoE"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="5ht-kE-dpA" secondAttribute="bottom" constant="60" id="V9X-aA-2gG"/>
+                            <constraint firstItem="5ht-kE-dpA" firstAttribute="top" secondItem="px8-NP-dXs" secondAttribute="bottom" constant="10" id="VTG-Aa-afu"/>
+                            <constraint firstItem="px8-NP-dXs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="e6f-cb-xH6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Iza-im-vif" secondAttribute="bottom" constant="15" id="fTt-sE-dEf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="BFx-wC-WiK" secondAttribute="bottom" constant="15" id="iVg-5F-JoE"/>
                             <constraint firstItem="5ht-kE-dpA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="nhK-cz-0Eq"/>
                             <constraint firstItem="5ht-kE-dpA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="oMh-sM-Zni"/>
                         </constraints>
@@ -92,6 +93,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.18799999356269836" green="0.68999999761581421" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
