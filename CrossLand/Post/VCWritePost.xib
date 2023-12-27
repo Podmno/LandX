@@ -11,12 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VCWritePost" customModule="CrossLand" customModuleProvider="target">
             <connections>
+                <outlet property="btnEmoticon" destination="awZ-98-DV4" id="0S5-Xv-bK5"/>
+                <outlet property="toolBar" destination="8mr-Do-zbp" id="G0w-Hn-d4d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="358"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发表回复" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KwG-av-ieZ">
@@ -32,6 +34,9 @@
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="发布"/>
+                    <connections>
+                        <action selector="btnClickedPost:" destination="-1" eventType="touchUpInside" id="NPg-bk-rf7"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发串至 综合版" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcX-CL-Yxd">
                     <rect key="frame" x="16" y="49" width="288" height="18"/>
@@ -45,16 +50,26 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mr-Do-zbp">
-                    <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                    <rect key="frame" x="0.0" y="314" width="320" height="44"/>
                     <items>
-                        <barButtonItem title="取消" id="STH-uQ-mZY"/>
+                        <barButtonItem title="取消" id="F2f-wc-3xW">
+                            <connections>
+                                <action selector="btnClickedCancel:" destination="-1" id="LbN-wm-99M"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="IQ4-Je-6CA"/>
+                        <barButtonItem title="表情符号" id="awZ-98-DV4">
+                            <connections>
+                                <action selector="btnClickedEmoticon:" destination="-1" id="Zeo-gZ-5Bx"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="dtB-hK-eb2"/>
-                        <barButtonItem title="表情符号" id="awZ-98-DV4"/>
+                        <barButtonItem id="STH-uQ-mZY"/>
                     </items>
                 </toolbar>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L2a-Ih-Vpa">
-                    <rect key="frame" x="16" y="127" width="288" height="231"/>
-                    <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" layoutManager="textKit2" translatesAutoresizingMaskIntoConstraints="NO" id="L2a-Ih-Vpa">
+                    <rect key="frame" x="16" y="127" width="288" height="173"/>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -83,18 +98,18 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="L2a-Ih-Vpa" secondAttribute="trailing" constant="16" id="wcU-xW-dHr"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="142.5" y="61.267605633802816"/>
+            <point key="canvasLocation" x="142.5" y="30.633802816901408"/>
         </view>
     </objects>
     <resources>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="tertiarySystemFillColor">
-            <color red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

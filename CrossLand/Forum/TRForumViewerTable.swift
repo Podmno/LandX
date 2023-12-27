@@ -127,6 +127,14 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
         cell.layer.add(animation, forKey: "transform")
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // Scrool 处理
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        // 完全松开
+    }
+    
     
 }
 
@@ -212,7 +220,14 @@ class TRForumViewerCell : UITableViewCell {
         
         //lbMain.text = self.thread.threadContent
         
-        let data = self.thread.threadContent.data(using: .unicode)
+        // 去除 HTML a 标签，优化显示效果
+        
+        let html_a_label_pattern = "<a+.*?>([\\s\\S]*?)|</a*?>"
+        let regex = try! NSRegularExpression(pattern: html_a_label_pattern)
+        let th_replace_result = regex.stringByReplacingMatches(in: self.thread.threadContent, range: NSRange(location: 0, length: self.thread.threadContent.count), withTemplate: "")
+        let data = th_replace_result.data(using: .unicode)
+                                      
+                                      
         let systemFont = UIFont.systemFont(ofSize: 16)
         let attr = [NSAttributedString.Key.font: systemFont]
         

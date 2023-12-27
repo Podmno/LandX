@@ -28,11 +28,14 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     var vcPreferences: UIViewController? = nil
     
     var vcWritePost: UIViewController? = nil
+    var vcWhatsNew: VCWhatsNew? = nil
     
     var boolForumListLoaded: Bool = false
     
     @IBOutlet weak var btnForumList: UIButton!
     
+    
+    var postWindow: UIWindow? = nil
     
     let API = LCAPI()
     
@@ -47,6 +50,12 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         vcWritePost = VCWritePost(nibName: "VCWritePost", bundle: Bundle.main)
 
         
+        vcWhatsNew = VCWhatsNew(nibName: "VCWhatsNew", bundle: Bundle.main)
+        //if(!vcWhatsNew!.getDisplayStatus()) {
+        //    self.present(vcWhatsNew!, animated: true)
+        //}
+        
+        // vcWhatsNew?.display(parent: self)
         
         self.mainViewContainer.alpha = 0.0
         
@@ -78,14 +87,14 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         // 添加 didMove 响应滚动操作
         forumViewer?.didMove(toParent: self)
         
-        self.refreshMainLand()
+        //self.refreshMainLand()
         
         if(!boolForumListLoaded) {
+            
             self.loadForumListContent()
+            self.checkNetworkStatus()
         }
 
-        
-        
         
     }
     
@@ -97,9 +106,25 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     }
     
     
+    func checkNetworkStatus() {
+        
+        let check_network = DispatchQueue(label: "studio.tri.landx.mainLandCheckNetwork")
+        check_network.async {
+            let reply = self.API.checkNetworkStatus()
+            
+            if(reply != LCAPINetworkStatus.success) {
+                DispatchQueue.main.async {
+                    let handler = TRProblemHandler()
+                    handler.displayError(errorCode: 100001, viewController: self)
+                }
+            }
+            
+        }
+    }
+    
     func loadForumListContent() {
         
-        let work_get_forumlist = DispatchQueue(label: "studio.tri.landX.mainLnadGetForumList")
+        let work_get_forumlist = DispatchQueue(label: "studio.tri.landX.mainLandGetForumList")
         work_get_forumlist.async {
             
             print("MainLand > - Network - Get Forum & Timeline List...")
@@ -155,11 +180,18 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func btnClickedPost(_ sender: Any) {
-        vcWritePost?.modalPresentationStyle = .popover
+        vcWritePost?.modalPresentationStyle = .formSheet
         vcWritePost?.popoverPresentationController?.sourceView = self.btnWritePost
         vcWritePost?.popoverPresentationController?.sourceRect = self.btnWritePost.bounds
  
         self.present(vcWritePost!, animated: true)
+
+
+        //let scenes = UIApplication.shared.connectedScenes
+        //let windowScene = scenes.first as? UIWindowScene
+        //let window = windowScene?.windows.first
+        //vcWritePost!.view.frame = CGRect(x:  10, y: 10, width: self.view.frame.size.width - 20, height: 300)
+        //window?.addSubview(vcWritePost!.view)
     }
     
 }

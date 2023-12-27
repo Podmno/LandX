@@ -7,7 +7,11 @@
 
 import UIKit
 
-class VCWritePost: UIViewController {
+class VCWritePost: UIViewController, UIPopoverPresentationControllerDelegate {
+    
+    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var btnEmoticon: UIBarButtonItem!
+    let vcEmoticonInput = VCEmoticonInput(nibName: "VCEmoticonInput", bundle: Bundle.main)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +22,38 @@ class VCWritePost: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    
+    @IBAction func btnClickedPost(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func btnClickedEmoticon(_ sender: Any) {
+        
+        vcEmoticonInput.modalPresentationStyle = .popover
+        vcEmoticonInput.popoverPresentationController?.sourceView = self.toolBar
+        vcEmoticonInput.popoverPresentationController?.sourceRect = self.toolBar.bounds
+        //vcEmoticonInput.popoverPresentationController?.sourceView = self.btnWritePost
+        //vcEmoticonInput.popoverPresentationController?.sourceRect = self.btnWritePost.bounds
+        vcEmoticonInput.popoverPresentationController?.delegate = self
+        vcEmoticonInput.view.backgroundColor = UIColor.clear
+        self.present(vcEmoticonInput, animated: true)
+        
+        
+    }
+    
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    @IBAction func btnClickedCancel(_ sender: Any) {
+        self.dismiss(animated: true)
+        //self.view.removeFromSuperview()
+    }
+    
+    
     /*
     // MARK: - Navigation
 

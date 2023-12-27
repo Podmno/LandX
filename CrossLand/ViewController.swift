@@ -7,6 +7,8 @@
 
 import UIKit
 
+let flagDisplayWhatsNew = true
+
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
 
@@ -17,13 +19,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var lbLoading: UILabel!
     
     var vcMain: UIViewController? = nil
-    
+    var vcWhatsNew: VCWhatsNew? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         vcMain = sbMainLand.instantiateInitialViewController()
+        vcWhatsNew = VCWhatsNew(nibName: "VCWhatsNew", bundle: Bundle.main)
         
         //checkNetworkConnection()
         
@@ -34,11 +37,26 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         //vcPreferences = sbPreferences.instantiateInitialViewController()
         //self.navigationController?.pushViewController(vcPreferences!, animated: true)
-
-
-        vcMain?.modalPresentationStyle = .fullScreen
-        self.present(vcMain!, animated: true)
         
+        if(flagDisplayWhatsNew) {
+            vcWhatsNew?.modalPresentationStyle = .fullScreen
+            vcWhatsNew?.modalTransitionStyle = .crossDissolve
+            self.present(vcWhatsNew!, animated: true)
+            return
+        }
+        
+        
+        let repo = vcWhatsNew?.getDisplayStatus() ?? true
+        
+        if(repo) {
+            vcMain?.modalPresentationStyle = .fullScreen
+            self.present(vcMain!, animated: true)
+        } else {
+            vcWhatsNew?.modalPresentationStyle = .fullScreen
+            vcWhatsNew?.modalTransitionStyle = .crossDissolve
+            self.present(vcWhatsNew!, animated: true)
+        }
+
         
         //self.navigationController?.pushViewController(vcMain!, animated: true)
     }

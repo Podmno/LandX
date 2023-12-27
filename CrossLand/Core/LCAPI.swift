@@ -6,9 +6,19 @@
 //
 
 import Foundation
+import SwiftyJSON
+import Alamofire
 
 /// 日志输出 API 请求信息与内容
 let landAPIDebugOutput = true
+
+/// LCAPI 的请求结果获取
+public enum LCAPINetworkStatus {
+    case success
+    case failed
+    case timeout
+    case unknown
+}
 
 open class LCAPI : NSObject {
     
@@ -105,10 +115,49 @@ open class LCAPI : NSObject {
     }
     
     /// 检查与 X 岛的连接情况
-    public func checkNetworkStatus() {
+    public func checkNetworkStatus() -> LCAPINetworkStatus {
+        print("API - Check the connection to X Land...")
+       
+        var reply = LCAPINetworkStatus.unknown
         
+        let semaphore = DispatchSemaphore.init(value: 0)
+        let queue = DispatchQueue.init(label: "studio.tri.LandX.networkCheck")
+
         
+        queue.async {
+            
+            AF.request("https://api.nmb.best/api/getCDNPath",method: .get,encoding: URLEncoding.default).response { response in
+                
+                if(response.error != nil) {
+                    
+                    //print("Request - Error for \(response.debugDescription)")
+                    
+                    //print("Response Code Error for : \(response.error?.responseCode ?? 0)")
+                   
+                    if response.error!.errorDescription!.contains("timed out") {
+                        reply = .timeout
+                    } else {
+                        reply = LCAPINetworkStatus.failed
+                    }
+                    
+                    
+                    
+                    
+                    semaphore.signal()
+                    return
+                }
+
+                reply = LCAPINetworkStatus.success
+                semaphore.signal()
+            }
+            
+        }
+        
+        semaphore.wait()
+        
+        return reply
     }
+        
     
     
 }

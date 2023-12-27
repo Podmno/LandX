@@ -86,6 +86,4 @@ class VCCookieManageTableView: NSObject, UITableViewDelegate, UITableViewDataSou
     }
     
     
-    
-    
 }
