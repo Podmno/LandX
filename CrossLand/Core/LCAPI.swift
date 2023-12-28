@@ -139,10 +139,6 @@ open class LCAPI : NSObject {
                     } else {
                         reply = LCAPINetworkStatus.failed
                     }
-                    
-                    
-                    
-                    
                     semaphore.signal()
                     return
                 }

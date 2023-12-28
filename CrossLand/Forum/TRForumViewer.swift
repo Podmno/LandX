@@ -21,6 +21,13 @@ enum TRForumViewerType {
     
 }
 
+/// 设定 ForumViewer 的展示配置
+struct TRForumViewerConfig {
+    
+    var viewerType: TRForumViewerType = .postFlow
+    
+}
+
 /// Forum Viewer 管家：网络请求与界面种类
 class TRForumViewer : NSObject {
     

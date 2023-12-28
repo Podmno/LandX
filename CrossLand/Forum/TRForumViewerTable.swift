@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// 核心 FormView Tabe View
 class TRForumViewerTable : UIViewController {
     
     
@@ -63,6 +64,7 @@ class TRForumViewerTable : UIViewController {
             
             let r_list = API.getForum(forumID: 4, forumPage: 1)
             
+            // Append Forum Data
             self.threadListData.append(contentsOf: r_list)
             
             DispatchQueue.main.async {
@@ -77,10 +79,17 @@ class TRForumViewerTable : UIViewController {
 
 class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
     
+    // TableViewCell Stack
+    var tableViewCell : [UITableViewCell] = []
 
     //let threadXIBStoryboard = UIStoryboard(name: "TRForumViewer", bundle: Bundle.main)
-    var threadDisplayQueue: [LSThread] = []
+    public var threadDisplayQueue: [LSThread] = []
 
+    override init() {
+        super.init()
+        
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -97,7 +106,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
         cell.hideImageView()
         cell.hideReplyLabel()
         
-        // FIXME: 在 TableView 载入之前初始化完成各种 Cell 信息
+        // FIXME: 在 TableView 载入之前初始化完成富文本转换任务
         cell.setupThread(thread: threadDisplayQueue[indexPath.row])
         //cell.lbSAGE.layer.transform = CATransform3DMakeScale(0.5, 1.0, 1.0)
         //layer.transform = CATransform3DMakeScale(0.8, 1.0, 1.0)
@@ -119,6 +128,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // TableView 动画
         let cell = cell
         let animation = CABasicAnimation(keyPath: "transform")
         animation.fromValue = NSValue(caTransform3D: CATransform3DMakeScale(1, 0.7, 1))
@@ -221,21 +231,8 @@ class TRForumViewerCell : UITableViewCell {
         //lbMain.text = self.thread.threadContent
         
         // 去除 HTML a 标签，优化显示效果
-        
-        let html_a_label_pattern = "<a+.*?>([\\s\\S]*?)|</a*?>"
-        let regex = try! NSRegularExpression(pattern: html_a_label_pattern)
-        let th_replace_result = regex.stringByReplacingMatches(in: self.thread.threadContent, range: NSRange(location: 0, length: self.thread.threadContent.count), withTemplate: "")
-        let data = th_replace_result.data(using: .unicode)
-                                      
-                                      
-        let systemFont = UIFont.systemFont(ofSize: 16)
-        let attr = [NSAttributedString.Key.font: systemFont]
-        
-        if let attributedString = try? NSMutableAttributedString(data: data!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
-            attributedString.addAttributes(attr, range: NSRange(location: 0, length: attributedString.length))
-            lbMain.attributedText = attributedString
-        }
-        
+        lbMain.attributedText = self.thread.threadContentAttributedString
+
         
         
         // 目前暂时禁用部分功能
@@ -246,3 +243,20 @@ class TRForumViewerCell : UITableViewCell {
     
     
 }
+
+
+/*
+let html_a_label_pattern = "<a+.*?>([\\s\\S]*?)|</a*?>"
+let regex = try! NSRegularExpression(pattern: html_a_label_pattern)
+let th_replace_result = regex.stringByReplacingMatches(in: self.thread.threadContent, range: NSRange(location: 0, length: self.thread.threadContent.count), withTemplate: "")
+let data = th_replace_result.data(using: .unicode)
+                              
+                              
+let systemFont = UIFont.systemFont(ofSize: 16)
+let attr = [NSAttributedString.Key.font: systemFont]
+
+if let attributedString = try? NSMutableAttributedString(data: data!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+    attributedString.addAttributes(attr, range: NSRange(location: 0, length: attributedString.length))
+    lbMain.attributedText = attributedString
+}
+*/

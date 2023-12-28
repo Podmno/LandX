@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftyJSON
+import UIKit
 
 open class LSForumList : NSObject {
     
@@ -117,6 +118,9 @@ open class LSThread : NSObject {
     public var threadReplies: Array<LSThread> = []
     public var threadRemainReplies: UInt = 0
     
+    /// 富文本形式的帖子内容
+    public var threadContentAttributedString: NSMutableAttributedString? = nil
+    
     public func loadFromJSON(json: JSON) {
         
         threadID = json["id"].uInt ?? 0
@@ -136,6 +140,21 @@ open class LSThread : NSObject {
         // Replies
         // TODO: Thread Replies Content Load
         threadRemainReplies = json["RemainReplies"].uInt ?? 0
+        
+        let html_a_label_pattern = "<a+.*?>([\\s\\S]*?)|</a*?>"
+        let regex = try! NSRegularExpression(pattern: html_a_label_pattern)
+        let th_replace_result = regex.stringByReplacingMatches(in: threadContent, range: NSRange(location: 0, length: threadContent.count), withTemplate: "")
+        let data = th_replace_result.data(using: .unicode)
+                                      
+                                      
+        let systemFont = UIFont.systemFont(ofSize: 16)
+        let attr = [NSAttributedString.Key.font: systemFont]
+        
+        if let attributedString = try? NSMutableAttributedString(data: data!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+            attributedString.addAttributes(attr, range: NSRange(location: 0, length: attributedString.length))
+            self.threadContentAttributedString = attributedString
+        }
+        
     }
 }
 
