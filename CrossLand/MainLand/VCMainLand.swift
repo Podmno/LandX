@@ -90,8 +90,6 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         //self.refreshMainLand()
         
         if(!boolForumListLoaded) {
-            
-            self.loadForumListContent()
             self.checkNetworkStatus()
         }
 
@@ -116,13 +114,25 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
                 DispatchQueue.main.async {
                     let handler = TRProblemHandler()
                     handler.displayError(errorCode: 100001, viewController: self)
+                    
+                    // 网络错误展示
+                    
+                    return
                 }
+            } else {
+                // 检查网络成功 > 才进行数据内容载入
+                self.loadForumListContent()
             }
             
         }
+        
+        
     }
     
     func loadForumListContent() {
+        
+        // TODO: 之后由 TRForumViewer 全权进行网络内容载入，远端仅需要指定参数信息
+        
         
         let work_get_forumlist = DispatchQueue(label: "studio.tri.landX.mainLandGetForumList")
         work_get_forumlist.async {

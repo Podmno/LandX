@@ -246,6 +246,7 @@ class TRForumViewerCell : UITableViewCell {
 
 
 /*
+富文本转换 > 迁移至 LCStruct 中完成
 let html_a_label_pattern = "<a+.*?>([\\s\\S]*?)|</a*?>"
 let regex = try! NSRegularExpression(pattern: html_a_label_pattern)
 let th_replace_result = regex.stringByReplacingMatches(in: self.thread.threadContent, range: NSRange(location: 0, length: self.thread.threadContent.count), withTemplate: "")
