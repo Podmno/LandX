@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="mac" appearance="light" renderMode="macOS"/>
+    <device id="mac" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,11 +26,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZj-2h-nrF">
-                    <rect key="frame" x="20" y="560" width="760" height="20"/>
+                    <rect key="frame" x="20" y="545" width="760" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="WmP-0U-Y5s"/>
+                        <constraint firstAttribute="height" constant="35" id="WmP-0U-Y5s"/>
                     </constraints>
-                    <color key="tintColor" name="AccentColor"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="继续"/>
                     <connections>
@@ -52,7 +50,6 @@
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apps.iphone" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ej7-oF-bqC">
                     <rect key="frame" x="16" y="140.5" width="32" height="26.5"/>
-                    <color key="tintColor" name="AccentColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="32" id="FP1-XR-L9R"/>
                         <constraint firstAttribute="height" constant="26.5" id="h2C-dx-hHj"/>
@@ -60,7 +57,6 @@
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qGl-5S-9HT">
                     <rect key="frame" x="16" y="215.5" width="32" height="26"/>
-                    <color key="tintColor" name="AccentColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26.5" id="4JB-zf-jfx"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26.5" id="LAT-M4-mGL"/>
@@ -70,7 +66,6 @@
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icloud" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nLs-Od-8jR">
                     <rect key="frame" x="16" y="290.5" width="32" height="23"/>
-                    <color key="tintColor" name="AccentColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="32" id="3Bc-mr-xIE"/>
                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="32" id="5yG-8z-fuK"/>
@@ -146,9 +141,6 @@
         <image name="apps.iphone" catalog="system" width="114" height="128"/>
         <image name="bell" catalog="system" width="125" height="128"/>
         <image name="icloud" catalog="system" width="128" height="90"/>
-        <namedColor name="AccentColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -13,6 +13,8 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var lbLargeTitle: UILabel!
     @IBOutlet weak var mainViewContainer: UIView!
     @IBOutlet weak var btnWritePost: UIButton!
+    @IBOutlet weak var btnForumList: UIButton!
+    @IBOutlet weak var artNetworkError: UIImageView!
     
     var forumViewer: TRFVTable? = nil
     
@@ -30,7 +32,6 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     
     var boolForumListLoaded: Bool = false
     
-    @IBOutlet weak var btnForumList: UIButton!
     
     
     var postWindow: UIWindow? = nil
@@ -117,7 +118,9 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
                     handler.displayError(errorCode: 100001, viewController: self)
                     
                     // 网络错误展示
-                    
+                    self.artNetworkError.isHidden = false
+                   
+                    self.mainViewContainer.isHidden = true
                     return
                 }
             } else {
