@@ -11,12 +11,10 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     
     
     @IBOutlet weak var lbLargeTitle: UILabel!
-    
     @IBOutlet weak var mainViewContainer: UIView!
-
     @IBOutlet weak var btnWritePost: UIButton!
     
-    var forumViewer: TRForumViewerTable? = nil
+    var forumViewer: TRFVTable? = nil
     
     var forumListName: [String] = []
     var forumListID: [UInt] = []
@@ -43,8 +41,8 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
 
         
-        let sb_trforum = UIStoryboard(name: "TRForumViewer", bundle: Bundle.main)
-        forumViewer = sb_trforum.instantiateViewController(withIdentifier: "TRForumTable") as? TRForumViewerTable
+        let sb_trforum = UIStoryboard(name: "TRFV", bundle: Bundle.main)
+        forumViewer = sb_trforum.instantiateViewController(withIdentifier: "TRForumTable") as? TRFVTable
         
         
         vcWritePost = VCWritePost(nibName: "VCWritePost", bundle: Bundle.main)
@@ -62,6 +60,12 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         UIView.animate(withDuration: 1.2, animations: {
             self.mainViewContainer.alpha = 1.0
         })
+        
+        
+        if(!boolForumListLoaded) {
+            self.checkNetworkStatus()
+        }
+        
     }
 
     
@@ -89,12 +93,9 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         
         //self.refreshMainLand()
         
-        if(!boolForumListLoaded) {
-            self.checkNetworkStatus()
-        }
-
-        
     }
+    
+    
     
     ///  主要函数 刷新主列表
     func refreshMainLand() {
@@ -181,6 +182,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    // MARK: UI Actions
     
     
     @IBAction func btnClickedPreferences(_ sender: Any) {

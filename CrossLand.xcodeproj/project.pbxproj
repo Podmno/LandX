@@ -14,7 +14,7 @@
 		5D20F60E2B32FF2B00DE7FAD /* VCEmoticonInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D20F60C2B32FF2B00DE7FAD /* VCEmoticonInput.xib */; };
 		5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */; };
 		5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483A872A73FDC600DB37BD /* LCStorage.swift */; };
-		5D6AADC12AAAD0A200419996 /* TRForumViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC02AAAD0A200419996 /* TRForumViewer.swift */; };
+		5D6AADC12AAAD0A200419996 /* TRFVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC02AAAD0A200419996 /* TRFVController.swift */; };
 		5D6AADC92AAB261D00419996 /* VCCookieManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC72AAB261D00419996 /* VCCookieManage.swift */; };
 		5D6AADCA2AAB261D00419996 /* VCCookieManage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D6AADC82AAB261D00419996 /* VCCookieManage.xib */; };
 		5D6AADCC2AAB3E3C00419996 /* ProblemReporter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D6AADCB2AAB3E3C00419996 /* ProblemReporter.xib */; };
@@ -22,6 +22,7 @@
 		5D6ED6E12AAAA12D005AEDEC /* TRPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6ED6E02AAAA12D005AEDEC /* TRPrivacy.swift */; };
 		5D6ED6E32AAAB491005AEDEC /* MainLand.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D6ED6E22AAAB491005AEDEC /* MainLand.storyboard */; };
 		5D6ED6E52AAAB4A5005AEDEC /* VCMainLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6ED6E42AAAB4A5005AEDEC /* VCMainLand.swift */; };
+		5D8C973E2B3D830B009D142D /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C973D2B3D77D7009D142D /* Documentation.docc */; };
 		5D8F003B2B39D2EA00D9EFE7 /* TRProblemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F003A2B39D2EA00D9EFE7 /* TRProblemHandler.swift */; };
 		5D93AC552A6049CC00C7799B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5D93AC542A6049CC00C7799B /* Alamofire */; };
 		5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D960CE92A59B0E9008F26EC /* AppDelegate.swift */; };
@@ -41,8 +42,8 @@
 		5DDA78522AAAF1C600569257 /* VCWritePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA78502AAAF1C600569257 /* VCWritePost.swift */; };
 		5DDA78532AAAF1C600569257 /* VCWritePost.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA78512AAAF1C600569257 /* VCWritePost.xib */; };
 		5DDB2EB62A5D6DA80073FBED /* TRPreference.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DDB2EB52A5D6DA80073FBED /* TRPreference.storyboard */; };
-		5DF06E842A5EC6A900B07D4F /* TRForumViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */; };
-		5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */; };
+		5DF06E842A5EC6A900B07D4F /* TRFV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF06E832A5EC6A900B07D4F /* TRFV.storyboard */; };
+		5DF06E882A5ECAB900B07D4F /* TRFVTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF06E872A5ECAB900B07D4F /* TRFVTable.swift */; };
 		5DF692F82A74AA640078A4C3 /* LCDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF692F72A74AA640078A4C3 /* LCDefaults.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +55,7 @@
 		5D20F60C2B32FF2B00DE7FAD /* VCEmoticonInput.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCEmoticonInput.xib; sourceTree = "<group>"; };
 		5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRProblemReporter.swift; sourceTree = "<group>"; };
 		5D483A872A73FDC600DB37BD /* LCStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStorage.swift; sourceTree = "<group>"; };
-		5D6AADC02AAAD0A200419996 /* TRForumViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRForumViewer.swift; sourceTree = "<group>"; };
+		5D6AADC02AAAD0A200419996 /* TRFVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRFVController.swift; sourceTree = "<group>"; };
 		5D6AADC72AAB261D00419996 /* VCCookieManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCCookieManage.swift; sourceTree = "<group>"; };
 		5D6AADC82AAB261D00419996 /* VCCookieManage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCCookieManage.xib; sourceTree = "<group>"; };
 		5D6AADCB2AAB3E3C00419996 /* ProblemReporter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemReporter.xib; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		5D6ED6E02AAAA12D005AEDEC /* TRPrivacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPrivacy.swift; sourceTree = "<group>"; };
 		5D6ED6E22AAAB491005AEDEC /* MainLand.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainLand.storyboard; sourceTree = "<group>"; };
 		5D6ED6E42AAAB4A5005AEDEC /* VCMainLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMainLand.swift; sourceTree = "<group>"; };
+		5D8C973D2B3D77D7009D142D /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		5D8F003A2B39D2EA00D9EFE7 /* TRProblemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRProblemHandler.swift; sourceTree = "<group>"; };
 		5D960CE62A59B0E9008F26EC /* CrossLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D960CE92A59B0E9008F26EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,8 +84,8 @@
 		5DDA78502AAAF1C600569257 /* VCWritePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCWritePost.swift; sourceTree = "<group>"; };
 		5DDA78512AAAF1C600569257 /* VCWritePost.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCWritePost.xib; sourceTree = "<group>"; };
 		5DDB2EB52A5D6DA80073FBED /* TRPreference.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRPreference.storyboard; sourceTree = "<group>"; };
-		5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRForumViewer.storyboard; sourceTree = "<group>"; };
-		5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRForumViewerTable.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		5DF06E832A5EC6A900B07D4F /* TRFV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TRFV.storyboard; sourceTree = "<group>"; };
+		5DF06E872A5ECAB900B07D4F /* TRFVTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRFVTable.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		5DF0D25E2A5F7FDA00D4CD5E /* Acknowledgement.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Acknowledgement.md; sourceTree = "<group>"; };
 		5DF692F72A74AA640078A4C3 /* LCDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +170,7 @@
 				5D960CFD2A59B0FE008F26EC /* CrossLand.entitlements */,
 				5D960CF72A59B0EE008F26EC /* Info.plist */,
 				5DF0D25E2A5F7FDA00D4CD5E /* Acknowledgement.md */,
+				5D8C973D2B3D77D7009D142D /* Documentation.docc */,
 			);
 			path = CrossLand;
 			sourceTree = "<group>";
@@ -184,9 +187,9 @@
 		5DCC04DB2A5E4F850076B70D /* Forum */ = {
 			isa = PBXGroup;
 			children = (
-				5D6AADC02AAAD0A200419996 /* TRForumViewer.swift */,
-				5DF06E872A5ECAB900B07D4F /* TRForumViewerTable.swift */,
-				5DF06E832A5EC6A900B07D4F /* TRForumViewer.storyboard */,
+				5D6AADC02AAAD0A200419996 /* TRFVController.swift */,
+				5DF06E872A5ECAB900B07D4F /* TRFVTable.swift */,
+				5DF06E832A5EC6A900B07D4F /* TRFV.storyboard */,
 				5D9D99112B025BA6004F60A1 /* VCForumSelector.swift */,
 				5D9D99122B025BA6004F60A1 /* VCForumSelector.xib */,
 			);
@@ -302,7 +305,7 @@
 			files = (
 				5DA1A9302B030E9900335F6C /* VCWhatsNew.xib in Resources */,
 				5D6AADCC2AAB3E3C00419996 /* ProblemReporter.xib in Resources */,
-				5DF06E842A5EC6A900B07D4F /* TRForumViewer.storyboard in Resources */,
+				5DF06E842A5EC6A900B07D4F /* TRFV.storyboard in Resources */,
 				5D960CF62A59B0EE008F26EC /* LaunchScreen.storyboard in Resources */,
 				5D960CF32A59B0EE008F26EC /* Assets.xcassets in Resources */,
 				5D960CF12A59B0E9008F26EC /* Main.storyboard in Resources */,
@@ -324,10 +327,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D960CEE2A59B0E9008F26EC /* ViewController.swift in Sources */,
-				5D6AADC12AAAD0A200419996 /* TRForumViewer.swift in Sources */,
+				5D6AADC12AAAD0A200419996 /* TRFVController.swift in Sources */,
 				5DAAC4042A68CEEF001D2DC9 /* LCRequest.swift in Sources */,
 				5D9D99132B025BA6004F60A1 /* VCForumSelector.swift in Sources */,
 				5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */,
+				5D8C973E2B3D830B009D142D /* Documentation.docc in Sources */,
 				5DF692F82A74AA640078A4C3 /* LCDefaults.swift in Sources */,
 				5D6ED6E12AAAA12D005AEDEC /* TRPrivacy.swift in Sources */,
 				5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */,
@@ -343,7 +347,7 @@
 				5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */,
 				5D8F003B2B39D2EA00D9EFE7 /* TRProblemHandler.swift in Sources */,
 				5D20F6072B32F61500DE7FAD /* VCLandLogin.swift in Sources */,
-				5DF06E882A5ECAB900B07D4F /* TRForumViewerTable.swift in Sources */,
+				5DF06E882A5ECAB900B07D4F /* TRFVTable.swift in Sources */,
 				5D960CEC2A59B0E9008F26EC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

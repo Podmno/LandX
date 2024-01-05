@@ -8,7 +8,7 @@
 import UIKit
 
 /// 设定 Forum View 的种类
-enum TRForumViewerType {
+enum TRFVType {
     
     /// 信息流界面 展示所有的串预览 并显示最近的几条回复
     case postFlow
@@ -22,25 +22,33 @@ enum TRForumViewerType {
 }
 
 /// 设定 ForumViewer 的展示配置
-struct TRForumViewerConfig {
+struct TRFVConfig {
     
-    var viewerType: TRForumViewerType = .postFlow
+    /// 设定 ForumViewer 的展示类别
+    var viewerType: TRFVType = .postFlow
+    
+    /// 启用 URL 跳转功能
+    var viewerBoolEnableURLTouch = false
     
 }
 
 /// Forum Viewer 管家：网络请求与界面种类
-class TRForumViewer : NSObject {
+class TRFVController : NSObject {
     
-    var viewerType: TRForumViewerType = .postFlow
+    var viewerType: TRFVType = .postFlow
     
-    var forumViewerTable: TRForumViewerTable? = nil
+    var forumViewerTable: TRFVTable? = nil
     
     /// 设定 Forum Viewer 的显示种类
-    func setupViewerType(viewerType: TRForumViewerType) {
+    func setupViewerType(viewerType: TRFVType) {
         self.viewerType = viewerType
     }
     
+    func setupViewerInfo(config: TRFVConfig) {
+        
+    }
     
+    /// 获取核心 ForumViewer
     func getCoreViewController() -> UIViewController? {
         
         return forumViewerTable

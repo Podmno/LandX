@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZeD-Wg-1R5">
-                                <rect key="frame" x="10" y="623" width="355" height="34"/>
+                                <rect key="frame" x="10" y="620" width="355" height="34"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kl6-sx-Dce">
                                         <rect key="frame" x="0.0" y="0.0" width="63" height="34"/>
@@ -50,7 +50,7 @@
                                         <state key="normal" image="pencil.circle" catalog="system">
                                             <color key="titleColor" name="AccentColor"/>
                                         </state>
-                                        <buttonConfiguration key="configuration" style="plain" image="pencil.circle" catalog="system">
+                                        <buttonConfiguration key="configuration" style="plain" image="paperplane" catalog="system">
                                             <color key="baseForegroundColor" name="AccentColor"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -83,7 +83,7 @@
                                         <state key="normal" image="book" catalog="system">
                                             <color key="titleColor" name="AccentColor"/>
                                         </state>
-                                        <buttonConfiguration key="configuration" style="plain" image="book" catalog="system">
+                                        <buttonConfiguration key="configuration" style="plain" image="list.bullet" catalog="system">
                                             <color key="baseForegroundColor" name="AccentColor"/>
                                         </buttonConfiguration>
                                     </button>
@@ -100,7 +100,7 @@
                             <constraint firstItem="px8-NP-dXs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="e6f-cb-xH6"/>
                             <constraint firstItem="5ht-kE-dpA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="nhK-cz-0Eq"/>
                             <constraint firstItem="5ht-kE-dpA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="oMh-sM-Zni"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ZeD-Wg-1R5" secondAttribute="bottom" constant="10" id="rhY-p9-90b"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ZeD-Wg-1R5" secondAttribute="bottom" constant="13" id="rhY-p9-90b"/>
                             <constraint firstItem="px8-NP-dXs" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="vGU-2X-edM"/>
                         </constraints>
                     </view>
@@ -137,6 +137,8 @@
         <image name="bell" catalog="system" width="125" height="128"/>
         <image name="book" catalog="system" width="128" height="99"/>
         <image name="gear" catalog="system" width="128" height="122"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
+        <image name="paperplane" catalog="system" width="128" height="119"/>
         <image name="pencil.circle" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.18799999356269836" green="0.68999999761581421" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

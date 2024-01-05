@@ -8,11 +8,11 @@
 import UIKit
 
 /// 核心 FormView Tabe View
-class TRForumViewerTable : UIViewController {
+class TRFVTable : UIViewController {
     
     
     @IBOutlet weak var mainTableView: UITableView!
-    let mainTable = TRVCForumViewerTableMain()
+    let mainTable = TRVCFVTableMain()
     let mainRefresh = UIRefreshControl()
     
     var threadListData: [LSThread] = []
@@ -77,7 +77,7 @@ class TRForumViewerTable : UIViewController {
 }
 
 
-class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
+class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
     
     // TableViewCell Stack
     var tableViewCell : [UITableViewCell] = []
@@ -100,7 +100,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //return helperTableCell.cellCreateSwitch(text: "demo")
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TRForumViewerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TRFVCell
         
         cell.hideBtnGoThread()
         cell.hideImageView()
@@ -150,7 +150,7 @@ class TRVCForumViewerTableMain : NSObject ,UITableViewDelegate, UITableViewDataS
 
 
 
-class TRForumViewerCell : UITableViewCell {
+class TRFVCell : UITableViewCell {
     
 
     var thread: LSThread = LSThread()
