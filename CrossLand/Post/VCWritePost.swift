@@ -11,12 +11,19 @@ class VCWritePost: UIViewController, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var btnEmoticon: UIBarButtonItem!
+    @IBOutlet weak var tvMain: UITextView!
+    
+    
     let vcEmoticonInput = VCEmoticonInput(nibName: "VCEmoticonInput", bundle: Bundle.main)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        vcEmoticonInput.actionUserInputEmoticon = { inputu in
+            self.tvMain.text.append(inputu)
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

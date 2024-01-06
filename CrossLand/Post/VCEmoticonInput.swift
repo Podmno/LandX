@@ -4,6 +4,14 @@
 //
 //  Created by Ki MNO on 2023/12/20.
 //
+//
+
+/*
+ 
+    Version 1.0
+    表情符号输入初始功能
+ 
+ */
 
 import UIKit
 
@@ -313,13 +321,28 @@ class VCEmoticonInput: UIViewController {
     @IBOutlet weak var coreCV: UICollectionView!
     let collectionView = VCEmoticonInputCollectionView()
 
+    
+    var actionUserInputEmoticon : (String) -> Void = { str in
+        print("VCEmoticonInput >> \(str), No action provided.")
+        
+    }
+    
+    var emoticonContentArray : [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-
+        loadEmoticonData()
         
-
+        collectionView.actionOnSelectedEmoticon = { str in
+            
+            self.actionUserInputEmoticon(str)
+            
+            // 再次传递到顶层
+            
+            self.dismiss(animated: true)
+        }
     }
     
 
@@ -338,14 +361,40 @@ class VCEmoticonInput: UIViewController {
         
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+        
+    
+        
         coreCV.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "celldata")
         coreCV.collectionViewLayout = layout
 
     }
 
+    /// 载入颜文字数据
     func loadEmoticonData() {
         
-        
+        emoticonContentArray.append(contentsOf: emoticonSet1)
+        emoticonContentArray.append(contentsOf: emoticonSet2)
+        emoticonContentArray.append(contentsOf: emoticonSet3)
+        emoticonContentArray.append(contentsOf: emoticonSet4)
+        emoticonContentArray.append(contentsOf: emoticonSet5)
+        emoticonContentArray.append(contentsOf: emoticonSet6)
+        emoticonContentArray.append(contentsOf: emoticonSet7)
+        emoticonContentArray.append(contentsOf: emoticonSet8)
+        emoticonContentArray.append(contentsOf: emoticonSet9)
+        emoticonContentArray.append(contentsOf: emoticonSet10)
+        emoticonContentArray.append(contentsOf: emoticonSet11)
+        emoticonContentArray.append(contentsOf: emoticonSet12)
+        emoticonContentArray.append(contentsOf: emoticonSet13)
+        emoticonContentArray.append(contentsOf: emoticonSet14)
+        //emoticonContentArray.append(contentsOf: emoticonSet15)
+
+        collectionView.emoticonsDisplayArray.append(contentsOf: emoticonContentArray)
+        print("Total Emoticons Count : \(emoticonContentArray.count)")
+    }
+    
+    
+    @IBAction func btnClickedClose(_ sender: Any) {
+        self.dismiss(animated: true)
     }
 
 
@@ -353,21 +402,61 @@ class VCEmoticonInput: UIViewController {
 }
 
 class VCEmoticonInputCollectionView : NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    var emoticonsDisplayArray : [String] = []
+    var emoticonsDisplayCellView: [UICollectionViewCell] = []
+    
+    /// Block: 用户选择了表情符号
+    var actionOnSelectedEmoticon : (String) -> Void = {str in
+        print("did selected : \(str)")
+    }
+    
+    func loadAndSetEmoticons(array: [String]) {
+        
+        emoticonsDisplayArray.append(contentsOf: array)
+        
+            
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 6
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 10
+        return (emoticonsDisplayArray.count / 6 + 1 )
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "celldata", for: indexPath)
-        cell.backgroundColor = UIColor.red
+       
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "celldata\(indexPath.row)#\(indexPath.section)")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "celldata\(indexPath.row)#\(indexPath.section)", for: indexPath)
+
+        
+        if (cell.contentView.subviews.count < 1 ) {
+            let lb_id = indexPath.row + indexPath.section * 6
+            
+            // 防止溢出
+            if (lb_id < emoticonsDisplayArray.count) {
+                let lb = UILabel()
+                lb.text = emoticonsDisplayArray[lb_id]
+                lb.textAlignment = .center
+                lb.frame = cell.contentView.frame
+                cell.contentView.addSubview(lb)
+            }
+            
+        }
+        
+        
         return cell
     }
     
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 选择项目的事件
+        let lb_id = indexPath.row + indexPath.section * 6
+        actionOnSelectedEmoticon(emoticonsDisplayArray[lb_id])
+        
+    }
     
     
     

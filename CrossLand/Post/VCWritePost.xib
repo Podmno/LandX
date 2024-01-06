@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="btnEmoticon" destination="awZ-98-DV4" id="0S5-Xv-bK5"/>
                 <outlet property="toolBar" destination="8mr-Do-zbp" id="G0w-Hn-d4d"/>
+                <outlet property="tvMain" destination="L2a-Ih-Vpa" id="fDM-bY-Hw1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
