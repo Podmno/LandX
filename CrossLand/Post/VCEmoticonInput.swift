@@ -309,16 +309,66 @@ c(　╹^╹)
 ]
 
 class VCEmoticonInput: UIViewController {
+    
+    @IBOutlet weak var coreCV: UICollectionView!
+    let collectionView = VCEmoticonInputCollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+        
+
     }
     
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //self.yourtableview.register(UINib(nibName: "yourCellXIBname", bundle: Bundle.main), forCellReuseIdentifier: "YourCellReUseIdentifier")
+        //coreCV.register(s, forCellWithReuseIdentifier: s)
+        coreCV.dataSource = collectionView
+        coreCV.delegate = collectionView
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 100, height: 50)
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 5;
+        
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+        coreCV.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "celldata")
+        coreCV.collectionViewLayout = layout
+
+    }
+
+    func loadEmoticonData() {
+        
+        
+    }
 
 
 
+}
 
+class VCEmoticonInputCollectionView : NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "celldata", for: indexPath)
+        cell.backgroundColor = UIColor.red
+        return cell
+    }
+    
+    
+    
+    
+    
 }

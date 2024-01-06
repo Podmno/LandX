@@ -178,8 +178,8 @@
 		5DA1A92E2B030E5700335F6C /* Tip */ = {
 			isa = PBXGroup;
 			children = (
-				5DA1A92F2B030E9900335F6C /* VCWhatsNew.xib */,
 				5D20F6092B32F97E00DE7FAD /* VCWhatsNew.swift */,
+				5DA1A92F2B030E9900335F6C /* VCWhatsNew.xib */,
 			);
 			path = Tip;
 			sourceTree = "<group>";
