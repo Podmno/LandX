@@ -216,12 +216,14 @@ class TRFVCell : UITableViewCell {
     /// 用 Thread 信息更新 Cell
     func updateCell() {
         
-        if #available(macCatalyst 15.0, *) {
+        if #available(macCatalyst 15.0,iOS 15.0, *) {
             lbPO.backgroundColor = UIColor.tintColor
             lbSAGE.backgroundColor = UIColor.tintColor
         } else {
             // Fallback on earlier versions
         }
+        
+
 
         
         lbUser.text = self.thread.threadUserHash
