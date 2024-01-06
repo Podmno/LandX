@@ -28,7 +28,9 @@ struct TRFVConfig {
     var viewerType: TRFVType = .postFlow
     
     /// 启用 URL 跳转功能
-    var viewerBoolEnableURLTouch = false
+    var boolEnableURLTouch = false
+    
+    
     
 }
 
@@ -39,11 +41,13 @@ class TRFVController : NSObject {
     
     var forumViewerTable: TRFVTable? = nil
     
-    /// 设定 Forum Viewer 的显示种类
-    func setupViewerType(viewerType: TRFVType) {
-        self.viewerType = viewerType
+    override init() {
+        super.init()
+        
+        
     }
     
+    /// 设定 Forum Viewer 配置信息
     func setupViewerInfo(config: TRFVConfig) {
         
     }

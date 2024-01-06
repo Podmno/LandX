@@ -64,7 +64,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         
         
         if(!boolForumListLoaded) {
-            self.checkNetworkStatus()
+            self.loadFormViewContent()
         }
         
     }
@@ -106,8 +106,10 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     }
     
     
-    func checkNetworkStatus() {
+    /// 装载 FormViewer 内容
+    func loadFormViewContent() {
         
+        // 检查网络连接
         let check_network = DispatchQueue(label: "studio.tri.landx.mainLandCheckNetwork")
         check_network.async {
             let reply = self.API.checkNetworkStatus()
