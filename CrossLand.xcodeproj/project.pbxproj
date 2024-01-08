@@ -33,6 +33,8 @@
 		5D960CF62A59B0EE008F26EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D960CF42A59B0EE008F26EC /* LaunchScreen.storyboard */; };
 		5D9D99132B025BA6004F60A1 /* VCForumSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9D99112B025BA6004F60A1 /* VCForumSelector.swift */; };
 		5D9D99142B025BA6004F60A1 /* VCForumSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D9D99122B025BA6004F60A1 /* VCForumSelector.xib */; };
+		5DA0263C2B4AB2890010C1B5 /* TRLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0263A2B4AB2890010C1B5 /* TRLoading.swift */; };
+		5DA0263D2B4AB2890010C1B5 /* TRLoading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA0263B2B4AB2890010C1B5 /* TRLoading.xib */; };
 		5DA1A9302B030E9900335F6C /* VCWhatsNew.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA1A92F2B030E9900335F6C /* VCWhatsNew.xib */; };
 		5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */; };
 		5DAAC4042A68CEEF001D2DC9 /* LCRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */; };
@@ -76,6 +78,8 @@
 		5D960CFD2A59B0FE008F26EC /* CrossLand.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CrossLand.entitlements; sourceTree = "<group>"; };
 		5D9D99112B025BA6004F60A1 /* VCForumSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCForumSelector.swift; sourceTree = "<group>"; };
 		5D9D99122B025BA6004F60A1 /* VCForumSelector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCForumSelector.xib; sourceTree = "<group>"; };
+		5DA0263A2B4AB2890010C1B5 /* TRLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRLoading.swift; sourceTree = "<group>"; };
+		5DA0263B2B4AB2890010C1B5 /* TRLoading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TRLoading.xib; sourceTree = "<group>"; };
 		5DA1A92F2B030E9900335F6C /* VCWhatsNew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCWhatsNew.xib; sourceTree = "<group>"; };
 		5DAAC4012A68CA35001D2DC9 /* LCAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAPI.swift; sourceTree = "<group>"; };
 		5DAAC4032A68CEEF001D2DC9 /* LCRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCRequest.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 		5D960CE82A59B0E9008F26EC /* CrossLand */ = {
 			isa = PBXGroup;
 			children = (
+				5DA026392B4AB2640010C1B5 /* Animation */,
 				5DF06E822A5EC64300B07D4F /* Core */,
 				5DDB2EB82A5D73C20073FBED /* MainLand */,
 				5DCC04DB2A5E4F850076B70D /* Forum */,
@@ -173,6 +178,15 @@
 				5D8C973D2B3D77D7009D142D /* Documentation.docc */,
 			);
 			path = CrossLand;
+			sourceTree = "<group>";
+		};
+		5DA026392B4AB2640010C1B5 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				5DA0263A2B4AB2890010C1B5 /* TRLoading.swift */,
+				5DA0263B2B4AB2890010C1B5 /* TRLoading.xib */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		5DA1A92E2B030E5700335F6C /* Tip */ = {
@@ -315,6 +329,7 @@
 				5D9D99142B025BA6004F60A1 /* VCForumSelector.xib in Resources */,
 				5D20F6082B32F61500DE7FAD /* VCLandLogin.xib in Resources */,
 				5D6ED6E32AAAB491005AEDEC /* MainLand.storyboard in Resources */,
+				5DA0263D2B4AB2890010C1B5 /* TRLoading.xib in Resources */,
 				5DDA78532AAAF1C600569257 /* VCWritePost.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +355,7 @@
 				5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */,
 				5D6AADCE2AAB4D5900419996 /* TRProblemList.swift in Sources */,
 				5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */,
+				5DA0263C2B4AB2890010C1B5 /* TRLoading.swift in Sources */,
 				5DB1737A2A5D7F1A0008C4B3 /* TRPreference.swift in Sources */,
 				5D20F60A2B32F97E00DE7FAD /* VCWhatsNew.swift in Sources */,
 				5D6AADC92AAB261D00419996 /* VCCookieManage.swift in Sources */,

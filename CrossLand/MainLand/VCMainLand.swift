@@ -27,9 +27,13 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     let sbPreferences = UIStoryboard(name: "TRPreference", bundle: Bundle.main)
     var vcPreferences: UIViewController? = nil
     
+    
+    // TODO: 在加载完成之后销毁 ViewController
+    var vcLoadingAnimationView = TRLoading(nibName: "TRLoading", bundle: Bundle.main)
     var vcWritePost: UIViewController? = nil
     var vcWhatsNew: VCWhatsNew? = nil
     
+    // 防止 viewDidLoad 方法中重复加载
     var boolForumListLoaded: Bool = false
     
     
@@ -40,21 +44,26 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /*
+         
+         loadingAnimationView = TRLoading(nibName: "TRLoading", bundle: Bundle.main)
+         loadingAnimationView!.view.frame = CGRect(x: 0, y: 0, width: bnd.width, height: 40)
+         */
 
+        vcLoadingAnimationView.view.frame = mainViewContainer.bounds
+        self.mainViewContainer.addSubview(vcLoadingAnimationView.view)
+        
         
         let sb_trforum = UIStoryboard(name: "TRFV", bundle: Bundle.main)
         forumViewer = sb_trforum.instantiateViewController(withIdentifier: "TRForumTable") as? TRFVTable
-        
+        forumViewer!.view.isHidden = true
         
         vcWritePost = VCWritePost(nibName: "VCWritePost", bundle: Bundle.main)
 
         
         vcWhatsNew = VCWhatsNew(nibName: "VCWhatsNew", bundle: Bundle.main)
-        //if(!vcWhatsNew!.getDisplayStatus()) {
-        //    self.present(vcWhatsNew!, animated: true)
-        //}
-        
-        // vcWhatsNew?.display(parent: self)
+ 
         
         self.mainViewContainer.alpha = 0.0
         
@@ -64,7 +73,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         
         
         if(!boolForumListLoaded) {
-            self.loadFormViewContent()
+            self.forumDataDisplayPre()
         }
         
     }
@@ -96,18 +105,10 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+
     
-    
-    ///  主要函数 刷新主列表
-    func refreshMainLand() {
-        
-        // 暂时的设计交给了 TRForumViewer 去自行处理，只需设定参数
-        
-    }
-    
-    
-    /// 装载 FormViewer 内容
-    func loadFormViewContent() {
+    /// 预准备：检查网络情况等
+    func forumDataDisplayPre() {
         
         // 检查网络连接
         let check_network = DispatchQueue(label: "studio.tri.landx.mainLandCheckNetwork")
@@ -127,7 +128,9 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
                 }
             } else {
                 // 检查网络成功 > 才进行数据内容载入
-                self.loadForumListContent()
+                
+                
+                self.forumDataDisplayNetwork()
             }
             
         }
@@ -135,10 +138,8 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         
     }
     
-    func loadForumListContent() {
-        
-        // TODO: 之后由 TRForumViewer 全权进行网络内容载入，远端仅需要指定参数信息
-        
+    /// 请求网络信息
+    func forumDataDisplayNetwork() {
         
         let work_get_forumlist = DispatchQueue(label: "studio.tri.landX.mainLandGetForumList")
         work_get_forumlist.async {
@@ -168,6 +169,9 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
             
 
             DispatchQueue.main.async {
+                self.forumViewer!.view.isHidden = false
+                
+                
                 var menu_list: [UIAction] = []
                 for f_list in self.forumListName {
                     

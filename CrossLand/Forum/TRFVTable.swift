@@ -13,48 +13,70 @@ class TRFVTable : UIViewController {
     
     @IBOutlet weak var mainTableView: UITableView!
     let mainTable = TRVCFVTableMain()
-    let mainRefresh = UIRefreshControl()
     
+    var loadingAnimationView: TRLoading? = nil
+
     var threadListData: [LSThread] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //mainTable.loadData()
         mainTableView.delegate = mainTable
         mainTableView.dataSource = mainTable
-        
+        //addButtomRefreshView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setupRefreshUp()
-        
-
         mainTableView.reloadData()
         
-        loadForumData()
+        initForumDataLoad()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    
+        // 保证能够只执行一次
+        
+        setupRefreshUp()
+        
+    }
+    
+
+    
+    /// 添加上拉刷新
     func setupRefreshUp() {
         
 
-        mainTableView.addSubview(mainRefresh)
-        mainRefresh.beginRefreshing()
-
-        mainTableView.scrollsToTop = true
+        //mainTableView.addSubview(mainRefresh)
+        //mainRefresh.beginRefreshing()
         
-        mainRefresh.endRefreshing()
+        
+        //mainTableView.scrollsToTop = true
+        
+        //mainRefresh.endRefreshing()
     }
     
     func setupTableForum() {
+        print("< remove")
         
         mainTable.threadDisplayQueue.append(contentsOf: threadListData)
-        
+
         mainTableView.reloadData()
+        mainTableView.layoutIfNeeded()
+        
+        var inset = mainTableView.contentInset
+        inset.top -= 80
+        self.mainTableView.contentInset = inset
+        inset.top += 80
+        self.mainTableView.contentInset = inset
+        //mainTableView.scrollToRow(at: IndexPath(row: 1, section: 0), at: .top, animated: false)
+        //mainTableView.scrollRectToVisible(CGRectMake(0, 80, 0, 80), animated: true)
         
         
     }
     
-    func loadForumData() {
+    func initForumDataLoad() {
         
         let queue = DispatchQueue.init(label: "landX.networkRequest.mainData")
         
@@ -73,11 +95,22 @@ class TRFVTable : UIViewController {
             
         }
     }
+    
+
 
 }
 
 
 class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
+    
+    let vcLoadingFooter = TRLoading(nibName: "TRLoading", bundle: Bundle.main)
+    let vcLoadingHeader = TRLoading(nibName: "TRLoading", bundle: Bundle.main)
+    
+    var viewHeader: UIView? = nil
+    
+    var tableViewSelf: UITableView? = nil
+    
+    var scroolViewSelf: UIScrollView? = nil
     
     // TableViewCell Stack
     var tableViewCell : [UITableViewCell] = []
@@ -88,18 +121,20 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
     override init() {
         super.init()
         
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
+        tableViewSelf = tableView
+        
+        
         return threadDisplayQueue.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //return helperTableCell.cellCreateSwitch(text: "demo")
-        
+        tableViewSelf = tableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TRFVCell
         
         cell.hideBtnGoThread()
@@ -127,6 +162,24 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return vcLoadingFooter.view
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return vcLoadingHeader.view
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80.0
+    }
+    
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // TableView 动画
         let cell = cell
@@ -139,12 +192,31 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // Scrool 处理
+        scroolViewSelf = scrollView
+        dealWithFooter()
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        scroolViewSelf = scrollView
         // 完全松开
     }
     
+    func dealWithFooter() {
+        if scroolViewSelf == nil || tableViewSelf == nil {
+            print("<!> Nil scrool view, table view, skip deal with footer")
+        }
+        
+        if tableViewSelf?.contentSize.height == 0 {
+            return
+        }
+
+        // 40: 偏移量用于稍微看到加载动画就触发网络请求与加载
+        let footer_offset = tableViewSelf!.contentSize.height - tableViewSelf!.frame.size.height - 40
+        
+        if tableViewSelf!.contentOffset.y >= footer_offset {
+            print(">> begin footer refreshing")
+        }
+    }
     
 }
 
