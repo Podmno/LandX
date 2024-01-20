@@ -18,13 +18,17 @@ class TRFVTable : UIViewController {
 
     var threadListData: [LSThread] = []
     
+    var dataConfig: TRFVConfig = TRFVConfig()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //mainTable.loadData()
+        
+        mainTable.config = dataConfig
         mainTableView.delegate = mainTable
         mainTableView.dataSource = mainTable
-        //addButtomRefreshView()
+        mainTableView.backgroundView = nil
+        mainTableView.backgroundView = UIView()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -35,27 +39,14 @@ class TRFVTable : UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-    
-        // 保证能够只执行一次
-        
-        setupRefreshUp()
         
     }
     
 
-    
-    /// 添加上拉刷新
-    func setupRefreshUp() {
-        
-
-        //mainTableView.addSubview(mainRefresh)
-        //mainRefresh.beginRefreshing()
-        
-        
-        //mainTableView.scrollsToTop = true
-        
-        //mainRefresh.endRefreshing()
+    public func setupConfig(config: TRFVConfig) {
+        dataConfig = config
     }
+
     
     func setupTableForum() {
         print("< remove")
@@ -71,29 +62,14 @@ class TRFVTable : UIViewController {
         inset.top += 80
         self.mainTableView.contentInset = inset
         //mainTableView.scrollToRow(at: IndexPath(row: 1, section: 0), at: .top, animated: false)
-        //mainTableView.scrollRectToVisible(CGRectMake(0, 80, 0, 80), animated: true)
+        mainTableView.scrollRectToVisible(CGRectMake(0, 80, 0, 80), animated: true)
         
         
     }
     
     func initForumDataLoad() {
-        
-        let queue = DispatchQueue.init(label: "landX.networkRequest.mainData")
-        
-        queue.async {
-            
-            let API = LCAPI()
-            
-            let r_list = API.getForum(forumID: 4, forumPage: 1)
-            
-            // Append Forum Data
-            self.threadListData.append(contentsOf: r_list)
-            
-            DispatchQueue.main.async {
-                self.setupTableForum()
-            }
-            
-        }
+        self.setupTableForum()
+        self.mainTable.loadNetworkData()
     }
     
 
@@ -112,6 +88,15 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
     
     var scroolViewSelf: UIScrollView? = nil
     
+    /// 配置：0：展示 Forum / 1：展示 Timeline / 2：展示 Thread
+    public var config = TRFVConfig()
+    
+    /// 是否允许页面刷新（用于防止重复刷新）
+    var currentStatusOnRefreshing = true
+    
+    /// 当前最下方加载的页面标记
+    var currentStatusNowPage: UInt = 0
+    
     // TableViewCell Stack
     var tableViewCell : [UITableViewCell] = []
 
@@ -120,6 +105,37 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
 
     override init() {
         super.init()
+
+        
+    }
+    
+    func loadNetworkData() {
+        
+        self.currentStatusOnRefreshing = true
+        self.currentStatusNowPage += 1
+        let queue = DispatchQueue.init(label: "landX.networkRequest.mainData")
+        
+        queue.async {
+            
+            let API = LCAPI()
+            
+            if (self.config.viewerChannel == .forum) {
+                let r_list = API.getForum(forumID: 4, forumPage: self.currentStatusNowPage)
+                
+                // Append Forum Data
+                self.threadDisplayQueue.append(contentsOf: r_list)
+            }
+            
+            
+            
+            DispatchQueue.main.async {
+                //self.tableViewSelf?.reloadData()
+                
+                self.tableViewSelf?.reloadSections(IndexSet(integer: 0), with: .fade)
+                
+                self.currentStatusOnRefreshing = false
+            }
+        }
         
     }
     
@@ -129,6 +145,22 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
         
         
         return threadDisplayQueue.count
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        view.backgroundColor = .tertiarySystemBackground
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Did select indexPath \(indexPath.row)")
+        
+        let id_data = threadDisplayQueue[indexPath.row].threadID
+        let f_data = threadDisplayQueue[indexPath.row].threadForumID
+        print("GO Thread > \(id_data)")
+        let jump_destination = ["id": id_data, "forumID": f_data]
+        print("Post <LandXForumJump>, object: \(jump_destination)")
+        NotificationCenter.default.post(name: NSNotification.Name("LandXForumJump"), object: jump_destination)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
@@ -163,31 +195,41 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        print("currentStatusNowPage \(currentStatusNowPage)")
+        if (!currentStatusOnRefreshing ) {
+            return nil
+        }
         return vcLoadingFooter.view
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return vcLoadingHeader.view
+        return nil
+        //return vcLoadingHeader.view
     }
     
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 50.0
+        if (currentStatusNowPage >= 3) {
+            return 35.0
+        }
+        return 80.0
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 80.0
+        return 35.0
     }
     
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // TableView 动画
+        /*
         let cell = cell
         let animation = CABasicAnimation(keyPath: "transform")
         animation.fromValue = NSValue(caTransform3D: CATransform3DMakeScale(1, 0.7, 1))
         animation.toValue = NSValue(caTransform3D: CATransform3DMakeScale(1, 1, 1))
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         cell.layer.add(animation, forKey: "transform")
+         */
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -209,12 +251,28 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
         if tableViewSelf?.contentSize.height == 0 {
             return
         }
+        
+        if (currentStatusNowPage >= 3) {
+
+            return
+        }
 
         // 40: 偏移量用于稍微看到加载动画就触发网络请求与加载
-        let footer_offset = tableViewSelf!.contentSize.height - tableViewSelf!.frame.size.height - 40
+        let footer_offset = tableViewSelf!.contentSize.height - tableViewSelf!.frame.size.height - 400
         
         if tableViewSelf!.contentOffset.y >= footer_offset {
+            
+            
+            if (currentStatusOnRefreshing) {
+                return
+            }
             print(">> begin footer refreshing")
+            //currentStatusOnRefreshing = true
+            
+            loadNetworkData()
+            
+            
+            
         }
     }
     
@@ -342,4 +400,35 @@ if let attributedString = try? NSMutableAttributedString(data: data!, options: [
     attributedString.addAttributes(attr, range: NSRange(location: 0, length: attributedString.length))
     lbMain.attributedText = attributedString
 }
+ 
+ /// 添加上拉刷新
+ func setupRefreshUp() {
+     
+
+     //mainTableView.addSubview(mainRefresh)
+     //mainRefresh.beginRefreshing()
+     
+     
+     //mainTableView.scrollsToTop = true
+     
+     //mainRefresh.endRefreshing()
+ }
 */
+/*
+ 
+ let network_get = DispatchQueue(label: "studio.tri.refresh.tableview")
+ network_get.async {
+     let API = LCAPI()
+     if (self.config.viewerChannel == .forum) {
+         self.currentStatusNowPage += 1
+         let r_list = API.getForum(forumID: 4, forumPage: UInt(self.currentStatusNowPage))
+         self.threadDisplayQueue.append(contentsOf: r_list)
+         self.currentStatusOnRefreshing = false
+         DispatchQueue.main.async {
+             self.tableViewSelf?.reloadData()
+
+         }
+     }
+ }
+ 
+ */

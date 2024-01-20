@@ -12,6 +12,8 @@
 		5D20F60A2B32F97E00DE7FAD /* VCWhatsNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20F6092B32F97E00DE7FAD /* VCWhatsNew.swift */; };
 		5D20F60D2B32FF2B00DE7FAD /* VCEmoticonInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D20F60B2B32FF2B00DE7FAD /* VCEmoticonInput.swift */; };
 		5D20F60E2B32FF2B00DE7FAD /* VCEmoticonInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D20F60C2B32FF2B00DE7FAD /* VCEmoticonInput.xib */; };
+		5D2DBB032B5BEF3200354683 /* VCSubLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DBB012B5BEF3200354683 /* VCSubLand.swift */; };
+		5D2DBB042B5BEF3200354683 /* VCSubLand.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2DBB022B5BEF3200354683 /* VCSubLand.xib */; };
 		5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */; };
 		5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483A872A73FDC600DB37BD /* LCStorage.swift */; };
 		5D6AADC12AAAD0A200419996 /* TRFVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC02AAAD0A200419996 /* TRFVController.swift */; };
@@ -55,6 +57,8 @@
 		5D20F6092B32F97E00DE7FAD /* VCWhatsNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCWhatsNew.swift; sourceTree = "<group>"; };
 		5D20F60B2B32FF2B00DE7FAD /* VCEmoticonInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCEmoticonInput.swift; sourceTree = "<group>"; };
 		5D20F60C2B32FF2B00DE7FAD /* VCEmoticonInput.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCEmoticonInput.xib; sourceTree = "<group>"; };
+		5D2DBB012B5BEF3200354683 /* VCSubLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSubLand.swift; sourceTree = "<group>"; };
+		5D2DBB022B5BEF3200354683 /* VCSubLand.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCSubLand.xib; sourceTree = "<group>"; };
 		5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRProblemReporter.swift; sourceTree = "<group>"; };
 		5D483A872A73FDC600DB37BD /* LCStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStorage.swift; sourceTree = "<group>"; };
 		5D6AADC02AAAD0A200419996 /* TRFVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRFVController.swift; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 			children = (
 				5D6ED6E42AAAB4A5005AEDEC /* VCMainLand.swift */,
 				5D6ED6E22AAAB491005AEDEC /* MainLand.storyboard */,
+				5D2DBB012B5BEF3200354683 /* VCSubLand.swift */,
+				5D2DBB022B5BEF3200354683 /* VCSubLand.xib */,
 			);
 			path = MainLand;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DA1A9302B030E9900335F6C /* VCWhatsNew.xib in Resources */,
+				5D2DBB042B5BEF3200354683 /* VCSubLand.xib in Resources */,
 				5D6AADCC2AAB3E3C00419996 /* ProblemReporter.xib in Resources */,
 				5DF06E842A5EC6A900B07D4F /* TRFV.storyboard in Resources */,
 				5D960CF62A59B0EE008F26EC /* LaunchScreen.storyboard in Resources */,
@@ -347,6 +354,7 @@
 				5D9D99132B025BA6004F60A1 /* VCForumSelector.swift in Sources */,
 				5D960CEA2A59B0E9008F26EC /* AppDelegate.swift in Sources */,
 				5D8C973E2B3D830B009D142D /* Documentation.docc in Sources */,
+				5D2DBB032B5BEF3200354683 /* VCSubLand.swift in Sources */,
 				5DF692F82A74AA640078A4C3 /* LCDefaults.swift in Sources */,
 				5D6ED6E12AAAA12D005AEDEC /* TRPrivacy.swift in Sources */,
 				5DAAC4022A68CA35001D2DC9 /* LCAPI.swift in Sources */,
@@ -440,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -494,7 +502,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -525,7 +533,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,7 +572,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

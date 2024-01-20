@@ -36,6 +36,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     // 防止 viewDidLoad 方法中重复加载
     var boolForumListLoaded: Bool = false
     
+    var subThread: VCSubLand? = nil
     
     
     var postWindow: UIWindow? = nil
@@ -76,6 +77,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
             self.forumDataDisplayPre()
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(forumJumpSubLand), name: NSNotification.Name("LandXForumJump"), object: nil)
     }
 
     
@@ -105,6 +107,17 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    @objc func forumJumpSubLand(notification: NSNotification) {
+        print("MainLand receive notification! ")
+        let data_result = notification.object as! Dictionary<String, Any>
+        let fid = data_result["id"] as! UInt
+        
+        print("MainLand > GO Thread ID: \(fid)")
+        
+        subThread = VCSubLand(nibName: "VCSubLand", bundle: Bundle.main)
+        subThread?.setSubLandThreadID(tid: fid)
+        self.navigationController?.pushViewController(subThread!, animated: true)
+    }
 
     
     /// 预准备：检查网络情况等
@@ -128,7 +141,6 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
                 }
             } else {
                 // 检查网络成功 > 才进行数据内容载入
-                
                 
                 self.forumDataDisplayNetwork()
             }
@@ -175,15 +187,20 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
                 var menu_list: [UIAction] = []
                 for f_list in self.forumListName {
                     
-                    let ac = UIAction(title: f_list) {_ in
-                        
+                    let ac = UIAction(title: f_list) {handler in
+                        print(handler.title)
                     }
+                    
                     
                     menu_list.append(ac)
                 }
                 
                 let menu = UIMenu(title:"版面列表",children: menu_list)
-                self.btnForumList.menu = menu
+                if #available(macCatalyst 14.0, *) {
+                    self.btnForumList.menu = menu
+                } else {
+                    // Fallback on earlier versions
+                }
                 self.boolForumListLoaded = true
             }
         }
