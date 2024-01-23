@@ -57,6 +57,9 @@ struct TRFVConfig {
     /// 启用时间格式转换。false 对应 X 岛展示事件，true 对应系统转换时间。
     var boolEnableTimeConvert = false
     
+    /// 设定最大的加载页数。默认为 10 页
+    var maximumPageDisplay = 10
+    
 }
 
 /// Forum Viewer 管家：网络请求与界面种类

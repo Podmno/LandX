@@ -10,6 +10,7 @@ import UIKit
 /// 核心 FormView Tabe View
 class TRFVTable : UIViewController {
     
+    @IBOutlet weak var tableViewCell: TRFVCell!
     
     @IBOutlet weak var mainTableView: UITableView!
     let mainTable = TRVCFVTableMain()
@@ -18,12 +19,12 @@ class TRFVTable : UIViewController {
 
     var threadListData: [LSThread] = []
     
-    var dataConfig: TRFVConfig = TRFVConfig()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainTable.config = dataConfig
         mainTableView.delegate = mainTable
         mainTableView.dataSource = mainTable
         mainTableView.backgroundView = nil
@@ -32,29 +33,32 @@ class TRFVTable : UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        mainTableView.reloadData()
         
-        initForumDataLoad()
+        
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        initForumDataLoad()
+
     }
     
 
     public func setupConfig(config: TRFVConfig) {
-        dataConfig = config
+        mainTable.resetTableView(config: config)
+    }
+    
+    public func loadData() {
+        self.mainTable.loadNetworkData()
     }
 
     
     func setupTableForum() {
         print("< remove")
         
-        mainTable.threadDisplayQueue.append(contentsOf: threadListData)
+        //mainTable.threadDisplayQueue.append(contentsOf: threadListData)
 
-        mainTableView.reloadData()
-        mainTableView.layoutIfNeeded()
         
         var inset = mainTableView.contentInset
         inset.top -= 80
@@ -69,7 +73,7 @@ class TRFVTable : UIViewController {
     
     func initForumDataLoad() {
         self.setupTableForum()
-        self.mainTable.loadNetworkData()
+        
     }
     
 
@@ -88,6 +92,9 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
     
     var scroolViewSelf: UIScrollView? = nil
     
+    /// 用于 Thread View：当前的 Po 主名字
+    var threadViewCurrentPoCookie: String = ""
+    
     /// 配置：0：展示 Forum / 1：展示 Timeline / 2：展示 Thread
     public var config = TRFVConfig()
     
@@ -97,8 +104,17 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
     /// 当前最下方加载的页面标记
     var currentStatusNowPage: UInt = 0
     
+    /// 用于标记是不是到头了
+    var currentStatusIsLastPage: Bool = false
+    
     // TableViewCell Stack
     var tableViewCell : [UITableViewCell] = []
+    
+    /// 上次记录的刷新 Index
+    var recordLastRefreshIndex = 0
+    
+    /// 根据 ID 记录已经被添加过的内容，添加过就不再展示第二次了
+    var recordDisplayedID: [UInt] = []
 
     //let threadXIBStoryboard = UIStoryboard(name: "TRForumViewer", bundle: Bundle.main)
     public var threadDisplayQueue: [LSThread] = []
@@ -113,6 +129,7 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
         
         self.currentStatusOnRefreshing = true
         self.currentStatusNowPage += 1
+        print(self.config)
         let queue = DispatchQueue.init(label: "landX.networkRequest.mainData")
         
         queue.async {
@@ -120,19 +137,63 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
             let API = LCAPI()
             
             if (self.config.viewerChannel == .forum) {
-                let r_list = API.getForum(forumID: 4, forumPage: self.currentStatusNowPage)
+                let r_list = API.getForum(forumID: self.config.defaultValueID, forumPage: self.currentStatusNowPage)
                 
                 // Append Forum Data
-                self.threadDisplayQueue.append(contentsOf: r_list)
+                
+                for f_data in r_list {
+                    if(!self.recordDisplayedID.contains(f_data.threadID)) {
+                        self.recordDisplayedID.append(f_data.threadID)
+                        self.threadDisplayQueue.append(f_data)
+                    }
+                }
+            }
+            
+            if (self.config.viewerChannel == .timeline) {
+                
+                let r_list = API.getTimeline(timelineID: self.config.defaultValueID, timelinePage: self.currentStatusNowPage)
+                
+                for f_data in r_list {
+                    if(!self.recordDisplayedID.contains(f_data.threadID)) {
+                        self.recordDisplayedID.append(f_data.threadID)
+                        self.threadDisplayQueue.append(f_data)
+                    }
+                }
+                
+            }
+            
+            if (self.config.viewerChannel == .thread) {
+                
+                // 分页处理
+                let t_list = API.getThread(threadID: self.config.defaultValueID, threadPage: self.currentStatusNowPage)
+                
+                if (self.currentStatusNowPage == 1) {
+                    print("Setup Current Thread User Hash: \(t_list.threadUserHash)")
+                    self.threadViewCurrentPoCookie = t_list.threadUserHash
+                    self.threadDisplayQueue.append(t_list)
+                }
+                
+                print("Thread Replies Count: \(t_list.threadReplies.count)")
+                print("Thraed Reply 0 Thread ID : \(t_list.threadReplies[0].threadID)")
+                if (t_list.threadReplies.count == 1 && t_list.threadReplies[0].threadID == 9999999) {
+                    self.currentStatusIsLastPage = true
+                    print("Is last page, skip update.")
+                }
+                
+                for th in t_list.threadReplies {
+                    if (!self.recordDisplayedID.contains(th.threadID)) {
+                        self.recordDisplayedID.append(th.threadID)
+                        self.threadDisplayQueue.append(th)
+                    }
+                }
+                //self.threadDisplayQueue.append(contentsOf: t_list.threadReplies)
             }
             
             
-            
             DispatchQueue.main.async {
-                //self.tableViewSelf?.reloadData()
+                self.tableViewSelf?.reloadData()
                 
-                self.tableViewSelf?.reloadSections(IndexSet(integer: 0), with: .fade)
-                
+                self.recordLastRefreshIndex = self.threadDisplayQueue.count
                 self.currentStatusOnRefreshing = false
             }
         }
@@ -151,8 +212,17 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
         view.backgroundColor = .tertiarySystemBackground
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.backgroundColor = .tertiarySystemBackground
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Did select indexPath \(indexPath.row)")
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if (config.viewerType == .detailView) {
+            return
+        }
         
         let id_data = threadDisplayQueue[indexPath.row].threadID
         let f_data = threadDisplayQueue[indexPath.row].threadForumID
@@ -160,26 +230,24 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
         let jump_destination = ["id": id_data, "forumID": f_data]
         print("Post <LandXForumJump>, object: \(jump_destination)")
         NotificationCenter.default.post(name: NSNotification.Name("LandXForumJump"), object: jump_destination)
-        tableView.deselectRow(at: indexPath, animated: true)
+        
     }
     
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //return helperTableCell.cellCreateSwitch(text: "demo")
+
         tableViewSelf = tableView
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TRFVCell
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TRFVCell
         
-        cell.hideBtnGoThread()
-        cell.hideImageView()
-        cell.hideReplyLabel()
-        
-        // FIXME: 在 TableView 载入之前初始化完成富文本转换任务
         cell.setupThread(thread: threadDisplayQueue[indexPath.row])
-        //cell.lbSAGE.layer.transform = CATransform3DMakeScale(0.5, 1.0, 1.0)
-        //layer.transform = CATransform3DMakeScale(0.8, 1.0, 1.0)
-        //cell?.contentView.addSubview(threadStack[indexPath.row].view)
+        cell.poUserHash = self.threadViewCurrentPoCookie
+        cell.updateCell()
+        
         
         return cell
+
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -195,7 +263,7 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        print("currentStatusNowPage \(currentStatusNowPage)")
+        //print("currentStatusNowPage \(currentStatusNowPage)")
         if (!currentStatusOnRefreshing ) {
             return nil
         }
@@ -209,7 +277,7 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if (currentStatusNowPage >= 3) {
+        if (currentStatusNowPage >= config.maximumPageDisplay) {
             return 35.0
         }
         return 80.0
@@ -230,6 +298,7 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         cell.layer.add(animation, forKey: "transform")
          */
+
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -252,13 +321,17 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
             return
         }
         
-        if (currentStatusNowPage >= 3) {
+        if (currentStatusNowPage >= config.maximumPageDisplay) {
 
+            return
+        }
+        
+        if (threadDisplayQueue.count == 0) {
             return
         }
 
         // 40: 偏移量用于稍微看到加载动画就触发网络请求与加载
-        let footer_offset = tableViewSelf!.contentSize.height - tableViewSelf!.frame.size.height - 400
+        let footer_offset = tableViewSelf!.contentSize.height - tableViewSelf!.frame.size.height - 300
         
         if tableViewSelf!.contentOffset.y >= footer_offset {
             
@@ -266,24 +339,47 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
             if (currentStatusOnRefreshing) {
                 return
             }
+            
+            if (currentStatusIsLastPage == true) {
+                return
+            }
             print(">> begin footer refreshing")
             //currentStatusOnRefreshing = true
             
             loadNetworkData()
             
-            
-            
         }
     }
     
+    public func resetTableView(config: TRFVConfig) {
+        
+        print("Reset All TableView Content.")
+        self.config = config
+        self.threadDisplayQueue.removeAll(keepingCapacity: true)
+        self.tableViewSelf?.reloadData()
+        self.tableViewSelf?.layoutIfNeeded()
+        self.currentStatusNowPage = 0
+        self.currentStatusOnRefreshing = false
+        self.recordLastRefreshIndex = 0
+        self.currentStatusIsLastPage = false
+        self.recordDisplayedID.removeAll()
+        self.loadNetworkData()
+    }
 }
 
 
 
 class TRFVCell : UITableViewCell {
     
-
+    var poUserHash: String = ""
+    
+    var finishUpdated: Bool = false
+    
     var thread: LSThread = LSThread()
+    
+    override func awakeFromNib() {
+        //updateCell()
+    }
     
     @IBOutlet weak var lbUser: UILabel!
     @IBOutlet weak var lbPO: UILabel!
@@ -301,6 +397,14 @@ class TRFVCell : UITableViewCell {
     @IBOutlet weak var csLbReplyUserHeight: NSLayoutConstraint!
     @IBOutlet weak var csLbReplyContentHeight: NSLayoutConstraint!
     
+    let loading_animation_view = TRLoading(nibName: "TRLoading", bundle: Bundle.main)
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        if superview != nil {
+        }
+    }
+    
     /// 隐藏引用条按钮
     func hideBtnGoThread() {
         /*
@@ -315,12 +419,16 @@ class TRFVCell : UITableViewCell {
     }
     
     /// 隐藏图片显示
-    func hideImageView() {
-        
-        self.csImgViewWidth.constant = 0.0
-        self.csImgViewHeight.constant = 0.0
-        self.updateConstraints()
-        
+    func imageViewVisable(visibility: Bool) {
+        if (visibility == true) {
+            self.csImgViewWidth.constant = 150.0
+            self.csImgViewHeight.constant = 150.0
+            self.updateConstraints()
+        } else {
+            self.csImgViewWidth.constant = 0.0
+            self.csImgViewHeight.constant = 0.0
+            self.updateConstraints()
+        }
         
     }
     
@@ -339,23 +447,19 @@ class TRFVCell : UITableViewCell {
     func setupThread(thread: LSThread) {
         
         self.thread = thread
-        
-        updateCell()
+    }
+    
+    func showPoInfo() {
+
     }
     
     /// 用 Thread 信息更新 Cell
     func updateCell() {
         
-        if #available(macCatalyst 15.0,iOS 15.0, *) {
-            lbPO.backgroundColor = UIColor.tintColor
-            lbSAGE.backgroundColor = UIColor.tintColor
-        } else {
-            // Fallback on earlier versions
-        }
         
+        lbPO.backgroundColor = UIColor.tintColor
+        lbSAGE.backgroundColor = UIColor.tintColor
 
-
-        
         lbUser.text = self.thread.threadUserHash
         
         if(self.thread.threadSage != 0) {
@@ -363,6 +467,8 @@ class TRFVCell : UITableViewCell {
         } else {
             self.lbSAGE.isHidden = true
         }
+        
+
         
         lbNo.text = "No.\(self.thread.threadID)"
         
@@ -372,17 +478,53 @@ class TRFVCell : UITableViewCell {
         
         // 去除 HTML a 标签，优化显示效果
         lbMain.attributedText = self.thread.threadContentAttributedString
+        
 
+        
+        if (thread.threadUserHash == poUserHash) {
+            lbUser.textColor = .tintColor
+            lbPO.isHidden = false
+        } else {
+            lbUser.textColor = UIColor.label
+            lbPO.isHidden = true
+        }
         
         
         // 目前暂时禁用部分功能
-        hideImageView()
+        if (!thread.threadImg.isEmpty) {
+            imageViewVisable(visibility: true)
+            loading_animation_view.view.frame = imgView.bounds
+            imgView.addSubview(loading_animation_view.view)
+            loading_animation_view.view.isHidden = false
+            loading_animation_view.awakeFromNib()
+            
+            let cdn_url = LCStorage.shared.getCDNImageURL()
+            let image_url = cdn_url + "thumb/" + thread.threadImg + ".png"
+            print("Load URL Target : \(image_url)")
+        } else {
+            imageViewVisable(visibility: false)
+            loading_animation_view.view.isHidden = true
+        }
+        
+        
+        
         hideReplyLabel()
         hideBtnGoThread()
+        
+        finishUpdated = true
+    }
+    
+    func cellSpecial() {
+        print("\(self.thread.threadUserHash) --- \(poUserHash)")
+        if (self.thread.threadUserHash == poUserHash) {
+            lbUser.textColor = .tintColor
+            lbPO.isHidden = false
+        }
     }
     
     
 }
+
 
 
 /*

@@ -327,6 +327,10 @@ class VCEmoticonInput: UIViewController {
         
     }
     
+    var actionUserCloseEmoticon: () -> Void = {
+        print("VCEmoticonInput >> Close!")
+    }
+    
     var emoticonContentArray : [String] = []
     
     override func viewDidLoad() {
@@ -386,12 +390,19 @@ class VCEmoticonInput: UIViewController {
         emoticonContentArray.append(contentsOf: emoticonSet12)
         emoticonContentArray.append(contentsOf: emoticonSet13)
         emoticonContentArray.append(contentsOf: emoticonSet14)
-        //emoticonContentArray.append(contentsOf: emoticonSet15)
+        emoticonContentArray.append(contentsOf: emoticonSet15)
 
         collectionView.emoticonsDisplayArray.append(contentsOf: emoticonContentArray)
         print("Total Emoticons Count : \(emoticonContentArray.count)")
     }
     
+
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        actionUserCloseEmoticon()
+    }
     
     @IBAction func btnClickedClose(_ sender: Any) {
         self.dismiss(animated: true)
@@ -453,7 +464,11 @@ class VCEmoticonInputCollectionView : NSObject, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // 选择项目的事件
+        
         let lb_id = indexPath.row + indexPath.section * 6
+        if (lb_id >= emoticonsDisplayArray.count) {
+            return
+        }
         actionOnSelectedEmoticon(emoticonsDisplayArray[lb_id])
         
     }

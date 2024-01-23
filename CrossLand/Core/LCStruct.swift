@@ -118,6 +118,8 @@ open class LSThread : NSObject {
     public var threadReplies: Array<LSThread> = []
     public var threadRemainReplies: UInt = 0
     
+    public var threadIsReply: Bool = false
+    
     /// 富文本形式的帖子内容
     public var threadContentAttributedString: NSMutableAttributedString? = nil
     
@@ -150,9 +152,24 @@ open class LSThread : NSObject {
         let systemFont = UIFont.systemFont(ofSize: 16)
         let attr = [NSAttributedString.Key.font: systemFont]
         
+        
         if let attributedString = try? NSMutableAttributedString(data: data!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
             attributedString.addAttributes(attr, range: NSRange(location: 0, length: attributedString.length))
+            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: attributedString.length))
             self.threadContentAttributedString = attributedString
+        }
+        
+        
+        // 加载 Replies
+        if (threadIsReply) {
+            return
+        }
+        
+        for (_, subJson) in json["Replies"] {
+            let rp = LSThread()
+            rp.threadIsReply = true
+            rp.loadFromJSON(json: subJson)
+            threadReplies.append(rp)
         }
         
     }

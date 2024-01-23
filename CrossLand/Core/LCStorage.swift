@@ -28,11 +28,15 @@ open class LCStorage : NSObject {
         
     }
     
-    public func globalSaveCDNImgageURL(cdnUrl: String) {
+    public func globalSaveCDNImageURL(cdnUrl: String) {
         
         print("GlobalConfig > CDN Image Url Updated \(cdnUrl)")
         self.cdnUrl = cdnUrl
         
+    }
+        
+    public func getCDNImageURL() -> String {
+        return cdnUrl
     }
     
     public func getForumNameByID(fid: UInt) {

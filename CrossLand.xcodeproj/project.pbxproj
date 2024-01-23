@@ -14,6 +14,8 @@
 		5D20F60E2B32FF2B00DE7FAD /* VCEmoticonInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D20F60C2B32FF2B00DE7FAD /* VCEmoticonInput.xib */; };
 		5D2DBB032B5BEF3200354683 /* VCSubLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DBB012B5BEF3200354683 /* VCSubLand.swift */; };
 		5D2DBB042B5BEF3200354683 /* VCSubLand.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2DBB022B5BEF3200354683 /* VCSubLand.xib */; };
+		5D2DDB3A2B5EB5E400FF6BE8 /* FVCellA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DDB382B5EB5E300FF6BE8 /* FVCellA.swift */; };
+		5D2DDB3B2B5EB5E400FF6BE8 /* FVCellA.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2DDB392B5EB5E300FF6BE8 /* FVCellA.xib */; };
 		5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */; };
 		5D483A882A73FDC600DB37BD /* LCStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483A872A73FDC600DB37BD /* LCStorage.swift */; };
 		5D6AADC12AAAD0A200419996 /* TRFVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6AADC02AAAD0A200419996 /* TRFVController.swift */; };
@@ -59,6 +61,8 @@
 		5D20F60C2B32FF2B00DE7FAD /* VCEmoticonInput.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCEmoticonInput.xib; sourceTree = "<group>"; };
 		5D2DBB012B5BEF3200354683 /* VCSubLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSubLand.swift; sourceTree = "<group>"; };
 		5D2DBB022B5BEF3200354683 /* VCSubLand.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCSubLand.xib; sourceTree = "<group>"; };
+		5D2DDB382B5EB5E300FF6BE8 /* FVCellA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FVCellA.swift; sourceTree = "<group>"; };
+		5D2DDB392B5EB5E300FF6BE8 /* FVCellA.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FVCellA.xib; sourceTree = "<group>"; };
 		5D3B2B012AA9A8A7007C442C /* TRProblemReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRProblemReporter.swift; sourceTree = "<group>"; };
 		5D483A872A73FDC600DB37BD /* LCStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStorage.swift; sourceTree = "<group>"; };
 		5D6AADC02AAAD0A200419996 /* TRFVController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRFVController.swift; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				5DF06E832A5EC6A900B07D4F /* TRFV.storyboard */,
 				5D9D99112B025BA6004F60A1 /* VCForumSelector.swift */,
 				5D9D99122B025BA6004F60A1 /* VCForumSelector.xib */,
+				5D2DDB382B5EB5E300FF6BE8 /* FVCellA.swift */,
+				5D2DDB392B5EB5E300FF6BE8 /* FVCellA.xib */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 				5D960CF12A59B0E9008F26EC /* Main.storyboard in Resources */,
 				5DDB2EB62A5D6DA80073FBED /* TRPreference.storyboard in Resources */,
 				5D6AADCA2AAB261D00419996 /* VCCookieManage.xib in Resources */,
+				5D2DDB3B2B5EB5E400FF6BE8 /* FVCellA.xib in Resources */,
 				5D20F60E2B32FF2B00DE7FAD /* VCEmoticonInput.xib in Resources */,
 				5D9D99142B025BA6004F60A1 /* VCForumSelector.xib in Resources */,
 				5D20F6082B32F61500DE7FAD /* VCLandLogin.xib in Resources */,
@@ -363,6 +370,7 @@
 				5D3B2B022AA9A8A7007C442C /* TRProblemReporter.swift in Sources */,
 				5D6AADCE2AAB4D5900419996 /* TRProblemList.swift in Sources */,
 				5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */,
+				5D2DDB3A2B5EB5E400FF6BE8 /* FVCellA.swift in Sources */,
 				5DA0263C2B4AB2890010C1B5 /* TRLoading.swift in Sources */,
 				5DB1737A2A5D7F1A0008C4B3 /* TRPreference.swift in Sources */,
 				5D20F60A2B32F97E00DE7FAD /* VCWhatsNew.swift in Sources */,

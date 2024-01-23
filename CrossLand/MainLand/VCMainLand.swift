@@ -28,6 +28,10 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
     var vcPreferences: UIViewController? = nil
     
     
+    @IBOutlet weak var visualEffectViewTop: UIVisualEffectView!
+    
+    @IBOutlet weak var visualEffectViewBottom: UIVisualEffectView!
+    
     // TODO: 在加载完成之后销毁 ViewController
     var vcLoadingAnimationView = TRLoading(nibName: "TRLoading", bundle: Bundle.main)
     var vcWritePost: UIViewController? = nil
@@ -54,7 +58,8 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
 
         vcLoadingAnimationView.view.frame = mainViewContainer.bounds
         self.mainViewContainer.addSubview(vcLoadingAnimationView.view)
-        
+        self.lbLargeTitle.text = "综合版1"
+
         
         let sb_trforum = UIStoryboard(name: "TRFV", bundle: Bundle.main)
         forumViewer = sb_trforum.instantiateViewController(withIdentifier: "TRForumTable") as? TRFVTable
@@ -78,6 +83,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(forumJumpSubLand), name: NSNotification.Name("LandXForumJump"), object: nil)
+        
     }
 
     
@@ -104,7 +110,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         forumViewer?.didMove(toParent: self)
         
         //self.refreshMainLand()
-        
+        //visualEffectViewTop.addBorder(toSide: .Bottom, withColor: UIColor.lightGray.cgColor, andThickness: 1.0)
     }
     
     @objc func forumJumpSubLand(notification: NSNotification) {
@@ -116,6 +122,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         
         subThread = VCSubLand(nibName: "VCSubLand", bundle: Bundle.main)
         subThread?.setSubLandThreadID(tid: fid)
+        subThread?.setSubLandForumName(fName: self.lbLargeTitle.text!)
         self.navigationController?.pushViewController(subThread!, animated: true)
     }
 
@@ -141,7 +148,9 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
                 }
             } else {
                 // 检查网络成功 > 才进行数据内容载入
-                
+               
+                _ = self.API.getCDNPath()
+                self.forumViewer?.loadData()
                 self.forumDataDisplayNetwork()
             }
             
@@ -187,7 +196,14 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
                 var menu_list: [UIAction] = []
                 for f_list in self.forumListName {
                     
+                    // UIAction 操作
                     let ac = UIAction(title: f_list) {handler in
+                        // 设定加载参数
+                        
+                        self.lbLargeTitle.text = handler.title
+                        
+                        let cfg = self.searchForumTimelineID(menuName: handler.title)
+                        self.forumViewer?.setupConfig(config: cfg)
                         print(handler.title)
                     }
                     
@@ -206,6 +222,26 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         }
         
         
+    }
+    
+    func searchForumTimelineID(menuName: String) -> TRFVConfig {
+        var cfg = TRFVConfig()
+        
+        if (forumListName.contains(menuName)) {
+            cfg.viewerChannel = .forum
+            let index = forumListName.firstIndex(of: menuName)!
+            let f_id = forumListID[index]
+            cfg.defaultValueID = f_id
+        }
+        
+        if (timelineListName.contains(menuName)) {
+            cfg.viewerChannel = .timeline
+            let index = timelineListName.firstIndex(of: menuName)!
+            let t_id = timelineListID[index]
+            cfg.defaultValueID = t_id
+        }
+        
+        return cfg
     }
     
     // MARK: UI Actions
@@ -232,4 +268,26 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
         //window?.addSubview(vcWritePost!.view)
     }
     
+}
+
+extension UIView {
+
+    enum ViewSide {
+        case Left, Right, Top, Bottom
+    }
+
+    func addBorder(toSide side: ViewSide, withColor color: CGColor, andThickness thickness: CGFloat) {
+
+        let border = CALayer()
+        border.backgroundColor = color
+
+        switch side {
+        case .Left: border.frame = CGRect(x: frame.minX, y: frame.minY, width: thickness, height: frame.height); break
+        case .Right: border.frame = CGRect(x: frame.maxX, y: frame.minY, width: thickness, height: frame.height); break
+        case .Top: border.frame = CGRect(x: frame.minX, y: frame.minY, width: frame.width, height: thickness); break
+        case .Bottom: border.frame = CGRect(x: frame.minX, y: frame.maxY, width: frame.width, height: thickness); break
+        }
+
+        layer.addSublayer(border)
+    }
 }

@@ -24,6 +24,9 @@ class VCWritePost: UIViewController, UIPopoverPresentationControllerDelegate {
         vcEmoticonInput.actionUserInputEmoticon = { inputu in
             self.tvMain.text.append(inputu)
         }
+        vcEmoticonInput.actionUserCloseEmoticon = {
+            self.btnEmoticon.isEnabled = true
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -37,6 +40,9 @@ class VCWritePost: UIViewController, UIPopoverPresentationControllerDelegate {
     
     
     @IBAction func btnClickedEmoticon(_ sender: Any) {
+        if (!self.btnEmoticon.isEnabled) {
+            return
+        }
         
         vcEmoticonInput.modalPresentationStyle = .popover
         vcEmoticonInput.popoverPresentationController?.sourceView = self.toolBar
@@ -45,7 +51,9 @@ class VCWritePost: UIViewController, UIPopoverPresentationControllerDelegate {
         //vcEmoticonInput.popoverPresentationController?.sourceRect = self.btnWritePost.bounds
         vcEmoticonInput.popoverPresentationController?.delegate = self
         vcEmoticonInput.view.backgroundColor = UIColor.clear
+        self.btnEmoticon.isEnabled = false
         self.present(vcEmoticonInput, animated: true)
+        
         
         
     }

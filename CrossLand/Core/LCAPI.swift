@@ -25,15 +25,12 @@ open class LCAPI : NSObject {
     let globalStorage = LCStorage.shared
     
     let request = LCRequest()
-    
-    /// 启用 LCStorage 的临时资料读取
-    public var tempStorageEnabled = true
-    
-    /// 启用 LCStorage 的缓存更新策略
-    public var tempStorageRefresh = true
+
     
     public func getCDNPath() -> String {
-        return request.getCDNPath()
+        let repo = request.getCDNPath()
+        LCStorage.shared.globalSaveCDNImageURL(cdnUrl: repo)
+        return repo
     }
     
     /// 获取总 ForumList 列表
@@ -72,6 +69,7 @@ open class LCAPI : NSObject {
         let thread_data = request.showThread(tid: threadID, tpage: threadPage)
         let th = LSThread()
         th.loadFromJSON(json: thread_data)
+        
         return th
         
     }
@@ -92,13 +90,16 @@ open class LCAPI : NSObject {
     }
     
     /// 获取指定 Timeline 的内容
-    public func getTimeline(timelineID: UInt, timelinePage: UInt) -> LSTimeline {
-        
+    public func getTimeline(timelineID: UInt, timelinePage: UInt) -> [LSThread] {
+        var repo: [LSThread] = []
         let timeline_json = request.showTimeline(thid: timelineID, thpage: timelinePage)
-        let timeline_data = LSTimeline()
-        timeline_data.loadFromJSON(json: timeline_json)
-        return timeline_data
         
+        for (_,th) in timeline_json {
+            let th_struct = LSThread()
+            th_struct.loadFromJSON(json: th)
+            repo.append(th_struct)
+        }
+        return repo
     }
     
     /// 更新 ForumList 与 TimelineList 的本地存储
@@ -144,6 +145,7 @@ open class LCAPI : NSObject {
                 }
 
                 reply = LCAPINetworkStatus.success
+        
                 semaphore.signal()
             }
             
@@ -154,6 +156,19 @@ open class LCAPI : NSObject {
         return reply
     }
         
+    /// 下载图片预览图
+    public func pictureThumbDownload(targetURL: String, downloadFinishHandler: () -> Void) {
+        
+        
+    }
+    
+    /// 下载原图
+    public func pictureImageDownload() {
+        
+    }
     
     
 }
+/*let timeline_data = LSTimeline()
+timeline_data.loadFromJSON(json: timeline_json)
+return timeline_data*/
