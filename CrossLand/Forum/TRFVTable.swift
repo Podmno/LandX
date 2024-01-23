@@ -377,6 +377,8 @@ class TRFVCell : UITableViewCell {
     
     var thread: LSThread = LSThread()
     
+    let API = LCAPI()
+    
     override func awakeFromNib() {
         //updateCell()
     }
@@ -499,8 +501,20 @@ class TRFVCell : UITableViewCell {
             loading_animation_view.awakeFromNib()
             
             let cdn_url = LCStorage.shared.getCDNImageURL()
-            let image_url = cdn_url + "thumb/" + thread.threadImg + ".png"
+            let image_url = cdn_url + "thumb/" + thread.threadImg + thread.threadExt
             print("Load URL Target : \(image_url)")
+            
+            API.pictureThumbDownload(targetURL: image_url) {image in
+                DispatchQueue.main.async {
+                    print(">>> setup UIImage")
+                    let data = image.pngData()
+                    let ui_image = UIImage(data: data!, scale: UIScreen.main.scale)
+                    debugPrint(ui_image)
+                    self.loading_animation_view.view.isHidden = true
+                    self.imgView.image = ui_image
+                }
+            }
+            
         } else {
             imageViewVisable(visibility: false)
             loading_animation_view.view.isHidden = true

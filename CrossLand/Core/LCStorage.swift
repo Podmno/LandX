@@ -22,6 +22,24 @@ open class LCStorage : NSObject {
     /// CDN 镜像 URL
     var cdnUrl: String = ""
     
+    var userDocumentsDirectory = ""
+    
+    var userTemporaryDirectory = ""
+    
+    public override init() {
+        super.init()
+        
+        print("LCStorage >> Init Process...")
+        
+        let target_documents_dir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
+        print("LCStorage >> User Documents Dir: " + target_documents_dir)
+        let target_tmp_dir = NSTemporaryDirectory()
+        print("LCStorage >> Temporary Directory: " + target_tmp_dir)
+        
+        userDocumentsDirectory = target_documents_dir + "/"
+        userTemporaryDirectory = target_tmp_dir
+    }
+    
     public func globalSaveForumListData() {
         
         

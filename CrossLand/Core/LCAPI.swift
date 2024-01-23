@@ -8,6 +8,7 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
+import AlamofireImage
 
 /// 日志输出 API 请求信息与内容
 let landAPIDebugOutput = true
@@ -157,7 +158,20 @@ open class LCAPI : NSObject {
     }
         
     /// 下载图片预览图
-    public func pictureThumbDownload(targetURL: String, downloadFinishHandler: () -> Void) {
+    public func pictureThumbDownload(targetURL: String, downloadFinishHandler:@escaping  (Image) -> Void) {
+        
+        AF.request(targetURL).responseImage { response in
+            
+            if case .success(let image) = response.result {
+                
+                print(">>> AFImg Download Succeed: \(targetURL)")
+                downloadFinishHandler(image)
+                
+            } else {
+                print(">>> AFImg Download Failure...")
+            }
+        }
+
         
         
     }
