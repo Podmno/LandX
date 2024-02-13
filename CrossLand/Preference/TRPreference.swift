@@ -213,8 +213,18 @@ class TRVCPreference : UIViewController {
             
         }
         
-        self.tableViewMainContentProvider.setActionForKeyPath(keyPath: "landXpref.button.CookieManage", action: action_CookieManage)
+        let action_UserLogin = {
+            let user_login = VCLandLogin(nibName: "VCLandLogin", bundle: Bundle.main)
+            
+            user_login.modalPresentationStyle = .overFullScreen
+            user_login.modalTransitionStyle = .crossDissolve
+
+            user_login.modalPresentationCapturesStatusBarAppearance = true
+            self.present(user_login, animated: true)
+        }
         
+        self.tableViewMainContentProvider.setActionForKeyPath(keyPath: "landXpref.button.CookieManage", action: action_CookieManage)
+        self.tableViewMainContentProvider.setActionForKeyPath(keyPath: "landXpref.button.UserLogin", action: action_UserLogin)
         
     }
     

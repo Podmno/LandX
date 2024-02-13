@@ -26,6 +26,8 @@
 		5D6ED6E12AAAA12D005AEDEC /* TRPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6ED6E02AAAA12D005AEDEC /* TRPrivacy.swift */; };
 		5D6ED6E32AAAB491005AEDEC /* MainLand.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D6ED6E22AAAB491005AEDEC /* MainLand.storyboard */; };
 		5D6ED6E52AAAB4A5005AEDEC /* VCMainLand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6ED6E42AAAB4A5005AEDEC /* VCMainLand.swift */; };
+		5D8A17BE2B5FB2E400D762AA /* VCBigImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8A17BC2B5FB2E400D762AA /* VCBigImage.swift */; };
+		5D8A17BF2B5FB2E400D762AA /* VCBigImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D8A17BD2B5FB2E400D762AA /* VCBigImage.xib */; };
 		5D8C973E2B3D830B009D142D /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 5D8C973D2B3D77D7009D142D /* Documentation.docc */; };
 		5D8F003B2B39D2EA00D9EFE7 /* TRProblemHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8F003A2B39D2EA00D9EFE7 /* TRProblemHandler.swift */; };
 		5D93AC552A6049CC00C7799B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5D93AC542A6049CC00C7799B /* Alamofire */; };
@@ -74,6 +76,8 @@
 		5D6ED6E02AAAA12D005AEDEC /* TRPrivacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRPrivacy.swift; sourceTree = "<group>"; };
 		5D6ED6E22AAAB491005AEDEC /* MainLand.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainLand.storyboard; sourceTree = "<group>"; };
 		5D6ED6E42AAAB4A5005AEDEC /* VCMainLand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMainLand.swift; sourceTree = "<group>"; };
+		5D8A17BC2B5FB2E400D762AA /* VCBigImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCBigImage.swift; sourceTree = "<group>"; };
+		5D8A17BD2B5FB2E400D762AA /* VCBigImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VCBigImage.xib; sourceTree = "<group>"; };
 		5D8C973D2B3D77D7009D142D /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		5D8F003A2B39D2EA00D9EFE7 /* TRProblemHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRProblemHandler.swift; sourceTree = "<group>"; };
 		5D960CE62A59B0E9008F26EC /* CrossLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +222,8 @@
 				5D9D99122B025BA6004F60A1 /* VCForumSelector.xib */,
 				5D2DDB382B5EB5E300FF6BE8 /* FVCellA.swift */,
 				5D2DDB392B5EB5E300FF6BE8 /* FVCellA.xib */,
+				5D8A17BC2B5FB2E400D762AA /* VCBigImage.swift */,
+				5D8A17BD2B5FB2E400D762AA /* VCBigImage.xib */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 				5DA1A9302B030E9900335F6C /* VCWhatsNew.xib in Resources */,
 				5D2DBB042B5BEF3200354683 /* VCSubLand.xib in Resources */,
 				5D6AADCC2AAB3E3C00419996 /* ProblemReporter.xib in Resources */,
+				5D8A17BF2B5FB2E400D762AA /* VCBigImage.xib in Resources */,
 				5DF06E842A5EC6A900B07D4F /* TRFV.storyboard in Resources */,
 				5D960CF62A59B0EE008F26EC /* LaunchScreen.storyboard in Resources */,
 				5D960CF32A59B0EE008F26EC /* Assets.xcassets in Resources */,
@@ -376,6 +383,7 @@
 				5DB91DE82A6A07E5004998F7 /* LCStruct.swift in Sources */,
 				5D2DDB3A2B5EB5E400FF6BE8 /* FVCellA.swift in Sources */,
 				5DA0263C2B4AB2890010C1B5 /* TRLoading.swift in Sources */,
+				5D8A17BE2B5FB2E400D762AA /* VCBigImage.swift in Sources */,
 				5DB1737A2A5D7F1A0008C4B3 /* TRPreference.swift in Sources */,
 				5D20F60A2B32F97E00DE7FAD /* VCWhatsNew.swift in Sources */,
 				5D6AADC92AAB261D00419996 /* VCCookieManage.swift in Sources */,
@@ -630,24 +638,24 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				kind = exactVersion;
+				version = 5.8.1;
 			};
 		};
 		5D9A0C822B5FA14B0088308C /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.3.0;
+				kind = exactVersion;
+				version = 4.3.0;
 			};
 		};
 		5DAD99612A6A532100817CE4 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				kind = exactVersion;
+				version = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

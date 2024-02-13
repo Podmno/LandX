@@ -167,6 +167,10 @@ class TRVCFVTableMain : NSObject ,UITableViewDelegate, UITableViewDataSource {
                 // 分页处理
                 let t_list = API.getThread(threadID: self.config.defaultValueID, threadPage: self.currentStatusNowPage)
                 
+                if (t_list.threadReplies.isEmpty) {
+                    return
+                }
+                
                 if (self.currentStatusNowPage == 1) {
                     print("Setup Current Thread User Hash: \(t_list.threadUserHash)")
                     self.threadViewCurrentPoCookie = t_list.threadUserHash

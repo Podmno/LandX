@@ -9,6 +9,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 import AlamofireImage
+import DeviceActivity
 
 /// 日志输出 API 请求信息与内容
 let landAPIDebugOutput = true
@@ -31,6 +32,9 @@ open class LCAPI : NSObject {
     public func getCDNPath() -> String {
         let repo = request.getCDNPath()
         LCStorage.shared.globalSaveCDNImageURL(cdnUrl: repo)
+        
+   
+        
         return repo
     }
     
