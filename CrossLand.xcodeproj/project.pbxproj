@@ -545,7 +545,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CrossLand/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CrossLand;
+				INFOPLIST_KEY_CFBundleDisplayName = "旧版 CL";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "CrossLand 需要你的相机权限来进行 Cookie 二维码扫描。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -584,7 +584,7 @@
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CrossLand/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CrossLand;
+				INFOPLIST_KEY_CFBundleDisplayName = "旧版 CL";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "CrossLand 需要你的相机权限来进行 Cookie 二维码扫描。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

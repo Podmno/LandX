@@ -148,7 +148,8 @@ open class LSThread : NSObject {
         let th_replace_result = regex.stringByReplacingMatches(in: threadContent, range: NSRange(location: 0, length: threadContent.count), withTemplate: "")
         let data = th_replace_result.data(using: .unicode)
                                       
-                                      
+        
+        
         let systemFont = UIFont.systemFont(ofSize: 16)
         let attr = [NSAttributedString.Key.font: systemFont]
         

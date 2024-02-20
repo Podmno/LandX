@@ -56,6 +56,7 @@ class VCMainLand : UIViewController, UIGestureRecognizerDelegate {
          loadingAnimationView!.view.frame = CGRect(x: 0, y: 0, width: bnd.width, height: 40)
          */
 
+
         vcLoadingAnimationView.view.frame = mainViewContainer.bounds
         self.mainViewContainer.addSubview(vcLoadingAnimationView.view)
         self.lbLargeTitle.text = "综合版1"
